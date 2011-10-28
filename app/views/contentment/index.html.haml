@@ -1,0 +1,32 @@
+.publishers
+  - @pubs.each do |pub|
+    .publisher
+      .pubname #{pub.name}
+      .subtitle
+        %a{:href => pub.address} #{pub.address}
+      .apps
+        - pub.applications.each do |app|
+          .app
+            .appname #{app.name}
+            .descr #{app.description}
+            .code #{app.code}
+            .subtitle
+              = button_to('Delete questionnaire', destroy_app_path(:app => app.id))
+%hr/
+.jarring Add a Questionnaire
+= form_tag app_create_path do |f|
+  = field_set_tag do
+    General Name of the Questionnaire:
+    %br/
+    = text_field_tag :name, '', {:size => 55}
+  = field_set_tag do
+    Very short description of the questionnaire (as guidance for the VHTs):
+    %br/
+    = text_area_tag :descr, '', {:cols => 55, :rows => 3, :style => 'height: 4em'}
+  = field_set_tag do
+    Application code (<i>i.e.</i>, the opcodes executed by the installed client application):
+    %br/
+    = text_area_tag :code, '{show This questionnaire is incomplete.}{exit}'
+
+  %br/
+  = submit_tag 'New Questionnaire'

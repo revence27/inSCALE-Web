@@ -1,3 +1,138 @@
 // Place all the styles related to the contentment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$sans_serif: "CabinRegular", "Sans Serif";
+$serif: "QuattrocentoRomanRegular", "Serif";
+$monospace: "Courier New", "Monospace";
+$base_font_size: 12pt;
+$base_colour: #333;
+$inscale_red: #933;
+
+body, table
+{
+  font-size: $base_font_size;
+  font-family: $sans_serif;
+  color: $base_colour;
+}
+
+#main
+{
+  text-align: center;
+  margin-top: 2em;
+}
+
+#header
+{
+  margin-bottom: 0.5em;
+  font-family: $serif;
+  font-size: $base_font_size * 3;
+
+  #logopart
+  {
+    //  ?
+    text-align: right;
+  }
+
+  #taglinepart
+  {
+    text-align: left;
+  }
+}
+
+#trunk
+{
+  .navbar
+  {
+    ul
+    {
+      display: inline;
+      li
+      {
+        display: inline;
+        margin: 1em;
+      }
+    }
+  }
+
+  .publishers, .clients
+  {
+    .publisher, .client
+    {
+      .pubname, .clname
+      {
+        font-weight: bold;
+        font-size: $base_font_size * 2;
+      }
+
+      .subtitle
+      {
+        font-size: $base_font_size;
+        color: lighten($base_colour, 50%);
+      }
+
+      .apps, .binaries
+      {
+        margin-top: 2em;
+        
+        .app, .binary
+        {
+          padding-bottom: 1em;
+
+          .appname, .biname
+          {
+            font-weight: bold;
+          }
+
+          .descr
+          {
+            color: lighten($base_colour, 25%);
+          }
+
+          .code
+          {
+            font-size: 9pt;
+            white-space: pre;
+            font-family: $monospace;
+            padding: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .jarring
+  {
+    font-weight: bold;
+    font-size: $base_font_size * 2;
+  }
+
+  fieldset
+  {
+    border-radius: 1em;
+    margin: 0px;
+    padding: 1px;
+  }
+
+  textarea
+  {
+    
+  }
+}
+
+#footer
+{
+  font-size: $base_font_size / 2;
+  margin-top: 10em;
+}
+
+a
+{
+  color: $inscale_red;
+  text-decoration: none;
+  &:hover
+  {
+    color: $inscale_red;
+    text-decoration: underline;
+  }
+}

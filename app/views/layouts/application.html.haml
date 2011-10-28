@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    - title = yield(:title).strip
+    %title #{(title.empty? ? 'inSCALE Questionnaire Manager' : title)}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #main{:class => 'container'}
+      #header{:class => 'span-24'}
+        #logopart{:class => 'span-8'}
+          %img{:src => asset_path('inscale.png')}
+        #taglinepart{:class => 'span-16 last'}
+          Questionnaire Manager
+      #trunk{:class => 'span-20 prepend-2 append-2'}
+        .navbar
+          %ul
+            %li
+              %a{:href => home_path} Questionnaires
+            %li
+              %a{:href => clients_path} Downloads
+          %hr/
+        = yield
+      #footer{:class => 'span-24'}
+        &copy; 2011, The inSCALE Project. All Rights Reserved

@@ -1,0 +1,45 @@
+.clients
+  - @clients.each do |client|
+    .client
+      .clname #{client.name}
+      .subtitle
+        = surround 'Download ', ' client.' do
+          %a{:href => client_update_path(:version => '0', :code => client.code, :status => 'fresh')} #{client.name}
+      .binaries
+        - client.binaries.order('created_at DESC').each do |bin|
+          .binary
+            .descr
+              = bin.release_note
+              %br/
+              = surround '(uploaded ', ' ago)' do
+                = time_ago_in_words bin.created_at
+              %br/
+              %a{:href => client_download_path(:code => client.code, :version => bin.jar_sha1, :format => :jad)} #{bin.jar_sha1}
+        - if client.binaries.empty?
+          %em There are no downloadable clients for #{client.name} yet.
+%hr/
+.jarring Upload a Client
+= form_tag client_upload_path, {:enctype => 'multipart/form-data'} do |f|
+  - if flash[:error] then
+    .error #{flash[:error]}
+  - if @clients.length > 1
+    = field_set_tag do
+      Name of Client:
+      %br/
+      %select{:name => 'client'}
+        - @clients.each do |client|
+          %option{:value => client.id} #{client.name}
+  = field_set_tag do
+    Very short description of this version of the client:
+    %br/
+    = text_area_tag :descr, '', {:cols => 55, :rows => 3, :style => 'height: 4em'}
+  = field_set_tag do
+    Client JAD file:
+    %br/
+    = file_field_tag :jad
+  = field_set_tag do
+    Client JAR file:
+    %br/
+    = file_field_tag :jar
+  %br/
+  = submit_tag 'Upload client'

@@ -1,8 +1,20 @@
 Contentment::Application.routes.draw do
-  root :to => 'contentment#index', :as => 'home'
-  match 'update', :to => 'contentment#update', :as => 'update'
-  match 'auth', :to => 'contentment#auth', :as => 'auth'
-  match 'questionnaires', :to => 'contentment#qns', :as => 'questions'
+  root :to => 'contentment#chooser', :as => 'beginning'
+
+  scope '/system' do
+    root :to => 'contentment#index', :as => 'home'
+    match 'update', :to => 'contentment#update', :as => 'update'
+    match 'clients', :to => 'contentment#clients', :as => 'clients'
+    match 'get_latest/:code/:version/:status', :to => 'contentment#update', :as => 'client_update'
+    match 'client_download/:code/:version.:format', :to => 'contentment#client_download', :as => 'client_download'
+
+    match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
+    match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post
+    match 'upload_client', :to => 'contentment#upload_client', :as => 'client_upload', :via => :post
+  end
+
+  scope '/data' do
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
