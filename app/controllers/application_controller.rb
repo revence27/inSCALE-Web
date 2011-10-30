@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
         flash[:error]  = 'Access Denied'
       end
     when 'logout' then
-      session[:client] = session[:root] = nil
+      session[:client] = session[:stat] = session[:root] = nil
       flash[:message]  = 'Bye!'
       return redirect_to auth_path
     end
