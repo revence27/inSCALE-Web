@@ -23,6 +23,7 @@ Contentment::Application.routes.draw do
   end
 
   scope '/data' do
+    root :to => 'statistics#index', :as => 'data'
   end
 
   # The priority is based upon order of creation:

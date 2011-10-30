@@ -1,46 +1,6 @@
 VERSION_START_TIME = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
-  before_filter :ascertain_logged_in, :except => :auth
-
-  def auth
-    case request[:who]
-    when 'root' then
-      root  = RootAccount.order('updated_at DESC').first
-      dig   = (Digest::SHA1.new << %[#{root.sha1_salt}#{request[:password]}]).to_s
-      if root.sha1_pass == dig then
-        session[:root] = 'root'
-        return redirect_to(request[:from] || home_path)
-      else
-        flash[:error]  = 'Access Denied'
-      end
-    when 'client' then
-      clt = Client.find_by_id request[:client]
-      dig = (Digest::SHA1.new << %[#{clt.sha1_salt}#{request[:password]}]).to_s
-      if clt.sha1_pass == dig then
-        session[:client] = clt.id
-        return redirect_to(request[:from] || home_path)
-      else
-        flash[:error]  = 'Access Denied'
-      end
-    when 'logout' then
-      session[:client] = session[:root] = nil
-      flash[:message]  = 'Bye!'
-      return redirect_to auth_path
-    else
-      @clients    = Client.all
-      @publishers = Publisher.all
-    end
-  end
-
-  def ascertain_logged_in
-    unless session[:root] or session[:client] then
-      redirect_to auth_path(:from => request.path)
-    else
-      # redirect_to home_path
-    end
-  end
-
   def index
     @pubs = Publisher.order('name ASC')
   end

@@ -23,7 +23,7 @@
             - if Publisher.count > 1 then
               %li
                 %a{:href => publisher_path} Publishers
-            - if session[:client] or session[:root] or session[:publisher] then
+            - if session[:client] or session[:root] or session[:stat] then
               %li
                 %a{:href => auth_path(:who => :logout)} Log out
           %hr/
