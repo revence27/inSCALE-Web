@@ -1,0 +1,24 @@
+= form_tag auth_path(:who => :client) do
+  .jarring Enter in lieu of a client:
+  = field_set_tag do
+    Client name:
+    %br/
+    %select{:name => 'client'}
+      - @clients.each do |client|
+        %option{:value => client.id}
+          = client.name
+  = field_set_tag do
+    Password:
+    %br/
+    = password_field_tag :password
+  = submit_tag 'Enter'
+
+%hr/
+
+= form_tag auth_path(:who => :root) do
+  .jarring Enter as <em>the</em> king of the system:
+  = field_set_tag do
+    Password:
+    %br/
+    = password_field_tag :password
+  = submit_tag 'Enter'

@@ -136,3 +136,9 @@ a
     text-decoration: underline;
   }
 }
+
+code
+{
+  white-space: pre;
+  font-family: $monospace;
+}

@@ -1,22 +1,32 @@
 .publishers
   - @pubs.each do |pub|
     .publisher
-      .pubname #{pub.name}
+      .pubname
+        %a{:href => publisher_path(:id => pub.id)}
+          = pub.name
       .subtitle
-        %a{:href => pub.address} #{pub.address}
+        %a{:href => pub.address}
+          = pub.address
       .apps
-        - pub.applications.each do |app|
+        - pub.applications.where(:client_id => session[:client]).each do |app|
           .app
-            .appname #{app.name}
+            .appname
+              %a{:href => application_path(:id => app.id)}
+                = app.name
             .descr #{app.description}
-            .code #{app.code}
-            .subtitle
-              = button_to('Delete questionnaire', destroy_app_path(:app => app.id))
 %hr/
 .jarring Add a Questionnaire
 = form_tag app_create_path do |f|
+  - pubs = Publisher.all
+  - if pubs.length > 1 then
+    %select{:name => 'publisher'}
+      - pubs.each do |pub|
+        %option{:value => pub.id}
+          = pub.name
+  - else
+    = hidden_field_tag :publisher, pubs.first.id
   = field_set_tag do
-    General Name of the Questionnaire:
+    General name of the questionnaire:
     %br/
     = text_field_tag :name, '', {:size => 55}
   = field_set_tag do

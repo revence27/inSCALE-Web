@@ -1,0 +1,32 @@
+.publishers
+  .publisher
+    .apps
+      .app
+        .appname
+          = @app.name
+        .subtitle
+          = @app.description
+          %br/
+          .code #{@app.code}
+        = button_to('Delete this ' + @app.name + ' questionnaire.', application_delete_path(:id => @app.id), :confirm => "If you press OK, #{@app.name} will be deleted.")
+  %hr/
+  .jarring
+    Modify 
+    = @app.name
+  - if flash[:error] then
+    .error
+      = flash[:error]
+  = form_tag update_application_path(:id => @app.id) do
+    = field_set_tag do
+      Name:
+      %br/
+      = text_field_tag :name, @app.name, :size => 55
+    = field_set_tag do
+      Description:
+      %br/
+      = text_area_tag :descr, @app.description
+    = field_set_tag do
+      Application code (<i>i.e.</i>, the opcodes executed by the installed client application):
+      %br/
+      = text_area_tag :code, @app.code
+    = submit_tag('Update ' + @app.name)

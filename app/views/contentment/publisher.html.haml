@@ -1,0 +1,55 @@
+.publishers
+  - if @pub then
+    .publisher
+      .pubname
+        = @pub.name
+      .subtitle
+        %a{:href => @pub.address} #{@pub.address}
+        %br/
+        = button_to('Delete ' + @pub.name, publisher_delete_path(:id => @pub.id), :confirm => "If you press OK, #{@pub.name} will be deleted.")
+      .apps
+        - @pub.applications.where(:client_id => session[:client]).each do |app|
+          .app
+            .appname
+              %a{:href => application_path(:id => app.id)}
+                = app.name
+            .descr #{app.description}
+    %hr/
+    .jarring
+      Modify 
+      = succeed "'s Information" do
+        = @pub.name
+    - if flash[:error] then
+      .error
+        = flash[:error]
+    = form_tag update_publisher_path(:id => @pub.id) do
+      = field_set_tag do
+        Name:
+        %br/
+        = text_field_tag :name, @pub.name, :size => 55
+      = field_set_tag do
+        Address (<code>http://</code> or <code>sms://</code>):
+        %br/
+        = text_field_tag :address, @pub.address, :size => 55
+      = submit_tag('Update ' + @pub.name)
+  - else
+    %ol
+    - @pubs.each do |pub|
+      %li
+        %a{:href => publisher_path(:id => pub.id)}
+          = pub.name
+    %hr/
+    .jarring Add a Publisher
+    - if flash[:error] then
+      .error
+        = flash[:error]
+    = form_tag publisher_create_path do
+      = field_set_tag do
+        Name:
+        %br/
+        = text_field_tag :name, '', :size => 55
+      = field_set_tag do
+        Address (<code>http://</code> or <code>sms://</code>):
+        %br/
+        = text_field_tag :address, '', :size => 55
+      = submit_tag 'Record New Publisher'

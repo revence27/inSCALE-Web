@@ -20,6 +20,12 @@
               %a{:href => home_path} Questionnaires
             %li
               %a{:href => clients_path} Downloads
+            - if Publisher.count > 1 then
+              %li
+                %a{:href => publisher_path} Publishers
+            - if session[:client] or session[:root] or session[:publisher] then
+              %li
+                %a{:href => auth_path(:who => :logout)} Log out
           %hr/
         = yield
       #footer{:class => 'span-24'}

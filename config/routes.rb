@@ -1,5 +1,6 @@
 Contentment::Application.routes.draw do
   root :to => 'contentment#chooser', :as => 'beginning'
+  match 'record/:data', :to => 'contentment#record', :as => 'record'
 
   scope '/system' do
     root :to => 'contentment#index', :as => 'home'
@@ -7,10 +8,18 @@ Contentment::Application.routes.draw do
     match 'clients', :to => 'contentment#clients', :as => 'clients'
     match 'get_latest/:code/:version/:status', :to => 'contentment#update', :as => 'client_update'
     match 'client_download/:code/:version.:format', :to => 'contentment#client_download', :as => 'client_download'
+    match 'auth(/:who)', :to => 'contentment#auth', :as => 'auth'
+    match 'publisher(/:id)', :to => 'contentment#publisher', :as => 'publisher'
+    match 'application/:id', :to => 'contentment#application', :as => 'application'
 
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
     match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post
     match 'upload_client', :to => 'contentment#upload_client', :as => 'client_upload', :via => :post
+    match 'update_publisher/:id', :to => 'contentment#update_publisher', :as => 'update_publisher', :via => :post
+    match 'update_application/:id', :to => 'contentment#update_application', :as => 'update_application', :via => :post
+    match 'create_publisher', :to => 'contentment#create_publisher', :as => 'publisher_create', :via => :post
+    match 'delete_publisher/:id', :to => 'contentment#delete_publisher', :as => 'publisher_delete', :via => :post
+    match 'delete_application/:id', :to => 'contentment#delete_application', :as => 'application_delete', :via => :post
   end
 
   scope '/data' do

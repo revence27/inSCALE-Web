@@ -27,4 +27,5 @@ pub.applications << (
 )
 pub.save
 
-clt = Client.create :name => 'inSCALE', :code => 'inscale', :sha1_pass => '', :sha1_salt => ''
+clt = Client.create :name => 'inSCALE', :code => 'inscale', :sha1_pass => '5b217b69570860cc7d8af1393c378eecab4a840f', :sha1_salt => 'tusuza emyoyo'
+clt = RootAccount.create :sha1_pass => '13366d232cec0d05a076b5a2fe4fe5ecbda3895f', :sha1_salt => 'christ est le roi'
