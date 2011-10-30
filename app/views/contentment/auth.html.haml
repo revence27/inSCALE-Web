@@ -1,3 +1,20 @@
+= form_tag auth_path(:who => :stat) do
+  .jarring Enter as a Bio Statistician:
+  = field_set_tag do
+    Select your name:
+    %br/
+    %select{:name => 'stat'}
+      - @statmen.each do |statman|
+        %option{:value => statman.id}
+          = statman.name
+  = field_set_tag do
+    Password:
+    %br/
+    = password_field_tag :password
+  = submit_tag 'Enter'
+
+%hr/
+
 - if flash[:error] then
   .error
     = flash[:error]
@@ -10,23 +27,6 @@
       - @clients.each do |client|
         %option{:value => client.id}
           = client.name
-  = field_set_tag do
-    Password:
-    %br/
-    = password_field_tag :password
-  = submit_tag 'Enter'
-
-%hr/
-
-= form_tag auth_path(:who => :stat) do
-  .jarring Enter as a Bio Statistician:
-  = field_set_tag do
-    Select your name:
-    %br/
-    %select{:name => 'stat'}
-      - @statmen.each do |statman|
-        %option{:value => statman.id}
-          = statman.name
   = field_set_tag do
     Password:
     %br/
