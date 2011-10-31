@@ -118,7 +118,7 @@ class ContentmentController < ApplicationController
     if request[:format] == 'jad' then
       jads  = JadField.where :binary_id => bin.id
       rez   = {'MIDlet-Version' => bin.jar_sha1,
-               'MIDlet-Jar-URL' => %[#{request.scheme}://#{request.host}:#{request.port}#{client_download_path(:format => 'jar')}]}
+               'MIDlet-Jar-URL' => client_download_path(:format => 'jar', :only_path => false)}
       jads.each do |jad|
         rez[jad.key] ||= jad.value.strip
       end
@@ -160,7 +160,7 @@ class ContentmentController < ApplicationController
         render :text => ans
       end
     else
-      render :text => %[UPDATE\x00#{request.scheme}://#{request.host}:#{request.port}#{client_download_path(:version => bin.jar_sha1, :format => 'jad')}]
+      render :text => %[UPDATE\x00] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false)
     end
   end
 end
