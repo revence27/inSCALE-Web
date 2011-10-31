@@ -2,4 +2,11 @@
   - @subs.each do |sub|
     .pdu
       .message
+        .pos
+          \##{sub.id}
         = sub.pdu
+      .time
+        Sent in
+        = time_ago_in_words sub.created_at.localtime
+        ago, at
+        = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')

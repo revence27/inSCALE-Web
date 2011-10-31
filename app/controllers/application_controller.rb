@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :ascertain_logged_in, :except => :auth
+  before_filter :ascertain_logged_in, :except => [:auth, :update]
 
   # TODO: Add filter to keep statisticians and managers apart.
 

@@ -16,13 +16,14 @@
       #trunk{:class => 'span-20 prepend-2 append-2'}
         .navbar
           %ul
-            %li
-              %a{:href => home_path} Questionnaires
-            %li
-              %a{:href => clients_path} Downloads
-            - if Publisher.count > 1 then
+            - if session[:client] then
               %li
-                %a{:href => publisher_path} Publishers
+                %a{:href => home_path} Questionnaires
+              %li
+                %a{:href => clients_path} Downloads
+              - if Publisher.count > 1 then
+                %li
+                  %a{:href => publisher_path} Publishers
             - if session[:client] or session[:root] or session[:stat] then
               %li
                 %a{:href => auth_path(:who => :logout)} Log out
