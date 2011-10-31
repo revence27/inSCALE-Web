@@ -16,7 +16,7 @@
             .descr #{app.description}
 %hr/
 .jarring Add a Questionnaire
-= form_tag app_create_path do |f|
+= form_tag app_create_path do
   - pubs = Publisher.all
   - if pubs.length > 1 then
     %select{:name => 'publisher'}

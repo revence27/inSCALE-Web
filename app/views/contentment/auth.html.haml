@@ -1,3 +1,7 @@
+- if flash[:error] then
+  .error
+    = flash[:error]
+
 = form_tag auth_path(:who => :stat) do
   .jarring Enter as a Bio Statistician:
   = field_set_tag do
@@ -15,9 +19,6 @@
 
 %hr/
 
-- if flash[:error] then
-  .error
-    = flash[:error]
 = form_tag auth_path(:who => :client) do
   .jarring Enter in lieu of a client:
   = field_set_tag do
