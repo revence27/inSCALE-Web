@@ -4,7 +4,6 @@ Contentment::Application.routes.draw do
 
   scope '/system' do
     root :to => 'contentment#index', :as => 'home'
-    match 'update', :to => 'contentment#update', :as => 'update'
     match 'clients', :to => 'contentment#clients', :as => 'clients'
     match 'get_latest/:code/:version/:status', :to => 'contentment#update', :as => 'client_update'
     match 'client_download/:code/:version.:format', :to => 'contentment#client_download', :as => 'client_download'
