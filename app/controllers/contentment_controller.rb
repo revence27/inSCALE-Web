@@ -100,11 +100,11 @@ class ContentmentController < ApplicationController
                      :jar_b64      => [dat].pack('m'),
                      :jar_sha1     => (Digest::SHA1.new << dat).to_s,
                      :client_id    => session[:client] || request[:client] || 1
+    bin.save
     request[:jad].read.each_line do |line|
       key, val = line.strip.split ':', 2
-      bin.jad_fields << JadField.new(:key => key, :value => val)
+      JadField.create(:key => key, :value => val, :binary_id => bin.id)
     end
-    bin.save
     redirect_to clients_path
   end
 
@@ -117,8 +117,9 @@ class ContentmentController < ApplicationController
     return render :text => '?' unless bin
     if request[:format] == 'jad' then
       jads  = JadField.where :binary_id => bin.id
-      rez   = {'MIDlet-Version' => bin.jar_sha1,
-               'MIDlet-Jar-URL' => client_download_path(:format => 'jar', :only_path => false)}
+      rez   = {#  'MIDlet-Version' => '2.' + bin.id.to_s,
+               #  'MIDlet-Jar-SHA1'  => bin.jar_sha1,
+               'MIDlet-Jar-URL'   => client_download_path(:format => 'jar', :only_path => false)}
       jads.each do |jad|
         rez[jad.key] ||= jad.value.strip
       end
