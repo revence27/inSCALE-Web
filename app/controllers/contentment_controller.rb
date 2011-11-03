@@ -118,7 +118,7 @@ class ContentmentController < ApplicationController
     if request[:format] == 'jad' then
       jads  = JadField.where :binary_id => bin.id
       rez   = {#  'MIDlet-Version' => '2.' + bin.id.to_s,
-               #  'MIDlet-Jar-SHA1'  => bin.jar_sha1,
+               'MIDlet-Jar-SHA1'  => bin.jar_sha1,
                'MIDlet-Jar-URL'   => client_download_path(:format => 'jar', :only_path => false)}
       jads.each do |jad|
         rez[jad.key] ||= jad.value.strip
