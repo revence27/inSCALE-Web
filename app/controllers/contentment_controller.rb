@@ -143,8 +143,9 @@ class ContentmentController < ApplicationController
       group   = Application.where(:client_id => clt.id)
       apps    = group.order('created_at ASC')
       latest  = group.order('updated_at DESC').first.updated_at
+      publat  = Publisher.order('updated_at DESC').first.updated_at
       return render :text => 'OK' if apps.empty?
-      newid   = (latest - VERSION_START_TIME).to_i
+      newid   = ([latest, publat].max - VERSION_START_TIME).to_i
       if newid.to_s == request[:status] then
         render :text => 'OK'
       else
