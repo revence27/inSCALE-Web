@@ -186,7 +186,54 @@ class ContentmentController < ApplicationController
       tags    = UserTag.where(:name => request[:name]).select('system_user_id')
       @users  = SystemUser.where(['id IN (?)', tags.map {|x| x.system_user_id}]).paginate(:page => request[:page])
     else
-      @tags   = UserTag.order('name ASC').paginate(:page => request[:page])
+      @tags   = UserTag.select('DISTINCT name AS name').order('name ASC').paginate(:page => request[:page])
     end
+  end
+
+  def create_tag
+    usr = SystemUser.find_by_id request[:id]
+    tag = nil
+    tag = UserTag.find_by_name request[:name].capitalize
+    tag = UserTag.create :name => request[:name].capitalize unless tag
+    return redirect_to(users_path(usr)) unless tag.valid?
+    usr.user_tags << tag
+    usr.save
+    redirect_to users_path(usr)
+  end
+
+  def delete_tag
+    usr = SystemUser.find_by_id request[:id]
+    tag = nil
+    tag = UserTag.where(:name => request[:name].capitalize,
+              :system_user_id => usr.id).first
+    return redirect_to(users_path(usr)) unless tag
+    tag.destroy
+    redirect_to users_path(usr)
+  end
+
+  def create_user
+    usr = SystemUser.create :name => request[:name],
+                          :number => request[:number],
+                       :client_id => @client.id
+    usr.save
+    unless usr.valid? then
+      flash[:error] = %[Provide both name and number for the user.]
+      return redirect_to(request.referrer || users_path)
+    end
+    pcs = request[:tags].split(',')
+    pcs.each do |pc|
+      if pc.strip != '' then
+        tag = UserTag.create :name => pc.strip.capitalize
+        usr.user_tags << tag
+      end
+    end
+    usr.save
+    redirect_to users_path(usr)
+  end
+
+  def delete_user
+    usr = SystemUser.find_by_id request[:id]
+    usr.destroy
+    redirect_to users_path
   end
 end

@@ -18,8 +18,28 @@
         %span{:class => 'tag'}
           = link_to tag.name, tag_path(:name => tag.name)
       - got = got + 1
+    %hr/
+    = form_tag delete_tag_path(@user) do
+      Remove tag from
+      = succeed ':' do
+        = @user.name
+      %br/
+      = field_set_tag do
+        %select{:name => 'name'}
+          - tags.each do |tag|
+            %option{:value => tag.name}
+              = tag.name
+      = submit_tag 'Remove Tag'
   - unless got.zero? then
     %hr/
+  = form_tag create_tag_path(@user) do
+    Add a tag to
+    = succeed ':' do
+      = @user.name
+    = field_set_tag do
+      = text_field_tag :name, '', {:size => 55}
+    = submit_tag 'Add Tag'
+  %hr/
   .pdus
   - @subs.each do |sub|
     .pdu
@@ -31,12 +51,31 @@
         ago, at
         = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
   = will_paginate @subs
-
 - else
   .jarring
     Management of
     = @client.name
     Users
+  %hr/
+  - if flash[:error] then
+    .error
+      = flash[:error]
+  Add a user to the system:
+  = form_tag create_user_path do
+    = field_set_tag do
+      Name:
+      %br/
+      = text_field_tag :name, '', {:size => 55}
+    = field_set_tag do
+      Phone Number:
+      %br/
+      = text_field_tag :number, '', {:size => 55}
+    = field_set_tag do
+      Tags (comma-separated):
+      %br/
+      = text_field_tag :tags, '', {:size => 55}
+    = submit_tag 'Add User'
+  %hr/
 
   .sysusers{:class => 'span-24'}
     - @users.each do |user|
@@ -53,5 +92,6 @@
         .metadata{:class => 'span-8 last'}
           - user.user_tags.each do |tag|
             = link_to tag.name, tag_path(:name => tag.name)
+          = button_to %[Delete #{user.name}], delete_user_path(user), {:confirm => %[#{user.name} will be deleted forever. Are you sure?]}
   
   = will_paginate @users

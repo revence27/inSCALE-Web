@@ -22,6 +22,10 @@ Contentment::Application.routes.draw do
     match 'create_publisher', :to => 'contentment#create_publisher', :as => 'publisher_create', :via => :post
     match 'delete_publisher/:id', :to => 'contentment#delete_publisher', :as => 'publisher_delete', :via => :post
     match 'delete_application/:id', :to => 'contentment#delete_application', :as => 'application_delete', :via => :post
+    match 'create_tag/:id', :to => 'contentment#create_tag', :as => 'create_tag', :via => :post
+    match 'delete_tag/:id', :to => 'contentment#delete_tag', :as => 'delete_tag', :via => :post
+    match 'create_user', :to => 'contentment#create_user', :as => 'create_user', :via => :post
+    match 'delete_user/:id', :to => 'contentment#delete_user', :as => 'delete_user', :via => :post
   end
 
   scope '/data' do
