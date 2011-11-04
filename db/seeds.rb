@@ -28,7 +28,21 @@ pub.applications << (
 pub.save
 
 clt = Client.create :name => 'inSCALE', :code => 'inscale', :sha1_pass => '5b217b69570860cc7d8af1393c378eecab4a840f', :sha1_salt => 'tusuza emyoyo'
-clt = RootAccount.create :sha1_pass => '13366d232cec0d05a076b5a2fe4fe5ecbda3895f', :sha1_salt => 'christ est le roi'
-clt = BioStat.create :sha1_pass => '06287f7a367d7325e764bc0823ddd77348d79c15', :sha1_salt => %[kan'emu kanabbiri], :name => 'Default Bio-statistician'
+rut = RootAccount.create :sha1_pass => '13366d232cec0d05a076b5a2fe4fe5ecbda3895f', :sha1_salt => 'christ est le roi'
+bst = BioStat.create :sha1_pass => '06287f7a367d7325e764bc0823ddd77348d79c15', :sha1_salt => %[kan'emu kanabbiri], :name => 'Default Bio-statistician'
 
-clt = Submission.create :pdu => 'Just a testing message.'
+
+rev = SystemUser.create(:name => 'Revence Kalibwani',
+                      :number => '+256772344681')
+
+rev.submissions << Submission.create(:pdu => 'Just a testing message.')
+rev.submissions << Submission.create(:pdu => 'Yet another testing message.')
+
+rev.user_tags << UserTag.new(:name => 'Entebbe')
+rev.user_tags << UserTag.new(:name => 'Developer')
+rev.user_tags << UserTag.new(:name => 'Male')
+
+rev.save
+
+clt.system_users << rev
+clt.save

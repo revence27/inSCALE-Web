@@ -1,0 +1,29 @@
+- if request[:name] then
+  .jarring
+    = request[:name]
+  = link_to %[Send a message to all members of #{request[:name]}.], messaging_path(:dest => request[:name])
+  %br/
+  = link_to %[See all tags.], tag_path
+  %hr/
+  .sysusers{:class => 'span-24'}
+    - @users.each do |user|
+      .sysuser{:class => 'span-24'}
+        .name{:class => 'span-8'}
+          = link_to user.name, users_path(:userid => user.id)
+        .number{:class => 'span-8'}
+          - if user.code then
+            = user.code
+            = surround '(', ')' do
+              = link_to user.number, messaging_path(:dest => user.number)
+          - else
+            = link_to user.number, messaging_path(:dest => user.number)
+        .metadata{:class => 'span-8 last'}
+          - user.user_tags.each do |tag|
+            = link_to tag.name, tag_path(:name => tag.name)
+  = will_paginate @users
+- else
+  .tags
+    - @tags.each do |tag|
+      .tag
+        = link_to tag.name, tag_path(:name => tag.name)
+  = will_paginate @tags

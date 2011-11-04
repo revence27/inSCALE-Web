@@ -65,12 +65,6 @@ body, table
         font-size: $base_font_size * 2;
       }
 
-      .subtitle
-      {
-        font-size: $base_font_size;
-        color: lighten($base_colour, 50%);
-      }
-
       .apps, .binaries
       {
         margin-top: 2em;
@@ -141,4 +135,10 @@ code
 {
   white-space: pre;
   font-family: $monospace;
+}
+
+.subtitle
+{
+  font-size: $base_font_size;
+  color: lighten($base_colour, 50%);
 }

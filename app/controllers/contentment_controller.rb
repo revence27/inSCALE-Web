@@ -1,6 +1,12 @@
 VERSION_START_TIME = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
+  before_filter :select_client
+
+  def select_client
+    @client = Client.find_by_id(session[:client]) if session[:client]
+  end
+
   def index
     @pubs = Publisher.order('name ASC')
   end
@@ -84,9 +90,8 @@ class ContentmentController < ApplicationController
                              :code        => request[:code]
     pub.applications << app
     pub.save
-    clt = Client.find_by_id session[:client]
-    clt.applications << app
-    clt.save
+    @client.applications << app
+    @client.save
     redirect_to home_path
   end
 
@@ -162,6 +167,26 @@ class ContentmentController < ApplicationController
       end
     else
       render :text => %[UPDATE\x00] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false)
+    end
+  end
+
+  def messaging
+  end
+
+  def users
+    if request[:userid] then
+      @user  = SystemUser.find_by_id(request[:userid])
+      @subs  = @user.submissions.order('created_at DESC').paginate(:page => request[:page])
+    end
+      @users = @client.system_users.paginate(:page => request[:page])
+  end
+
+  def tags
+    if request[:name] then
+      tags    = UserTag.where(:name => request[:name]).select('system_user_id')
+      @users  = SystemUser.where(['id IN (?)', tags.map {|x| x.system_user_id}]).paginate(:page => request[:page])
+    else
+      @tags   = UserTag.order('name ASC').paginate(:page => request[:page])
     end
   end
 end

@@ -1,0 +1,27 @@
+.jarring
+  Send Messages to
+  = @client.name
+  Users
+
+= form_tag do
+  = field_set_tag do
+    Sender:
+    %br/
+    = text_field_tag :sender, @client.name, {:size => 55}
+    .subtitle
+      This will show up on the phone as the sender of the message.
+  = field_set_tag do
+    Recipients (comma-separated):
+    %br/
+    = text_field_tag :recip, request[:dest], {:size => 55}
+    .subtitle
+      If you enter the user&rsquo;s code or phone number, that use will receive the message.
+      %br/
+      If you want to send to all users who have a certain tag, enter the tag above.
+      %br/
+      To use many codes, phone numbers, or tags, separate them with commas.
+  = field_set_tag do
+    Message:
+    %br/
+    = text_area_tag :message
+  = submit_tag 'Send'

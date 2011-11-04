@@ -10,6 +10,9 @@ Contentment::Application.routes.draw do
     match 'auth(/:who)', :to => 'contentment#auth', :as => 'auth'
     match 'publisher(/:id)', :to => 'contentment#publisher', :as => 'publisher'
     match 'application/:id', :to => 'contentment#application', :as => 'application'
+    match 'messaging(/:dest)', :to => 'contentment#messaging', :as => 'messaging'
+    match 'users(/:userid)', :to => 'contentment#users', :as => 'users'
+    match 'tag(/:name)', :to => 'contentment#tags', :as => 'tag'
 
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
     match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post

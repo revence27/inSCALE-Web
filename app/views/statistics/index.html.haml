@@ -10,3 +10,6 @@
         = time_ago_in_words sub.created_at.localtime
         ago, at
         = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
+      .subtitle
+        From
+        = sub.system_user.name

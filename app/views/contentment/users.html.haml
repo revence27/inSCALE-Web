@@ -1,0 +1,57 @@
+- if @user then
+  .jarring
+    = @user.name
+  .subtitle
+    = @user.number
+    %br/
+    = link_to %[Send #{@user.name} a message], messaging_path(:dest => @user.number)
+  %hr/
+  - got = 0
+  .tags
+    - tags = @user.user_tags
+    - tags.each do |tag|
+      - unless got == (tags.length - 1) then
+        = succeed ',' do
+          %span{:class => 'tag'}
+            = link_to tag.name, tag_path(:name => tag.name)
+      - else
+        %span{:class => 'tag'}
+          = link_to tag.name, tag_path(:name => tag.name)
+      - got = got + 1
+  - unless got.zero? then
+    %hr/
+  .pdus
+  - @subs.each do |sub|
+    .pdu
+      .message
+        = sub.pdu
+      .time{:class => 'subtitle'}
+        Sent in
+        = time_ago_in_words sub.created_at.localtime
+        ago, at
+        = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
+  = will_paginate @subs
+
+- else
+  .jarring
+    Management of
+    = @client.name
+    Users
+
+  .sysusers{:class => 'span-24'}
+    - @users.each do |user|
+      .sysuser{:class => 'span-24'}
+        .name{:class => 'span-8'}
+          = link_to user.name, users_path(:userid => user.id)
+        .number{:class => 'span-8'}
+          - if user.code then
+            = user.code
+            = surround '(', ')' do
+              = link_to user.number, messaging_path(:dest => user.number)
+          - else
+            = link_to user.number, messaging_path(:dest => user.number)
+        .metadata{:class => 'span-8 last'}
+          - user.user_tags.each do |tag|
+            = link_to tag.name, tag_path(:name => tag.name)
+  
+  = will_paginate @users

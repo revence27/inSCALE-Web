@@ -2,7 +2,7 @@
 %html
   %head
     - title = yield(:title).strip
-    %title #{(title.empty? ? 'inSCALE Questionnaire Manager' : title)}
+    %title #{(title.empty? ? 'inSCALE Management Interface' : title)}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -12,7 +12,7 @@
         #logopart{:class => 'span-8'}
           %img{:src => asset_path('inscale.png')}
         #taglinepart{:class => 'span-16 last'}
-          Questionnaire Manager
+          Management Interface
       #trunk{:class => 'span-20 prepend-2 append-2'}
         .navbar
           %ul
@@ -21,6 +21,10 @@
                 %a{:href => home_path} Questionnaires
               %li
                 %a{:href => clients_path} Downloads
+              %li
+                %a{:href => messaging_path} Messaging
+              %li
+                %a{:href => users_path} User Management
               - if Publisher.count > 1 then
                 %li
                   %a{:href => publisher_path} Publishers
@@ -30,4 +34,7 @@
           %hr/
         = yield
       #footer{:class => 'span-24'}
-        &copy; 2011, The inSCALE Project. All Rights Reserved
+        &copy; 2011, 
+        = succeed '.' do
+          %a{:href => 'http://www.malariaconsortium.org/inscale/'} The inSCALE Project
+        All Rights Reserved
