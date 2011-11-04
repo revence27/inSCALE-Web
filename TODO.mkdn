@@ -1,0 +1,22 @@
+TODO
+====
+
+1.  Submissions action (generic; handles URLs, saves data).
+
+2.  Users CRUD. For SystemUser objects. They are also managed in 1.
+
+3.  Tag CRUD. For UserTag.
+
+4.  Messaging action (code for the message-sending page).
+
+5.  Enforce consistency of the names of the UserTag objects
+
+6.  How to do the following?
+
+    - Kind time
+
+    - Flood control
+
+    - Automatic de-registering
+
+    - Automatic text injecttion in exiting messages
