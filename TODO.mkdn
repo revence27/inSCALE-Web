@@ -14,3 +14,18 @@ TODO
     - Automatic de-registering
 
     - Automatic text injecttion in exiting messages
+
+Others
+------
+
+- Does the following require a Rails plugin?
+
+- Data collection DB (specialised controller actions, specialised models)
+
+- VHT feedback messages (specialised controller actions)
+
+- Supervisor feedback messages (specialised controller actions, periodic exec)
+
+- CUGs (figure shit out, train users)
+
+- Coverage access assessment
