@@ -18,8 +18,13 @@
           - else
             = link_to user.number, messaging_path(:dest => user.number)
         .metadata{:class => 'span-8 last'}
+          - first = true
           - user.user_tags.each do |tag|
+            - unless first then
+              &bull;
             = link_to tag.name, tag_path(:name => tag.name)
+            - first = false
+          = button_to %[Delete #{user.name}], delete_user_path(user)
   = will_paginate @users
 - else
   .tags

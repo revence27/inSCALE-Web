@@ -12,11 +12,14 @@ class ContentmentController < ApplicationController
   end
 
   def record
-    sub = Submission.create :pdu    => request[:data]
+    sub = Submission.create :pdu => request[:data],
+                 :system_user_id => 1
     unless sub.valid? then
       return render :text => 'FAILED'
     end
     # TODO: This is where more-specific storage goes.
+    # TODO: Make it actually choose system_user_id
+    render :text => 'OK'
   end
 
   def application
