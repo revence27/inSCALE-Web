@@ -1,11 +1,9 @@
 TODO
 ====
 
-1.  Submissions action (generic; handles URLs, saves data).
+1.  Messaging action (code for the message-sending page).
 
-2.  Messaging action (code for the message-sending page).
-
-3.  How to do the following?
+2.  How to do the following?
 
     - Kind time
 
@@ -13,10 +11,14 @@ TODO
 
     - Automatic de-registering
 
-    - Automatic text injecttion in exiting messages
+    - Automatic text injection in exiting messages
 
 Others
 ------
+
+- CUGs (figure shit out, train users)
+
+- Coverage access assessment
 
 - Does the following require a Rails plugin?
 
@@ -25,7 +27,3 @@ Others
 - VHT feedback messages (specialised controller actions)
 
 - Supervisor feedback messages (specialised controller actions, periodic exec)
-
-- CUGs (figure shit out, train users)
-
-- Coverage access assessment
