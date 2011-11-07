@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :ascertain_logged_in, :except => [:auth, :update, :client_download, :record]
 
-  # TODO: Add filter to keep statisticians and managers apart.
-
   def auth
     @clients    = Client.all
     @publishers = Publisher.all
