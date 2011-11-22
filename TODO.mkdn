@@ -5,7 +5,11 @@ TODO
 
 2.  BioStatistician downloads messages.
 
-3.  How to do the following?
+3.  Sending confirmation.
+
+4.  Web-page-accessible logger for all SMS activity. (Including supervisor notifications.)
+
+5.  How to do the following?
 
     - Kind time
 
