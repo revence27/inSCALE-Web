@@ -1,6 +1,6 @@
 clt = Client.create :name => 'inSCALE', :code => 'inscale', :sha1_pass => '5b217b69570860cc7d8af1393c378eecab4a840f', :sha1_salt => 'tusuza emyoyo'
 
-pub = Publisher.create :name => 'inSCALE Questionnaires', :address => 'http://inscale.1st.ug/'
+pub = Publisher.create :name => 'inSCALE Questionnaires', :address => 'http://208.86.227.216:3000/'
 
 app =  Application.create(
         :name => 'Weekly Report',
