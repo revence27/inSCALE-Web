@@ -28,7 +28,9 @@ production:
   # adapter: sqlite3
   # database: db/production.sqlite3
   adapter: postgresql
-  database: contentmentprod
+  # database: contentmentprod
+  database: inscale_webapp
   username: revence
+  password: matatu3
   pool: 5
   timeout: 5000
