@@ -10,7 +10,7 @@ class Submission < ActiveRecord::Base
     pieces = self.pdu.gsub(/^vht\s+/i, '').split(/\s+/)
     cinfo  = CollectedInfo.new(
       :submission_id    => self.id,
-      :time_sent        => Time.mktime(1970, 1, 1).localtime + pieces[0].to_i(16),
+      :time_sent        => Time.mktime(1970, 1, 1).localtime + (pieces[0].to_i(16) / 1000),
       :vht_code         => pieces[1],
       :male_children    => pieces[2].to_i,
       :female_children  => pieces[3].to_i,
