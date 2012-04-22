@@ -5,6 +5,7 @@ class CreateSystemUsers < ActiveRecord::Migration
       t.text          :number
       t.text          :code
       t.integer       :client_id
+      t.integer       :supervisor_id
       t.timestamps
     end
   end

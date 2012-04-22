@@ -11,6 +11,7 @@ Contentment::Application.routes.draw do
     match 'publisher(/:id)', :to => 'contentment#publisher', :as => 'publisher'
     match 'application/:id', :to => 'contentment#application', :as => 'application'
     match 'messaging(/:dest)', :to => 'contentment#messaging', :as => 'messaging'
+    match 'feedback(/:page)', :to => 'contentment#feedback', :as => 'feedback'
     match 'users(/:userid)', :to => 'contentment#users', :as => 'users'
     match 'tag(/:name)', :to => 'contentment#tags', :as => 'tag'
 

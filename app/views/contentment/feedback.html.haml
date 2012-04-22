@@ -1,0 +1,36 @@
+.jarring
+  = @client.name
+  Feedback Message Queue
+
+%table
+  %thead
+    %th Date
+    %th To
+    %th Message
+    %th Sent on
+  %tbody
+    - @feedback.each do |msg|
+      %tr{:class => (msg.sent_on ? '' : 'error')}
+        %td
+          = time_ago_in_words msg.created_at
+          ago
+          = surround '(', ')' do
+            = msg.created_at
+        %td
+          - su  = SystemUser.find_by_number(msg.number)
+          - if su then
+            = su.name
+            = surround '(', ')' do
+              = msg.number
+          - else
+            = msg.number
+        %td
+          = msg.message
+        %td
+          - if msg.sent_on then
+            = msg.sent_on
+            = surround '(', ')' do
+              = time_ago_in_words msg.sent_on
+              ago
+  %tfoot
+    = will_paginate @feedback

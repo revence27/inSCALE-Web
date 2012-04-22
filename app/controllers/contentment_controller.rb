@@ -12,14 +12,128 @@ class ContentmentController < ApplicationController
   end
 
   def record
-    sub = Submission.create :pdu => request[:data],
-                 :system_user_id => 1
+    uid = 1
+    cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
+    usr = SystemUser.find_by_code cod[2]
+    uid = usr.first.id if usr
+    sub = Submission.new :pdu => request[:data],
+              :system_user_id => uid,
+              :actual_time    => Time.mktime(1970, 1, 1).localtime + cod[1].to_i(16)
     unless sub.valid? then
       return render :text => 'FAILED'
     end
-    # TODO: This is where more-specific storage goes.
-    # TODO: Make it actually choose system_user_id
+    sub.save do |info|
+      supervisor_alert info
+      sender_response info
+    end
     render :text => 'OK'
+  end
+
+  def supervisor_alert info
+    vht = info.submission.system_user
+    sup = vht.supervisor
+    [
+      [
+        (info.treated_with_amoxi_red + info.treated_with_amoxi_green) > info.fast_breathing,
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is over-treating with Amoxicillin and needs supervision in when to use antibiotics.]
+      ],
+      [
+        (info.treated_with_amoxi_red + info.treated_with_amoxi_green) < info.fast_breathing,
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating for fast breathing and needs supervision in when to use antibiotics.]
+      ],
+      [
+        (info.treated_with_coartem_yellow + info.treated_with_coartem_blue) > info.positive_rdt,
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is over-treating with ACT and needs supervision in when to use antimalarials.]
+      ],
+      [
+        (info.treated_with_coartem_yellow + info.treated_with_coartem_blue) < info.positive_rdt,
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating malaria in children positive on RDT and needs supervision in when to use antimalarials.]
+      ],
+      [
+        (info.diarrhoea > info.treated_with_ors) || (info.diarrhoea > (info.treated_with_zinc12 + info.treated_with_zinc1)),
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating diarrhoea and needs supervision in when to use ORS and zinc.]
+      ],
+      [
+        info.danger_sign < info.referred,
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not referring all children with danger signs and needs supervision in when to refer.]
+      ],
+      [
+        info.fever > ((info.positive_rdt + info.negative_rdt) + 5),
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not testing all children with fever for malaria and needs supervision in when to do an RDT.]
+      ],
+      [
+        (info.newborns_with_danger_sign > (info.newborns_referred + 5)),
+        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not referring all newborns with danger signs and needs supervision in when to refer newborn babies.]
+      ],
+      [
+        info.ors_balance < 6,
+        %[Greetings, #{sup.name}. #{vht.name} is low on ORS and will soon need more supplies to treat diarrhoea.]
+      ],
+      [
+        info.zinc_balance < 51,
+        %[Greetings, #{sup.name}. #{vht.name} is low on zinc and will soon need more supplies to treat diarrhoea.]
+      ],
+      [
+        (info.yellow_ACT_balance < 6) || (info.blue_ACT_balance < 6),
+        %[Greetings, #{sup.name}. #{vht.name} is low on ACTs and will soon need more supplies to treat malaria.]
+      ],
+      [
+        (info.red_amoxi_balance < 6) || (info.green_amoxi_balance < 6),
+        %[Greetings, #{sup.name}. #{vht.name} is low on Amoxicillin and will soon need more supplies to treat pneumonia.]
+      ],
+      [
+        info.rdt_balance < 6,
+        %[Greetings, #{sup.name}. #{vht.name} is low on RDTs and will soon need more supplies to test for malaria.]
+      ],
+      [
+        info.rectal_artus_balance < 6,
+        %[Greetings, #{sup.name}. #{vht.name} is low on rectal artesunate and will soon need more supplies to start treatment and refer severe malaria.]
+      ],
+      [
+        !info.gloves_left_mt5,
+        %[Greetings, #{sup.name}. #{vht.name} is low on gloves and will soon need more supplies to conduct RDTs and insert rectal artesunate.]
+      ],
+      [
+        CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
+          p + n.male_children + n.female_children
+        end < 1,
+        %[Greetings, #{sup.name}. #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
+      ]
+    ].each do |cond|
+      if cond[0] then
+        Feedback.create :message => cond[1], :number => sup.number
+      end
+    end
+  end
+
+  def sender_response info
+    aujd  = Time.now
+    week  = ((((aujd - Time.mktime(aujd.year, 1, 1)).to_i / (24.0 * 60.0 * 60.0))) / 7.0).ceil
+    resp  = VhtResponse.find_by_week week
+    sysu  = info.submission.system_user
+    ans   =
+    if resp then
+      tent  = if (info.male_children + info.female_children) > 0 then
+                resp.many_kids
+              else
+                resp.no_kids
+              end
+    else
+      %[Thank you, [name], for your submission!]
+    end
+    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
+      p + n.male_children + n.female_children
+    end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', CollectedInfo.order('time_sent ASC').first.time_sent.strftime('%B %Y'))
+    Feedback.create :message => msg, :number => sysu.number
+  end
+
+  def weekly
+    SystemUser.all.each do |su|
+      t2 = su.submissions.order('actual_time DESC').first.actual_time
+      if (Time.now - t2) > 518399 then
+        Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number
+      end
+    end
   end
 
   def application
@@ -174,7 +288,27 @@ class ContentmentController < ApplicationController
     end
   end
 
+  def feedback
+    @feedback = Feedback.order('created_at DESC').paginate(:page => params[:page])
+  end
+
   def messaging
+    return unless request[:message] and request[:sender]
+    dest  = Set.new
+    request[:recip].split(',').each do |num|
+      if num.strip =~ /\d{9,}/ then
+        dest << num.strip
+      else
+        UserTag.where(:name => num.strip).each do |tag|
+          dest << tag.system_user.number
+        end
+      end
+    end
+    dest.each do |d|
+      Feedback.create :sender => request[:sender],
+                     :message => request[:message],
+                      :number => d
+    end
   end
 
   def users
