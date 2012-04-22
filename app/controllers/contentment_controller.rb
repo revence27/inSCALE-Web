@@ -18,7 +18,7 @@ class ContentmentController < ApplicationController
     uid = usr.first.id if usr
     sub = Submission.new :pdu => request[:data],
               :system_user_id => uid,
-              :actual_time    => Time.mktime(1970, 1, 1).localtime + cod[1].to_i(16)
+              :actual_time    => Time.mktime(1970, 1, 1).localtime + (cod[1].to_i(16) / 1000)
     unless sub.valid? then
       return render :text => 'FAILED'
     end
