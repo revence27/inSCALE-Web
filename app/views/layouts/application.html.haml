@@ -32,6 +32,9 @@
               - if Publisher.count > 1 then
                 %li
                   %a{:href => publisher_path} Publishers
+            - if session[:stat] then
+              %li
+                %a{:href => csv_path} Download as Excel
             - if session[:client] or session[:root] or session[:stat] then
               %li
                 %a{:href => auth_path(:who => :logout)} Log out
