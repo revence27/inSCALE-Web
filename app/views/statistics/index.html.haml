@@ -1,15 +1,90 @@
 .pdus
-  - @subs.each do |sub|
-    .pdu
-      .message
-        .pos
-          \##{sub.id}
-        = sub.pdu
-      .time
-        Sent in
-        = time_ago_in_words sub.created_at.localtime
-        ago, at
-        = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
-      .subtitle
-        From
-        = sub.system_user.name
+  %table
+    %thead
+      %th Submission Date
+      %th VHT Code
+      %th Male Children
+      %th Female Children
+      %th Number of RDTs Positive
+      %th Number of RDTs Negative
+      %th Number of Children with Diarrhoea
+      %th Number of Children with fast breathing
+      %th Number of Children with fever
+      %th Number of Children with Danger sign
+      %th Number of Children treated within 24 hours
+      %th Number of Children treated with ORS
+      %th Number of Children treated with Zinc &frac12; tablet
+      %th Number of Children treated with Zinc 1 tablet
+      %th Number of Children treated with Amoxicillin red
+      %th Number of Children treated with Amoxicillin green
+      %th Number of Children treated with Coartem yellow
+      %th Number of Children treated with Coartem blue
+      %th Number of Children treated with rectal artesunate 1 capsule
+      %th Number of Children treated with rectal artesunate 2 capsules
+      %th Number of Children treated with rectal artesunate 4 capsules
+      %th Number of Children referred
+      %th Number of Children who died
+      %th Number of male newborns
+      %th Number of female newborns
+      %th Number of home visits Day 1
+      %th Number of home visits Day 3
+      %th Number of home visits Day 7
+      %th Number of newborns with danger signs
+      %th Number of newborns referred
+      %th Number of newborns with Yellow MUAC
+      %th Number of newborns with Red MUAC/&OElig;dema
+      %th ORS balance
+      %th Zinc balance
+      %th Yellow ACT balance
+      %th Blue ACT balance
+      %th Red Amoxicillin balance
+      %th Green Amoxicillin balance
+      %th RDT balance
+      %th Rectal Artesunate balance
+      %th Gloves left
+      %th MUAC tape present?
+    %tbody
+      - @subs.each do |sub|
+        %tr
+          %td #{sub.time_sent}
+          %td #{sub.vht_code}
+          %td #{sub.male_children}
+          %td #{sub.female_children}
+          %td #{sub.positive_rdt}
+          %td #{sub.negative_rdt}
+          %td #{sub.diarrhoea}
+          %td #{sub.fast_breathing}
+          %td #{sub.fever}
+          %td #{sub.danger_sign}
+          %td #{sub.treated_within_24_hrs}
+          %td #{sub.treated_with_ors}
+          %td #{sub.treated_with_zinc12}
+          %td #{sub.treated_with_zinc1}
+          %td #{sub.treated_with_amoxi_red}
+          %td #{sub.treated_with_amoxi_green}
+          %td #{sub.treated_with_coartem_yellow}
+          %td #{sub.treated_with_coartem_blue}
+          %td #{sub.treated_with_rectal_artus_1}
+          %td #{sub.treated_with_rectal_artus_2}
+          %td #{sub.treated_with_rectal_artus_4}
+          %td #{sub.referred}
+          %td #{sub.died}
+          %td #{sub.male_newborns}
+          %td #{sub.female_newborns}
+          %td #{sub.home_visits_day_1}
+          %td #{sub.home_visits_day_3}
+          %td #{sub.home_visits_day_7}
+          %td #{sub.newborns_with_danger_sign}
+          %td #{sub.newborns_referred}
+          %td #{sub.newborns_yellow_MUAC}
+          %td #{sub.newborns_red_MUAC}
+          %td #{sub.ors_balance}
+          %td #{sub.zinc_balance}
+          %td #{sub.yellow_ACT_balance}
+          %td #{sub.blue_ACT_balance}
+          %td #{sub.red_amoxi_balance}
+          %td #{sub.green_amoxi_balance}
+          %td #{sub.rdt_balance}
+          %td #{sub.rectal_artus_balance}
+          %td #{sub.gloves_left_mt5 ? 'More than 5' : 'Less than 5'} pairs
+          %td #{sub.muac_tape ? 'Still has' : 'No more'} MUAC tape
