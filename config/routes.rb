@@ -15,6 +15,7 @@ Contentment::Application.routes.draw do
     match 'feedback(/:page)', :to => 'contentment#feedback', :as => 'feedback'
     match 'users(/:userid)', :to => 'contentment#users', :as => 'users'
     match 'tag(/:name)', :to => 'contentment#tags', :as => 'tag'
+    match 'sendmessages', :to => 'contentment#send_messages', :as => 'send_messages'
 
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
     match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post

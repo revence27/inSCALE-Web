@@ -1,3 +1,5 @@
+require 'net/http'
+
 VERSION_START_TIME = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
@@ -104,6 +106,8 @@ class ContentmentController < ApplicationController
         Feedback.create :message => cond[1], :number => sup.number
       end
     end
+    self.send_messages
+    nil
   end
 
   def sender_response info
@@ -125,6 +129,8 @@ class ContentmentController < ApplicationController
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', CollectedInfo.order('time_sent ASC').first.time_sent.strftime('%B %Y'))
     Feedback.create :message => msg, :number => sysu.number
+    self.send_messages
+    nil
   end
 
   def weekly
@@ -134,6 +140,8 @@ class ContentmentController < ApplicationController
         Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number
       end
     end
+    self.send_messages
+    nil
   end
 
   def application
@@ -309,6 +317,28 @@ class ContentmentController < ApplicationController
                      :message => request[:message],
                       :number => d
     end
+    self.send_messages
+    nil
+  end
+
+  def send_messages
+    Feedback.where(:sent_on => nil).order('created_at ASC').each do |msg|
+      url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{URI.escape(request[:username] || '1000291359')}&password=#{URI.escape(request[:password] || 'password')}&origin=#{URI.escape(msg.sender)}&sms_content=#{URI.escape(msg.message)}&destinations=#{URI.escape(msg.number)}&nostore=#{request[:nostore] || 0}]
+      begin
+        ans = URI.unescape(Net::HTTP.get(URI.parse(url)))
+        rsp = ans.split('&').inject({}) do |p, n|
+          cle, val  = n.split('=', 2)
+          p[cle] = CGI.unescape(val)
+          p
+        end
+        msg.system_response = rsp['ybs_autocreate_status'] + ': ' + rsp['ybs_autocreate_message']
+        msg.sent_on         = Time.now
+        msg.save
+      rescue Exception => e
+        $stderr.puts url, e.inspect, e.backtrace
+      end
+    end
+    redirect_to feedback_path
   end
 
   def users

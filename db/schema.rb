@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422153226) do
+ActiveRecord::Schema.define(:version => 20120514123936) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20120422153226) do
     t.datetime "sent_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "system_response"
   end
 
   create_table "jad_fields", :force => true do |t|
