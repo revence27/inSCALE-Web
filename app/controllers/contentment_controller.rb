@@ -13,6 +13,11 @@ class ContentmentController < ApplicationController
     @pubs = Publisher.order('name ASC')
   end
 
+  def inbound
+    request[:data] = request[:message]
+    self.record
+  end
+
   def record
     uid = 1
     cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
@@ -106,7 +111,7 @@ class ContentmentController < ApplicationController
         Feedback.create :message => cond[1], :number => sup.number
       end
     end
-    self.send_messages
+    self.send_messages false
     nil
   end
 
@@ -129,7 +134,7 @@ class ContentmentController < ApplicationController
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', CollectedInfo.order('time_sent ASC').first.time_sent.strftime('%B %Y'))
     Feedback.create :message => msg, :number => sysu.number
-    self.send_messages
+    self.send_messages false
     nil
   end
 
@@ -140,7 +145,7 @@ class ContentmentController < ApplicationController
         Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number
       end
     end
-    self.send_messages
+    self.send_messages false
     nil
   end
 
@@ -317,11 +322,11 @@ class ContentmentController < ApplicationController
                      :message => request[:message],
                       :number => d
     end
-    self.send_messages
+    self.send_messages false
     nil
   end
 
-  def send_messages
+  def send_messages red = true
     Feedback.where(:sent_on => nil).order('created_at ASC').each do |msg|
       url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{CGI.escape(request[:username] || '1000291359')}&password=#{CGI.escape(request[:password] || 'password')}&origin=#{CGI.escape(msg.sender || 'inSCALE')}&sms_content=#{CGI.escape(msg.message.to_s)}&destinations=#{CGI.escape(msg.number.to_s)}&nostore=#{request[:nostore] || 0}]
       begin
@@ -339,7 +344,7 @@ class ContentmentController < ApplicationController
         File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
       end
     end
-    redirect_to feedback_path
+    redirect_to feedback_path if red
   end
 
   def users
