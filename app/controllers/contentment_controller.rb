@@ -336,6 +336,7 @@ class ContentmentController < ApplicationController
         msg.save
       rescue Exception => e
         $stderr.puts url, e.inspect, e.backtrace
+        File.open('/tmp/mamanze.txt') {|f| f.puts url, e.inspect, e.backtrace }
       end
     end
     redirect_to feedback_path
