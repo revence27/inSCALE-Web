@@ -323,7 +323,7 @@ class ContentmentController < ApplicationController
 
   def send_messages
     Feedback.where(:sent_on => nil).order('created_at ASC').each do |msg|
-      url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{URI.escape(request[:username] || '1000291359')}&password=#{URI.escape(request[:password] || 'password')}&origin=#{URI.escape(msg.sender.to_s)}&sms_content=#{URI.escape(msg.message.to_s)}&destinations=#{URI.escape(msg.number.to_s)}&nostore=#{request[:nostore] || 0}]
+      url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{CGI.escape(request[:username] || '1000291359')}&password=#{CGI.escape(request[:password] || 'password')}&origin=#{CGI.escape(msg.sender.to_s)}&sms_content=#{CGI.escape(msg.message.to_s)}&destinations=#{CGI.escape(msg.number.to_s)}&nostore=#{request[:nostore] || 0}]
       begin
         ans = URI.unescape(Net::HTTP.get(URI.parse(url)))
         rsp = ans.split('&').inject({}) do |p, n|
@@ -336,7 +336,7 @@ class ContentmentController < ApplicationController
         msg.save
       rescue Exception => e
         $stderr.puts url, e.inspect, e.backtrace
-        File.open('/tmp/mamanze.txt') {|f| f.puts url, e.inspect, e.backtrace }
+        File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
       end
     end
     redirect_to feedback_path
