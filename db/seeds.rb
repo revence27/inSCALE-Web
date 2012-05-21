@@ -25,9 +25,13 @@ rev = SystemUser.create(:name => 'Revence Kalibwani',
 fra = SystemUser.create(:name => 'Francis Otim',
                       :number => '+256790862813',
                :supervisor_id => sup.id)
+mck = SystemUser.create(:name => 'Mock VHT',
+                      :number => '+256771620961',
+               :supervisor_id => sup.id)
 
 clt.system_users << rev
 clt.system_users << fra
+clt.system_users << mck
 
 rev.submissions << Submission.create(:pdu => 'Just a testing message.')
 rev.submissions << Submission.create(:pdu => 'Yet another testing message.')
@@ -47,6 +51,8 @@ fra.user_tags << UserTag.create(:name => 'Male')
 
 fra.save
 
+
+mck.user_tags << UserTag.create(:name => 'Mock')
 
 clt.system_users << rev
 clt.save
