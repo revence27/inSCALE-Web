@@ -108,7 +108,7 @@ class ContentmentController < ApplicationController
       ]
     ].each do |cond|
       if cond[0] then
-        Feedback.create :message => cond[1], :number => sup.number
+        Feedback.create :message => cond[1], :number => sup.number, :sender => vht.number
       end
     end
     self.send_messages false
