@@ -53,6 +53,7 @@ fra.save
 
 
 mck.user_tags << UserTag.create(:name => 'Mock')
+mck.save
 
 clt.system_users << rev
 clt.save
