@@ -352,7 +352,8 @@ class ContentmentController < ApplicationController
       @user  = SystemUser.find_by_id(request[:userid])
       @subs  = @user.submissions.order('created_at DESC').paginate(:page => request[:page])
     end
-      @users = @client.system_users.paginate(:page => request[:page])
+    @users  = @client.system_users.paginate(:page => request[:page])
+    @sups   = Supervisor.order('name ASC')
   end
 
   def tags
@@ -386,23 +387,31 @@ class ContentmentController < ApplicationController
   end
 
   def create_user
-    usr = SystemUser.create :name => request[:name],
-                          :number => request[:number],
-                       :client_id => @client.id
-    usr.save
-    unless usr.valid? then
-      flash[:error] = %[Provide both name and number for the user.]
-      return redirect_to(request.referrer || users_path)
-    end
-    pcs = request[:tags].split(',')
-    pcs.each do |pc|
-      if pc.strip != '' then
-        tag = UserTag.create :name => pc.strip.capitalize
-        usr.user_tags << tag
+    if request[:supervisor] == '' then
+      sup = Supervisor.create :name => request[:name],
+                            :number => request[:number]
+      sup.save
+      redirect_to request.referer
+    else
+      usr = SystemUser.create :name => request[:name],
+                            :number => request[:number],
+                         :client_id => @client.id,
+                     :supervisor_id => request[:supervisor]
+      usr.save
+      unless usr.valid? then
+        flash[:error] = %[Provide both name and number for the user.]
+        return redirect_to(request.referrer || users_path)
       end
+      pcs = request[:tags].split(',')
+      pcs.each do |pc|
+        if pc.strip != '' then
+          tag = UserTag.create :name => pc.strip.capitalize
+          usr.user_tags << tag
+        end
+      end
+      usr.save
+      redirect_to users_path(usr)
     end
-    usr.save
-    redirect_to users_path(usr)
   end
 
   def delete_user

@@ -71,6 +71,13 @@
       %br/
       = text_field_tag :number, '', {:size => 55}
     = field_set_tag do
+      Supervisor:
+      %br/
+      %select{:name => :supervisor}
+        - @sups.each do |sup|
+          %option{:value => sup.id} #{%[%s (%s)] % [sup.name, sup.number]}
+        %option{:value => ''} --- This new user is a supervisor. ---
+    = field_set_tag do
       Tags (comma-separated):
       %br/
       = text_field_tag :tags, '', {:size => 55}
