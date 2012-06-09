@@ -4,6 +4,10 @@
   .subtitle
     = @user.number
     %br/
+    %small
+      Supervisor:
+      = link_to @user.supervisor.name, messaging_path(:dest => @user.supervisor.number)
+    %br
     = link_to %[Send #{@user.name} a message], messaging_path(:dest => @user.number)
   %hr/
   - got = 0
