@@ -19,9 +19,9 @@
       %th Number of Children treated with Amoxicillin green
       %th Number of Children treated with Coartem yellow
       %th Number of Children treated with Coartem blue
-      %th Number of Children treated with rectal artesunate 1 capsule
-      %th Number of Children treated with rectal artesunate 2 capsules
-      %th Number of Children treated with rectal artesunate 4 capsules
+      %th Number of Children treated with rectal artesunate
+      - # %th Number of Children treated with rectal artesunate 2 capsules
+      - # %th Number of Children treated with rectal artesunate 4 capsules
       %th Number of Children referred
       %th Number of Children who died
       %th Number of male newborns
@@ -65,8 +65,8 @@
           %td #{sub.treated_with_coartem_yellow}
           %td #{sub.treated_with_coartem_blue}
           %td #{sub.treated_with_rectal_artus_1}
-          %td #{sub.treated_with_rectal_artus_2}
-          %td #{sub.treated_with_rectal_artus_4}
+          - # %td #{sub.treated_with_rectal_artus_2}
+          - # %td #{sub.treated_with_rectal_artus_4}
           %td #{sub.referred}
           %td #{sub.died}
           %td #{sub.male_newborns}

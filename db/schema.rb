@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514123936) do
+ActiveRecord::Schema.define(:version => 20120613113906) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(:version => 20120514123936) do
     t.integer  "submission_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   create_table "feedbacks", :force => true do |t|

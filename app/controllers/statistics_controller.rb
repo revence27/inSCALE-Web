@@ -4,7 +4,7 @@ class StatisticsController < ApplicationController
   end
 
   def csv
-    @subs = CollectedInfo.order('created_at DESC').paginate(:page => request[:page])
+    @subs = CollectedInfo.order('created_at DESC')
     response.headers['Content-Type'] = %[text/csv; encoding=UTF-8]
     response.headers['Content-Disposition'] = %[attachment; filename=#{Time.now.strftime('%d-%B-%Y-%H%Mh')}.csv]
     render 'csv.csv.erb'
