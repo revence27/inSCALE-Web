@@ -21,9 +21,11 @@ sup = Supervisor.create(:name => 'Nnyabo Madam Supervisor',
 
 rev = SystemUser.create(:name => 'Revence Kalibwani',
                       :number => '+256772344681',
+                        :code => 'Rev27',
                :supervisor_id => sup.id)
 fra = SystemUser.create(:name => 'Francis Otim',
                       :number => '+256790862813',
+                        :code => 'Fra',
                :supervisor_id => sup.id)
 mck = SystemUser.create(:name => 'Mock VHT',
                       :number => '+256771620961',

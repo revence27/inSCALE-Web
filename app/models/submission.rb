@@ -7,7 +7,7 @@ class Submission < ActiveRecord::Base
 
   def save *args
     super *args
-    # timehex Rev27 2012/6/9 2012/6/15 2 2 2 2 2 2 2  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5
+    # vht 4F929416 Rev27 2012/6/9 2012/6/15 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5
     pieces = self.pdu.gsub(/^vht\s+/i, '').split(/\s+/)
     cinfo  = CollectedInfo.new(
       :submission_id    => self.id,

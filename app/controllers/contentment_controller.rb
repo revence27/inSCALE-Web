@@ -21,8 +21,8 @@ class ContentmentController < ApplicationController
   def record
     uid = 1
     cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
-    usr = SystemUser.find_by_code cod[2]
-    uid = usr.first.id if usr
+    usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
+    uid = usr.id if usr
     sub = Submission.new :pdu => request[:data],
               :system_user_id => uid,
               :actual_time    => Time.mktime(1970, 1, 1).localtime + (cod[1].to_i(16) / 1000)
@@ -65,7 +65,8 @@ class ContentmentController < ApplicationController
         %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not referring all children with danger signs and needs supervision in when to refer.]
       ],
       [
-        info.fever > ((info.positive_rdt + info.negative_rdt) + 5),
+        # info.fever > ((info.positive_rdt + info.negative_rdt) + 5),
+        info.fever > (info.positive_rdt + info.negative_rdt),
         %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not testing all children with fever for malaria and needs supervision in when to do an RDT.]
       ],
       [
@@ -101,7 +102,8 @@ class ContentmentController < ApplicationController
         %[Greetings, #{sup.name}. #{vht.name} is low on gloves and will soon need more supplies to conduct RDTs and insert rectal artesunate.]
       ],
       [
-        CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
+        # CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
+        CollectedInfo.order('end_date DESC').limit(4).inject(0) do |p, n|
           p + n.male_children + n.female_children
         end < 1,
         %[Greetings, #{sup.name}. #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
@@ -138,9 +140,14 @@ class ContentmentController < ApplicationController
     nil
   end
 
+  def monthly
+    # TODO.
+  end
+
   def weekly
     SystemUser.all.each do |su|
-      t2 = su.submissions.order('actual_time DESC').first.actual_time
+      # t2 = su.submissions.order('actual_time DESC').first.actual_time
+      t2 = su.submissions.order('end_date DESC').first.actual_time
       if (Time.now - t2) > 518399 then
         Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number
       end
@@ -396,6 +403,7 @@ class ContentmentController < ApplicationController
       usr = SystemUser.create :name => request[:name],
                             :number => request[:number],
                          :client_id => @client.id,
+                              :code => request[:code],
                      :supervisor_id => request[:supervisor]
       usr.save
       unless usr.valid? then
