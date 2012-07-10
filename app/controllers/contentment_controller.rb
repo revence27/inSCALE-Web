@@ -103,7 +103,7 @@ class ContentmentController < ApplicationController
       ],
       [
         # CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
-        CollectedInfo.order('end_date DESC').where(:vht_code => vht.code).where(['end_date IS NOT ?', nil]).limit(4).inject(0) do |p, n|
+        CollectedInfo.order('end_date DESC').where(['LOWER(vht_code) = ? AND end_date IS NOT ?', vht.code.downcase, nil]).limit(4).inject(0) do |p, n|
           p + n.male_children + n.female_children
         end < 1,
         %[Greetings, #{sup.name}. #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
@@ -132,9 +132,9 @@ class ContentmentController < ApplicationController
     else
       %[Thank you, [name], for your submission!]
     end
-    prm = CollectedInfo.order('time_sent ASC').where(:vht_code => sysu.code).first
+    prm = CollectedInfo.order('time_sent ASC').where(['LOWER(vht_code) = ?', sysu.code.downcase]).first
     # msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.order('end_date DESC').limit(4).inject(0) do |p, n|
-    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(:vht_code => sysu.code).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
+    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ?', sysu.code.downcase]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
     Feedback.create :message => msg, :number => sysu.number
