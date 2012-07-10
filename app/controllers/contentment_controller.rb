@@ -42,71 +42,71 @@ class ContentmentController < ApplicationController
     [
       [
         (info.treated_with_amoxi_red + info.treated_with_amoxi_green) > info.fast_breathing,
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is over-treating with Amoxicillin and needs supervision in when to use antibiotics.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is over-treating with Amoxicillin and needs supervision in when to use antibiotics.]
       ],
       [
         (info.treated_with_amoxi_red + info.treated_with_amoxi_green) < info.fast_breathing,
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating for fast breathing and needs supervision in when to use antibiotics.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is under-treating for fast breathing and needs supervision in when to use antibiotics.]
       ],
       [
         (info.treated_with_coartem_yellow + info.treated_with_coartem_blue) > info.positive_rdt,
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is over-treating with ACT and needs supervision in when to use antimalarials.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is over-treating with ACT and needs supervision in when to use antimalarials.]
       ],
       [
         (info.treated_with_coartem_yellow + info.treated_with_coartem_blue) < info.positive_rdt,
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating malaria in children positive on RDT and needs supervision in when to use antimalarials.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is under-treating malaria in children positive on RDT and needs supervision in when to use antimalarials.]
       ],
       [
         (info.diarrhoea > info.treated_with_ors) || (info.diarrhoea > (info.treated_with_zinc12 + info.treated_with_zinc1)),
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is under-treating diarrhoea and needs supervision in when to use ORS and zinc.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is under-treating diarrhoea and needs supervision in when to use ORS and zinc.]
       ],
       [
         info.danger_sign < info.referred,
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not referring all children with danger signs and needs supervision in when to refer.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not referring all children with danger signs and needs supervision in when to refer.]
       ],
       [
         # info.fever > ((info.positive_rdt + info.negative_rdt) + 5),
         info.fever > (info.positive_rdt + info.negative_rdt),
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not testing all children with fever for malaria and needs supervision in when to do an RDT.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not testing all children with fever for malaria and needs supervision in when to do an RDT.]
       ],
       [
         (info.newborns_with_danger_sign > (info.newborns_referred + 5)),
-        %[Greetings, #{sup.name}. Your supervision is helpful to VHTs. #{vht.name} is not referring all newborns with danger signs and needs supervision in when to refer newborn babies.]
+        %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not referring all newborns with danger signs and needs supervision in when to refer newborn babies.]
       ],
       [
         info.ors_balance < 6,
-        %[Greetings, #{sup.name}. #{vht.name} is low on ORS and will soon need more supplies to treat diarrhoea.]
+        %[Greetings! #{vht.name} is low on ORS and will soon need more supplies to treat diarrhoea.]
       ],
       [
         info.zinc_balance < 51,
-        %[Greetings, #{sup.name}. #{vht.name} is low on zinc and will soon need more supplies to treat diarrhoea.]
+        %[Greetings! #{vht.name} is low on zinc and will soon need more supplies to treat diarrhoea.]
       ],
       [
         (info.yellow_ACT_balance < 6) || (info.blue_ACT_balance < 6),
-        %[Greetings, #{sup.name}. #{vht.name} is low on ACTs and will soon need more supplies to treat malaria.]
+        %[Greetings! #{vht.name} is low on ACTs and will soon need more supplies to treat malaria.]
       ],
       [
         (info.red_amoxi_balance < 6) || (info.green_amoxi_balance < 6),
-        %[Greetings, #{sup.name}. #{vht.name} is low on Amoxicillin and will soon need more supplies to treat pneumonia.]
+        %[Greetings! #{vht.name} is low on Amoxicillin and will soon need more supplies to treat pneumonia.]
       ],
       [
         info.rdt_balance < 6,
-        %[Greetings, #{sup.name}. #{vht.name} is low on RDTs and will soon need more supplies to test for malaria.]
+        %[Greetings! #{vht.name} is low on RDTs and will soon need more supplies to test for malaria.]
       ],
       [
         info.rectal_artus_balance < 6,
-        %[Greetings, #{sup.name}. #{vht.name} is low on rectal artesunate and will soon need more supplies to start treatment and refer severe malaria.]
+        %[Greetings! #{vht.name} is low on rectal artesunate and will soon need more supplies to start treatment and refer severe malaria.]
       ],
       [
         !info.gloves_left_mt5,
-        %[Greetings, #{sup.name}. #{vht.name} is low on gloves and will soon need more supplies to conduct RDTs and insert rectal artesunate.]
+        %[Greetings! #{vht.name} is low on gloves and will soon need more supplies to conduct RDTs and insert rectal artesunate.]
       ],
       [
         # CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
         CollectedInfo.order('end_date DESC').where(['LOWER(vht_code) = ? AND end_date IS NOT ?', vht.code.downcase, nil]).limit(4).inject(0) do |p, n|
           p + n.male_children + n.female_children
         end < 1,
-        %[Greetings, #{sup.name}. #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
+        %[Greetings! #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
       ]
     ].each do |cond|
       if cond[0] then
