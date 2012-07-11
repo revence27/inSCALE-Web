@@ -5,6 +5,10 @@ VERSION_START_TIME = Time.mktime 2011, 7, 27
 class ContentmentController < ApplicationController
   before_filter :select_client
 
+  def sms_gateway_is_broken str
+    str.gsub(/^(\+)?256/, '0')
+  end
+
   def select_client
     @client = Client.find_by_id(session[:client]) if session[:client]
   end
@@ -110,7 +114,7 @@ class ContentmentController < ApplicationController
       ]
     ].each do |cond|
       if cond[0] then
-        Feedback.create :message => cond[1], :number => sup.number, :sender => vht.number
+        Feedback.create :message => cond[1], :number => sup.number, :sender => sms_gateway_is_broken(vht.number)
       end
     end
     self.send_messages false
@@ -327,7 +331,7 @@ class ContentmentController < ApplicationController
       end
     end
     dest.each do |d|
-      Feedback.create :sender => request[:sender],
+      Feedback.create :sender => sms_gateway_is_broken(request[:sender]),
                      :message => request[:message],
                       :number => d
     end
