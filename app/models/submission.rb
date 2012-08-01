@@ -9,7 +9,8 @@ class Submission < ActiveRecord::Base
     super *args
     # vht 4F929416 Rev27 2012/6/9 2012/6/15 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5
     pieces = self.pdu.gsub(/^vht\s+/i, '').split(/\s+/)
-    stt    = Time.mktime(* pieces[2].split(/\D+/)).localtime,
+    tpcs   = pieces[2].split(/\D+/)
+    stt    = Time.mktime(tpcs[1], tpcs[0], *tpcs[2 .. -1]).localtime
     cinfo  = CollectedInfo.new(
       :submission_id    => self.id,
       :time_sent        => Time.mktime(1970, 1, 1).localtime + (pieces[0].to_i(16) / 1000),
