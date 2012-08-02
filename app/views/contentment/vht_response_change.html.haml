@@ -1,0 +1,16 @@
+.jarring
+  = @client.name
+  Response for Week #{@response.week}
+
+= form_tag response_changer_path do
+  %fieldset
+    %legend
+      In case of
+      %em No Children
+    %textarea{:name => :nokids} #{@response.no_kids}
+  %fieldset
+    %legend
+      In case of
+      %em Many Children
+    %textarea{:name => :manykids} #{@response.many_kids}
+  %input{:type => :submit, :value => 'Change'}

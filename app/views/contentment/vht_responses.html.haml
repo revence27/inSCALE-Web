@@ -1,0 +1,26 @@
+.jarring
+  = @client.name
+  Response Messages
+
+%table
+  %thead
+    %tr
+      %th Week
+      %th{:colspan => 2} Case
+      %th
+    %tr
+      %th
+      %th No Children
+      %th Many Children
+      %th
+  %tbody
+    - @responses.each do |rsp|
+      %tr
+        %td
+          = rsp.week
+        %td
+          = rsp.no_kids
+        %td
+          = rsp.many_kids
+        %td
+          %a{:href => response_change_path(:id => rsp.id)} Change

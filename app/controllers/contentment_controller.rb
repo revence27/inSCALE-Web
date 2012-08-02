@@ -369,6 +369,22 @@ class ContentmentController < ApplicationController
     @sups   = Supervisor.order('name ASC')
   end
 
+  def vht_responses
+    @responses  = VhtResponse.order('week ASC')
+  end
+
+  def vht_response_change
+    @response = VhtResponse.find_by_id(request[:id])
+  end
+
+  def vht_response_changer
+    @response = VhtResponse.find_by_id(request[:id])
+    @response.no_kids   = request[:nokids]
+    @response.many_kids = request[:manykids]
+    @response.save
+    redirect_to response_change_path(:id => @response.id)
+  end
+
   def tags
     if request[:name] then
       tags    = UserTag.where(:name => request[:name]).select('system_user_id')

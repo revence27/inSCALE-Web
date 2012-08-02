@@ -17,7 +17,10 @@ Contentment::Application.routes.draw do
     match 'users(/:userid)', :to => 'contentment#users', :as => 'users'
     match 'tag(/:name)', :to => 'contentment#tags', :as => 'tag'
     match 'sendmessages', :to => 'contentment#send_messages', :as => 'send_messages'
+    match 'responses', :to => 'contentment#vht_responses', :as => 'responses'
+    match 'response/:id', :to => 'contentment#vht_response_change', :as => 'response_change'
 
+    match 'response/:id', :to => 'contentment#vht_response_changer', :as => 'response_changer', :via => :post
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
     match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post
     match 'upload_client', :to => 'contentment#upload_client', :as => 'client_upload', :via => :post
