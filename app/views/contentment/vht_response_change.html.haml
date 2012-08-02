@@ -2,7 +2,7 @@
   = @client.name
   Response for Week #{@response.week}
 
-= form_tag response_changer_path do
+= form_tag response_changer_path(:id => @response.id) do
   %fieldset
     %legend
       In case of

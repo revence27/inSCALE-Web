@@ -20,7 +20,11 @@
           = rsp.week
         %td
           = rsp.no_kids
+          .charcount
+            = rsp.no_kids.length
         %td
           = rsp.many_kids
+          .charcount
+            = rsp.many_kids.length
         %td
           %a{:href => response_change_path(:id => rsp.id)} Change
