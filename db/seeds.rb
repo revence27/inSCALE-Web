@@ -35,11 +35,11 @@ clt.system_users << rev
 clt.system_users << fra
 clt.system_users << mck
 
-rev.submissions << Submission.create(:pdu => 'Just a testing message.')
-rev.submissions << Submission.create(:pdu => 'Yet another testing message.')
+rev.submissions << Submission.create(:pdu => 'vht 4F929416    Rev27 6/9/2012 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5')
+rev.submissions << Submission.create(:pdu => 'vht 13b3a5a9b46 0653 11/18/2012 2 5 1 4 2 4 5 0 0 2 0 2 1 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 7 27 23 17 10 39 MT5')
 
-fra.submissions << Submission.create(:pdu => 'Incoherent nonsense.')
-fra.submissions << Submission.create(:pdu => 'A waste of bytes.')
+fra.submissions << Submission.create(:pdu => 'vht 13b3a5a9b46 0653 11/18/2012 2 5 1 4 2 4 5 0 0 2 0 2 1 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 7 27 23 17 10 39 MT5')
+fra.submissions << Submission.create(:pdu => 'vht 4F929416   Rev27 6/9/2012   2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5')
 
 rev.user_tags << UserTag.create(:name => 'Entebbe')
 rev.user_tags << UserTag.create(:name => 'Developer')

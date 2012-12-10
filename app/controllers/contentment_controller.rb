@@ -1,4 +1,5 @@
 require 'net/http'
+require 'thread'
 
 VERSION_START_TIME = Time.mktime 2011, 7, 27
 
@@ -340,23 +341,36 @@ class ContentmentController < ApplicationController
   end
 
   def send_messages red = true
+    kyu = Queue.new
+    Thread.new(kyu) do |qyu|
+      while true
+        got = qyu.pop
+        break unless got
+        url, fin  = got
+        begin
+          ans = URI.unescape(Net::HTTP.get(URI.parse(url)))
+          rsp = ans.split('&').inject({}) do |p, n|
+            cle, val  = n.split('=', 2)
+            p[cle] = CGI.unescape(val)
+            p
+          end
+          fin.call
+        rescue Exception => e
+          $stderr.puts url, e.inspect, e.backtrace
+          File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
+        end
+      end
+    end
     Feedback.where(:sent_on => nil).order('created_at ASC').each do |msg|
       url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{CGI.escape(request[:username] || '1000291359')}&password=#{CGI.escape(request[:password] || 'password')}&origin=#{CGI.escape(msg.sender || 'inSCALE')}&sms_content=#{CGI.escape(msg.message.to_s)}&destinations=#{CGI.escape(msg.number.to_s)}&nostore=#{request[:nostore] || 0}]
-      begin
-        ans = URI.unescape(Net::HTTP.get(URI.parse(url)))
-        rsp = ans.split('&').inject({}) do |p, n|
-          cle, val  = n.split('=', 2)
-          p[cle] = CGI.unescape(val)
-          p
-        end
+      # TODO: Put in kyu.
+      kyu << [url, proc do
         msg.system_response = rsp['ybs_autocreate_status'] + ': ' + rsp['ybs_autocreate_message']
         msg.sent_on         = Time.now
         msg.save
-      rescue Exception => e
-        $stderr.puts url, e.inspect, e.backtrace
-        File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
-      end
+      end]
     end
+    kyu << nil
     redirect_to feedback_path if red
   end
 

@@ -7,10 +7,10 @@ class Submission < ActiveRecord::Base
 
   def save *args
     super *args
-    # vht 4F929416 Rev27 2012/6/9 2012/6/15 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 MT5
+    # vht 13b3a5a9b46 0653 11/18/2012 2 5 1 4 2 4 5 0 0 2 0 2 1 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 7 27 23 17 10 39 MT5
     pieces = self.pdu.gsub(/^vht\s+/i, '').split(/\s+/)
     tpcs   = pieces[2].split(/\D+/)
-    stt    = Time.mktime(tpcs[1], tpcs[0], *tpcs[2 .. -1]).localtime
+    stt    = Time.mktime(tpcs[2], tpcs[0], tpcs[1]).localtime
     cinfo  = CollectedInfo.new(
       :submission_id    => self.id,
       :time_sent        => Time.mktime(1970, 1, 1).localtime + (pieces[0].to_i(16) / 1000),
