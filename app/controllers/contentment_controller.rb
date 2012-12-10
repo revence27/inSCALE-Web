@@ -354,7 +354,7 @@ class ContentmentController < ApplicationController
             p[cle] = CGI.unescape(val)
             p
           end
-          fin.call
+          fin.call rsp
         rescue Exception => e
           $stderr.puts url, e.inspect, e.backtrace
           File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
@@ -364,7 +364,7 @@ class ContentmentController < ApplicationController
     Feedback.where(:sent_on => nil).order('created_at ASC').each do |msg|
       url = %[http://#{request[:gateway] || 'smgw2'}.yo.co.ug:9100/sendsms?ybsacctno=#{CGI.escape(request[:username] || '1000291359')}&password=#{CGI.escape(request[:password] || 'password')}&origin=#{CGI.escape(msg.sender || 'inSCALE')}&sms_content=#{CGI.escape(msg.message.to_s)}&destinations=#{CGI.escape(msg.number.to_s)}&nostore=#{request[:nostore] || 0}]
       # TODO: Put in kyu.
-      kyu << [url, proc do
+      kyu << [url, proc do |rsp|
         msg.system_response = rsp['ybs_autocreate_status'] + ': ' + rsp['ybs_autocreate_message']
         msg.sent_on         = Time.now
         msg.save
