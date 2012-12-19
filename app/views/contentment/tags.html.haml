@@ -25,10 +25,10 @@
             = link_to tag.name, tag_path(:name => tag.name)
             - first = false
           = button_to %[Delete #{user.name}], delete_user_path(user)
-  = will_paginate @users
+  = # will_paginate @users
 - else
   .tags
     - @tags.each do |tag|
       .tag
         = link_to tag.name, tag_path(:name => tag.name)
-  = will_paginate @tags
+  = # will_paginate @tags

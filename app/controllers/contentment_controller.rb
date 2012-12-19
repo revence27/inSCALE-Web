@@ -402,9 +402,9 @@ class ContentmentController < ApplicationController
   def tags
     if request[:name] then
       tags    = UserTag.where(:name => request[:name]).select('system_user_id')
-      @users  = SystemUser.where(['id IN (?)', tags.map {|x| x.system_user_id}]).paginate(:page => request[:page])
+      @users  = SystemUser.where(['id IN (?)', tags.map {|x| x.system_user_id}])  # .paginate(:page => request[:page])  # COUNT seems broken in will_paginate
     else
-      @tags   = UserTag.select('DISTINCT name AS name').order('name ASC').paginate(:page => request[:page])
+      @tags   = UserTag.select('DISTINCT name AS name').order('name ASC') #.paginate(:page => request[:page]) # COUNT doesn't seem to work well for now.
     end
   end
 
