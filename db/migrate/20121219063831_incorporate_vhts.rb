@@ -1,5 +1,4 @@
 # encoding: UTF-8
-Encoding.default_external = 'UTF-8'
 DEFAULT_PHONE_NUMBER      = '256700000000'
 DEFAULT_CLIENT_NAME       = 'inSCALE'
 
