@@ -9,7 +9,7 @@
   Users Supervised By
   = @sup.name
 .sysusers{:class => 'span-24'}
-  - @sup.system_users.each do |user|
+  - @sup.system_users.order('code ASC').each do |user|
     .sysuser{:class => 'span-24'}
       .name{:class => 'span-8'}
         = link_to user.name, users_path(:userid => user.id)

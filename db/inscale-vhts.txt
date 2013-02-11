@@ -1,393 +1,1110 @@
-	Kiryandongo	Kiryandongo		Lakony Isaac A	Ozelle	 Denis	101	776801925	Kichwabugingo	Karungu 1	
-				776802358	Dramadri	 Francis	105	776801932	Kichwabugingo	Nyinga 1	
-				1202	Wathum	 Terensio 	106	776801933	Kichwabugingo	Kiyogoma 2	
-					Orach	 David	107	776801934	Kichwabugingo	Nyinga 2	
-					Jawiambe	 Damas	108	776801935	Kichwabugingo	Kiyogoma 2	
-					Sekwat	 Simon	109	776801936	Kichwabugingo	Nyinga 2	
-					Oyamo	 Samson	110	776801892	Kichwabugingo	Karungu 2	
-					Jawiambe	 Willam	104	776801930	Kichwabugingo	Karungu 2	
-					Komakech	 Francis	117	776801458	Kichwabugingo	Karungu 1	
-					Isingoma	 Godfrey 	113	776801452	Kichwabugingo	Nyinga 1	
-											
-	Kiryandongo	Kiryandongo		Fanirwoth Charlotte	Akanyo	 Betty	120	776801460	Kichwabugingo	Adagwoo	
-				776802364	Alinga	 Mary	119	776801459	Kichwabugingo	Adagwoo	
-				1211	Nyeko	 Richard	118	776801481	Kichwabugingo	Nyamusasa	
-					Ochan	 James 	115	776801454	Kichwabugingo	Pucheng	
-					Odong	 Ernest	116	776801456	Kichwabugingo	Pucheng	
-					Omusaija	 Absalom	112	776801451	Kichwabugingo	Bweyale	
-					Kagwa	 John	114	776801453	Kichwabugingo	Kichwabugingo	
-					Munguriek	 Agnes	102	776801927	Kichwabugingo	Bweyale	
-					Katusabe	 Grace	103	776801929	Kichwabugingo	Kichwabugingo	
-					Okello	 Erick	111	776801893	Kichwabugingo	Nyamusasa	
-											
-	Kiryandongo	Kiryandongo		Odong Emmanuel	Atuhura	 Bosco	866	776801337	Kichwabugingo	Katulikire	
-				776802361	Kabayaga 	Jesca	675	776801719	Kichwabugingo	Kyabahulu	
-				1209	Acikane	 Topista	984	776802749	Kichwabugingo	Kyogoma 1	
-					Nyanda 	Christine	981	776802681	Kichwabugingo	Kanaba	
-					Alwoch 	Regina	858	776801349	Kichwabugingo	Katulikire	
-					Lenga	 Innocent	992	776801843	Kichwabugingo	Kyabahulu	
-					Kajura	 Phillip	995	776802745	Kichwabugingo	Opok 1	
-					Picho	 Ismail	991	776802741	Kichwabugingo	Coopelwor	
-					Olobo	 Joel	986	776802682	Kichwabugingo	Kanaba	
-					Okema 	Patrick	989	776802743	Kichwabugingo	Kyogoma 1	
-					Musinguzi	 Vincent	864	776802402	Kichwabugingo	Kitwanga	
-					Otto	 Jino	978	776801837	Kichwabugingo	Opok 1	
-					Ongiera 	Francis	996	776801838	Kichwabugingo	Coopelwor	
-					Ociracan	 Louis	865	776801353	Kichwabugingo	Opok 2	
-					Ocowun	 Alfred	987	776801583	Kichwabugingo	Opok 2	
-					Businge	 James	990	776802744	Kichwabugingo	Kitwanga	
-					Lenga	 Patrick 	863	776802388	Kichwabugingo	Kisona	
-											
-											
-	Kiryandongo	Kiryandongo		Bako Proscovia	Byaruhanga 	Monica	994	776802761	Kichwabugingo	Siriba	
-				776802366	Babua	 Arikanjilo	993	776802762	Kichwabugingo	Siriba	
-				1200	Latim 	Christine	859	776801348	Kichwabugingo	Nyakadote	
-					Oteka	 Catherine	867	776801354	Kichwabugingo	Nyakadote	
-					Ageno	 paska	977	776802763	Kichwabugingo	Panyadoli	
-					Maima	 Winerose	985	776802739	Kichwabugingo	Panyadoli	
-					Gitohok K	 Joseph	980	776802738	Kichwabugingo	Panyadoli	
-					Ochan 	Augustine	988	776802740	Kichwabugingo	Panyadoli	
-					Shipuya 	Wycliffe	982	776802676	Kichwabugingo	Bududa	
-					Wambete	  Pinoni	983	776802751	Kichwabugingo	Bududa	
-					Namutosi	 Farida 	979	776802748	Kichwabugingo	Bududa	
-					Watsemba 	Irene	857	776801343	Kichwabugingo	Bududa	
-											
-	Kiryandongo	Kiryandongo		Ogwal Francis Okello	Kisembo	Jolly	885	776802397	Kitwara	Kyansanyi	
-				776802365	Kadogo	Geofrey	879	776802372	Kitwara	Kooki	
-				1208	Nyangoma	Jeska	878	776802377	Kitwara	Kitwara	
-					Ssebirungi	Robert	887	776802407	Kitwara	Kitongozi	
-					Namayalo	Jane	881	776802370	Kitwara	Kyamakubagi	
-					Ongom	James	895	776802374	Kitwara	Kabonyi	
-					Kisembo	Charles	896	776802395	Kitwara	Kitwara	
-					Kyaligonza	Rehema	888	776802406	Kitwara	Kapundo	
-					Kabagambe	Robert	883	776802375	Kitwara	Kankoba	
-					Butagasire	Charles	892	776802378	Kitwara	Kirogolo	
-					Wafula	Dominic	894	776802394	Kitwara	Kiryampungula	
-					Nagawa	Margaret	886	776802398	Kitwara	Kiryampungula	
-					Wandera	Joseph	891	776802392	Kitwara	Kyamakubagi	
-					Nsengiyunva	Isaiah	880	776802369	Kitwara	Kitongozi	
-					Muhumuza	Charles	882	776802376	Kitwara	Kyansanyi	
-					Mboineki	Moses	893	776802396	Kitwara	Kabonyi	
-					Mboineki	James	889	776802391	Kitwara	Kooki	
-					Kisembo	James	890	776802408	Kitwara	Kankoba	
-											
-											
-	Kiryandongo	Kiryandongo		Dacan Romano	Simiyu	Moses	158	776801916	Kikuube	Mirima	
-				776802359	Magado 	Sam	149	776801882	Kikuube	Mirima	
-				1207	Okapesi	Jackson	144	776801871	Kikuube	Kalwala	
-					Ayesiga	Godwin	148	776801881	Kikuube	Nyabukoni	
-					Lutalo	Godfrey	151	776801912	Kikuube	Nyabukoni	
-					Mbaganyire	Francis	675	776801716	Kikuube	Tecwaa	
-											
-											
-											
-											
-	Kiryandongo	Kiryandongo		Avuni Anican Alba	Nakigozi	Annet	84	776801863	Kikuube	Runyanya	
-				776802357	Katusiime	Joyce	83	776801867	Kikuube	Mahonge	
-				1203	Nankya	Hadijah	141	776801877	Kikuube	Nyakatama	
-					Kisembo	Geofrey	157	776801915	Kikuube	Kisekura	
-					Byaruhanga	Ronald	150	776801883	Kikuube	Dyang	
-					Birungi	Evasi	159	776801917	Kikuube	Kisunga 1	
-					Businge 	Betty	154	776801891	Kikuube	Nyakakindo	
-					Osirwa	John	82	776801868	Kikuube	Kyembera	
-					Onjiga	Ark	147	776801879	Kikuube	Nyakakindo	
-					Birungi	Beatrice	145	776801870	Kikuube	Kinyomozi	
-					Kyahurwa	Mary	153	776801894	Kikuube	Dyang	
-					Nyanjura	Flora	143	776801872	Kikuube	Kirooko 1	
-					Byakutaaga	Justine	160	776801923	Kikuube	Runyanya	
-					Mulinde	John	34	776801083	Kikuube	Karokarungi	
-					Ssebirungi	Ronald	156	776801913	Kikuube	Kyembera	
-					Wamalwa	Elizabeth	884	776802373	Kikuube	Kitaleba	
-					Araba	Nusura	22	781065757	Kikuube	Kitaleba	
-					Mbabazi	Florence	23	781065785	Kikuube	Mukonogumu	
-					Mweyagazi	Stephen	24	781065769	Kikuube	Kyakalyabe	
-					Atwani	Jane	25	781065754	Kikuube	Kiryandongo	
-					Nyamusana	Beatrice	26	781065784	Kikuube	Nyabiiso	
-					Mbabazi	Mary	27	781065767	Kikuube	Kirooko 1	
-					Kisembo	Deo	28	781167005	Kikuube	Masamba	
-					Murungi	Julius	29	781065755	Kikuube	Kirooko 2	
-					Dawako	Paul	30	781065766	Kikuube	Kirooko 2	
-					Mugisha	Zakayo	31	776801073	Kikuube	Nyabiiso	
-					Kugonza	Stephen	32	776801074	Kikuube	Masamba	
-					Sunday	Suleman	33	776801077	Kikuube	Mukonogumu	
-					Kabanyoro	Florence	35	776801081	Kikuube	Kalangala	
-					Mbabazi	Sarah	36	776801101	Kikuube	Kikuube	
-					Asiimwe	Ester	37	776801102	Kikuube	Kikuube	
-					Atim	Florence	38	776801103	Kikuube	Kalangala	
-					Maiso	Jenipher	39	776801104	Kikuube	Karokarungi	
-					Mbabazi	Rose	40	776801105	Kikuube	Nyakagando	
-					Nasande	Scovia	41	776801106	Kikuube	Nyakagando	
-					Majara	Benjamin	526	776801463	Kikuube	Kiryandongo 1	
-					Omokola	Denis	528	776801469	Kikuube	Mahonge	
-											
-	Kiryandongo	Kiryandongo		Jangur Smith	Okello	 Aldo	861	776801347	Kyankende	Mombi	
-				776802356	Muchwampaka	 Amadi	203	776802390	Kyankende	Kisunga 2	
-				1201	Lawino	 Filder	860	776801338	Kyankende	Kihura	
-					Oridi 	Fred	219	776801582	Kyankende	Kirwala	
-					Namagoye 	Leonard	220	776802380	Kyankende	Kahara	
-					Dumba	 Richard	218	776801596	Kyankende	Kigaya	
-					Olul 	Patrick	207	776801586	Kyankende	Kisweka	
-					Bagonza	 Stephen	217	776802381	Kyankende	Kibimbya	
-					Okethwengu 	Patrick	204	776801693	Kyankende	Sambya	
-					Chwinya -Ai 	Nickson	216	776801581	Kyankende	Kyesimbwa	
-					Mujumbi 	Robert	215	776802383	Kyankende	Kihura	
-					Oramba	 Richard	214	776802384	Kyankende	Kisweka	
-					Chwinya -AI	 Kapadalwala	213	776802385	Kyankende	Kyankende	
-					Yombo 	Stephen	212	776801587	Kyankende	Bunyama	
-					Marjela	 James	202	776802403	Kyankende	Kibimbya	
-					Onen	 Micheal	211	776802379	Kyankende	Bunyama	
-					Byaruhanga	 Mathias	209	776802387	Kyankende	Kyankende	
-					Bagi	 Richard	208	776802400	Kyankende	Sambya	
-					Apali	 Jane	210	776802386	Kyankende	Kirwala	
-					Mukoi	 Richard	862	776801597	Kyankende	Tugo	
-					Atum	 Alfred	205	776801341	Kyankende	Karagalya	
-					Bungu	 Ismail	877	776802368	Kyankende	Tugo	
-					Bigenonga	 Jacob	201	776801595	Kyankende	Karagalya	
-					Katusabe	 Christine	206	776801340	Kyankende	Kyankulu	
-					Kizza	Johnson	155	776801890	Kyankende	Kisorosoro	
-					Bazaale	Deo	152	776801895	Kyankende	Kisorosoro	
-											
-											
-	Kiryandongo	Masindi Port		Amayo Ceril	Nkusi	 Fred	55	776801099	Kaduku	Wakisanyi	
-				776802363	Nwamanya 	Oliver	59	776801221	Kaduku	Kaduku 2	
-				1205	Akullo 	Agnes	525	776801467	Kaduku	Wakisanyi	
-					Mamai 	Dismas	47	776801086	Kaduku	Kinyonga 1	
-					Onzima	 Sadik	57	776801227	Kaduku	Kaduku 2	
-					Nwagyira	 Godfrey	58	776801224	Kaduku	Katuugo	
-					Kasabiti 	Violet	60	776801218	Kaduku	Katuugo	
-					Byamugayo	 Teddy	53	776801096	Kaduku	Kaduku 1	
-					Mbabazi 	Juliet	54	776801097	Kaduku	Kaduku 1	
-					Wamalwa	 Joseph	61	776801217	Kaduku	Kinyonga 1	
-					Asuman	 Yusuf	43	776801109	Kaduku	Kitaleba	
-											
-	Kiryandongo	Masindi Port		Ayot Bruno	Arach	 Jane	42	776801107	Waibango	Kituguza	
-				776801854	Nyongesa	 James	45	776801113	Waibango	Kiryanseka	
-				1212	Kasozi Mijumbi	 Richard	44	776801110	Waibango	Waibango	
-					Kambarara Mwine	 Stephen 	46	776801085	Waibango	Rwenkunyi	
-					Ajam	Adam	50	776801089	Waibango	Kimioka	
-					Medina 	Juma	52	776801095	Waibango	Kitukuza	
-					Byaruhanga	Richard	48	776801087	Waibango	Namilyango	
-					Yegira	 Edison	51	776801093	Waibango	Kimioka	
-					Gobi 	Grace	56	776801309	Waibango	Namilyango	
-					Baguma	Joram	49		Waibango	Rwenkunyi	To confirm with Bruno
-											
-	Hoima	Kigorobya		Dawawindawa Robert	Atuhura	Judith	329	776901622	Kyabisagazi	Kyabisagazi 1	 
-					Ntegeka	Specioza	326	776801830	Kyabisagazi	Kyabisagazi 1	
-					Kabagambe	Johnson	321	776801611	Kyabisagazi	Kyabisagazi 2	
-					Nyanjura	Juliet	335	776801834	Kyabisagazi	Kyabisagazi 2	
-					Kaija	Frank	323	776801612	Kyabisagazi	Hanga	
-					Byabali	Christine	330	776801621	Kyabisagazi	Hanga	
-											
-	Hoima	Kigorobya		Ahabyoona Grace	Alinde	Monic	328	776801640	Kiganja	Kiganja	
-					Kaahwa 	Betty	327	776801635	Kiganja	Kiganja	
-					Nsisireki	Evelyne	337	776801836	Kiganja	Kitekura	
-					Aseera	Elizabeth	318	776801852	Kiganja	Kitekura	
-					Birungi 	Sharot	322	776801614	Kiganja	Kigumba	
-					Abigaba	Rosemary	320	776801620	Kijongo	Kamugembi 1	
-					Kiiza	Justine	332	776801830	Kijongo	Kamugembi 1	
-					Nyamahunge	Joyce	334	776801609	Kijongo	Kyamucumba	
-					Kusemererwa	Margaret	319	776801831	Kijongo	Kyamucumba	
-					Bamuhiga	Mildred	336	776801613	Kijongo	Kamugembi 2	
-					Kabagire	Plaxeda	333	776801615	Kijongo	Kamugembi 2	
-					Bazara 	Beatrice	591	776801949	Kijongo	Kijongo	
-					Banage	Getrude	331	776801832	Kijongo	Kijongo	
-											
-					Barongo	Godfrey	290	776802317		Songagag	
-					Birungi	Ruth	289	776802650		Kyeramya	
-					Amia	Dorine	292	776802697		Kapapi 1	
-					Katusabe	Irene	295	776802318		Kapapi 1	
-					Kiiza	Sarah	281	776801630		Kibuye	
-					Kamanyire	Robinah	288	776801602		Buraza	
-					Basemera	Roseline	340	776802266		Buraza	
-					Mbabazi	Scovia	339	776802267		Kibuye	
-					Okura	Gaudensio	554	776801147		Kapapi 2	
-					Atiku	John	285	776801626		Kapapi 2	
-					Asaaba	Carolyne	283	776801844		Kiryawanga	
-					Ayebale	Godfrey	338	776802268		Kiryawanga	
-					Onen	Gerald	284	776801623		Kyamukwenda	
-					Wathum	David	297	776801851		Kyamukwenda	
-					Nyandera . M	Netiisah	288	776801629		Kyamukwenda	
-					Nyamutiabwa	Jovia	294	776801846		Bikunyu	
-					Okumu	Richard	550	776801172		Waaki	
-					Asiimwe Mugenyi	Simon	293	776802651		Runga	
-					Sunaday	Matia	287	776801635		Siiba	
-					Kinolekya Musonga	Paskal	282	776801628		Runga	
-					Katusiime	Gloria	546	776801128		Siiba	
-					Baguma Lwanga	Charles	291	776801855		Kibengeya	
-					Busingye 	Elizabeth	555	776801198		Kibengeya	
-											
-					Happy	Jennipher	451	776801196		Kyesiga Kiswenge	
-	Hoima	Kitoba			Kahunga	Florence	456	776801897		Kyesiga West	
-					Busajja	Getrid	446	776802015		Kyesiga Kijwenge	
-					Kugonza	Susan	1099	776801187		Kiizi Wageisa 	
-					Businge	Immaculate	701	776802322		Kijwenge	
-					Kusemererwa	Elizabeth	697	776802328		Bulemwa	
-					Atuhuura	Hellen	1108	776801132		Bulemwa	
-					Kabwongera	Aisha	1112	776801209		Parajwoki	
-					Kiiza	Sofia	557	776801142		Parajwoki	
-					Kiiza 	Juliet	453	776802016		Buhiga	
-					Birungi	Betty	341	776802246		Kyesiga East	
-					Ayebale	Teddy	662	776801946		Kyesiga West	
-					Sunday	Judith	343	776802351		Dwooli East	
-					Kwerunga	Fred	342	776802352		Butembe	
-					Isingoma	Aggrey	548	776801126		Bwendero	
-					Birungi	Nobbu	296	776801847		Dwoli West	
-					Kyaligonza	Gladdys	450	776802006		Kiizi Wageisa 	
-					Kato	Beatrice	542	776801195	 	Village Not Supplied	
-					Sauda	Yasin	452	776801896		Kyesiga East	
-					Barongo	Edward	698	776802324		Dwoli West	
-					Tekereza	Wilberforce	449	776801899		Iseisa	
-					Birihoha	Deo	443	776802021		Dwoli West	
-											
-	Hoima	Kyabigambire		Fred	Muwaya	Donamu	584	776801951		Kibaali	
-					Nyakato	Jane Rose	597	776801964		Buyanja	
-					Katusime	Rose Mary	594	776801943		Kiranga	
-					Kiiza	Bridget	587	776801947		Kirimya	
-					Akugiribwe	Rosemary	595	776801959		Kibaali	
-					Musobozi	Robert	581	776801962		Kakira	
-					Byaruhanga	Edward	580	776801941		Rwobunyonyi	
-					Talemwa A	Patrick	582	776801696		Buyanja	
-					Mpairwe	Margret	579	776801953		Kasinina	
-					Mbabazi 	Joyce	589	776801952		Kitema	
-					Byaruhanga	Samuel	596	776801963		Kasinina	
-					Sunday	Benon	588	776801960		Busanga	
-					Kato Lwanga	Charles	592	776801940		Kiranga	
-					Byabasaija N	Florence	585	776801968		Kakira-Ngobye	
-					Alinaitwe	Stephen	672	776801066		Kirimya	
-					Tumwesige	Lilian	590	776801958		Rwobunyonyi	
-					Balemesa	Mary	583	776801942		Kasiita	
-					Wabwona Asaba	Oliver	593	776801939		Kikara	
-					Cosia K	Comrade	668	776801944		Kisagara	
-					Kyaligonza	Enidi	578	776801948		Goroba	
-											
-											
-	Kyankwanzi	Ntwetwe		Nansamba Ruth	Tukamuhebwa	Eziidoro	181	776802441	Kitwala	Nzoo	
-				776801014	Mbazira	Patrick	182	776802443	Kitwala	Nzoo	
-				1227	Hakizimaana	Sypriano	183	776802427	Kitwala	Muwangi	
-					Sekasi	Godfrey	184	776802444	Sirimula	Kayindiyindi	
-					Nansumbi	Jane	185	776802437	Kitwala	Degeya	
-					Emorut	James	186	776801488	Sirimula	Kigalama	
-					Kasana	Yonasaani	187	776802440	Sirimula	Kikolooto	
-					Musuhuke	Daniel	188	776801859	Kitwala	Bambala	
-					Niyonsenga	Samuel	189	776802439	Sirimula	Sirimula	
-					Matovu	Nelson	190	776802717	Sirimula	Kigalama	
-					Uwamungu	Damaseni	191	776802431	Kitwala	Muwangi	
-					Natoozo	Agnes	192	776802433	Sirimula	Kikolooto B	
-					Rwabukambiza	Amtoni	193	776802429	Sirimula	Kikolooto B	
-					Kisambira	Ali	194	776802432	Kitwala	Degeya	
-					Sindambiwe	Damaseni	195	776802438	Kitwala	Bambala	
-					Bugingo	Mariseeli	196	776802435	Kitwala	Kyamuteete	
-											
-	Kyankwanzi	Ntwetwe		Nandaula Pheoba	Mugerwa	G.W	62	776801278	Bulagwe	Bulagwe	
-				776801019	Nansubuga	Christine	63	776801277	Bulagwe	Kabinduula	
-				1225	Nansubuga	Lestetuta	64	776801275	Kitabona	Kitabona East	
-					Semanda	Godfrey	65	776801274	Kitabona	Kaggi	
-					Nitegeka Ssebagala	David	66	776801273	Kitabona	Katuugo	
-					Muyanja	Simon	67	776801304	Kitabona	Kabinduula	
-					Nabukeera	Topista	68	776801303	Kitabona	Kitabona East	
-					Ssekitene	Charles	69	776801302	Kitabona	Kitabona West	
-					Musisi	Richard	70	776801301	Kitabona	Kanyerere	
-					Muyingo 	Isa	71	776801299	Bulagwe	Kabuwuka West	
-					Sebuliba	Fred	72	776801295	Bulagwe	Kabuwuka East	
-					Biryeti	Jesica	74	776801291	Kitabona	Kaggi	
-					Kisiriko	Fred	75	776801290	Kitabona	Kanyerere	
-					Nabakooza	Annet	76	776801288	Bulagwe	Selunyonyi	
-					Nabiryo	Kate	77	776801318	Bulagwe	Kyambizzi	
-					Nakaweesi	Passy	78	776801317	Bulagwe	Bulagwe	
-					Benda	Masitula	79	776801316	Bulagwe	Kabuwuka West	
-					Nakitto	Joyce	80	776801315	Bulagwe	Selunyonyi	
-					Nanziri	Rosemary	81	778668801	Bulagwe	Kabuwuka	Not sure 
-					Nazziwa	Janepher	409	776802414	Bulagwe	Natyole	
-					Odubi	John Bosco	410	776802646	Natyole	Ndibata	
-					Kaweesi	Andrew	411	776802405	Natyole	Kanyogoga	
-					Kiwanuka	Mike	412	776802404	Natyole	Natyole	
-					Tebukozza	Vicent	413	776802418	Natyole	Ngugwe	
-					Nansita	Jane	414	776802642	Natyole	Ngugwe	
-					Nakafeero	Ruth	415	776801578	Natyole	Buduku	
-					Ssebbowa	Matia	416	776802413	Natyole	Kanyogoga	
-					Nabuuso	Catherine	417	776802724	Natyole	Ndibata	
-					Nakanjako	Teopisita	518	776801478	Natyole	Kyambizzi	
-					Kayiwa	Gerald	520	776801479	Natyole	Kitabona West	
-					Namagembe	Domina	671	776801312	Natyole	Budduku	
-					Magembe	Willy	757	776801253	Ntiba	Nkandwa A	
-					Misanvu	Dan	758	776801254	Ntiba	Ntiba	
-					Nalwadda	Amina	759	776801251	Nkandwa	Nkandwa C	
-					Nansamba	Mary	760	776801256	Ntiba	Kyabasiita	
-					Ssekanyumiza	Teddy	761	776801255	Ntiba	Ntiba	
-					Yawe	Eriabu	762	776801249	Ntiba	Ntuuti	
-					Kyeyune 	James M	763	776801247	Ntiba	Buyondo A	
-					Kiwanuka Ssalongo	Isa	764	776801252	Nkandwa	Nkandwa C	
-					Zawedde	Sarah	765	776801259	Nkandwa	Buyondo C	
-					Babirye	Esther	766	776801264	Nkandwa	Buyondo A	
-					Ssekatawa	Emmanuel	767	776801263	Ntiba	Nakalama	
-					Namukisa	Saveera	768	776801258	Ntiba	Nakalama	
-					Nakasinde	Florence	769	776801266	Ntiba	Nakalama	
-					Nakayiza	Mary	770	776801267	Nkandwa	Kiryanongo	
-					Nangonzi	Josephine	771	776801265	Nkandwa	Kiryanongo	
-					Namuyanja	Sarah	772	776801268	Ntiba	Ntuuti	
-					Nakirya	Olivar	773	776801269	Ntiba	Kyengeza	
-					Kasibante	Margret	774	776801271	Nkandwa	Nkandwa A	
-					Namagembe	Tereza	775	776801270	Nkandwa	Buyondo C	
-					Lule	Mathias	868	776801599	Ntwetwe	Ntwetwe B	
-					Namubiru	Veronica	869	776801352	Ntwetwe	Kigoma	
-					Nakato	Deborah	870	776801362	Ntwetwe	Ntwetwe B	
-					Nabukenya	Alice	871	776801351	Ntwetwe	Kaloddo	
-					Sebunje	Michael	872	776801345	Ntwetwe	Ntwetwe A	
-					Namitala	Joyce	873	776801342	Ntwetwe	Kisojjo	
-					Nsanja	Siitivini	874	776801339	Ntwetwe	Kigoma	
-					Nantume	Resty	875	776801598	Ntwetwe	Kaloddo	
-					Ssemakula	John	876	776801360	Ntwetwe	Kisojjo	
-					Nakaweesi	Josephin	938	776801008	Ntiba	Kikajjo West B	
-					Sserunkuuma	Paddy	939	776802023	Ntiba	Kyabasiita	
-					Nabageraka	Gorreti	940	776801007	Ntiba	Kiyinikibi	
-					Tebuseeke	Sulumaani	941	776801006	Nkandwa	Buyondo B	
-					Nakimera Mayanja	Benna	942	776802259	Bugomolwa	Bugomolwa	
-					Ssentamu	Mathius	943	776802257	Ntiba	Kiyinikibi	
-					Bukirwa	Christine	944	776802256	Bugomolwa	Bugomolwa	
-					Bogere	Christopher	945	776802286	Ntiba	Malungu	
-					Nabukeera	Alice	946	776802255	Bugomolwa	Kasoolo	
-					Ssemanda	Dosiano	947	776802281	Bugomolwa	Bugomolwa B	
-					Balongo	Patrick	948	776802273	Bugomolwa	Bugomolwa A	
-					Namuyige	Jenet	949	776801869	Ntiba	Kikajjo	
-					Kyalisiima	Mary	950	776802679	Ntiba	Nkandwa B	
-					Lwanyaga	Sulaimani	951	776802284	Bugomolwa	Kasoolo	
-					Katongole	Madina	952	776802272	Ntiba	Malungu	
-					Namukasa	Mebo	953	776802249	Ntiba	Kikajjo West A	
-					Nakyanzi	Getrude	954	776802278	Nkandwa	Buyondo	
-					Muzamiru	Kalid	955	776802275	Nkandwa	Nkandwa B	
-					Nanyunja	Rose	956	776802269	Ntiba	Kikajjo West A	
-											
-											
-	Kiboga	Bukomero		Kaidu Harriet	Nabukalu	Milly	298	776801169	Kyomya	Kyomya	
-				776801013	Kayimbye	Joyce	299	776801133	Kyomya	Kyomya	
-				1214	Namazzi	Prossy	300	776801170	Kyomya	Kiyamba	
-					Ssennyonjo	Francis	301	776801167	Kyomya	Kiyamba	
-					Kobonko	Eva	302	776801308	Kyomya	Nakaseeta	
-					Walusimbi	Betty	304	776801306	Kyomya	Nakaseeta	
-					Nagitta	Florence	305	776801305	Kyomya	Kabbo	
-					Ssekyato	Joseph	306	776801319	Kyomya	Kabbo	
-					Nalukenge	Gladys	307	776801246	Kyomya	Kabamba West	
-					Ssenabulya	Joseph	308	776801244	Kyomya	Kabamba West	
-					Nnamwanje	Teddy	309	776801243	Kyomya	Kabamba East	
-					Kato	Charles	310	776801242	Kyomya	Kabamba East	
-					Najingo	Keti	311	776801237	Kyomya	Mpangala West	
-					Wuutu	Edward	312	776801236	Kyomya	Mpangala West	
-					Lukwago	Peeto	313	776801235	Kyomya	Mpangala East	
-					Nanozi	Josephine	314	776801233	Kyomya	Mpangala East	
-					Nakyambadde	Harriet	315	776801232	Kyomya	Kayunga	
-					Ssebyala	Chrizestom J	316	776801135	Kyomya	Kayunga	
-					Kakumba	John	317	776801228	Kyomya	Kabayima	
-											
-	Kiboga	Bukomero		Nsubuga Amos	Salongo	M	345	776802348	Mwezi	Sogolero	
-				776801015	Namukasa	Ephrance	346	776802346	Mwezi	Sogolero	
-				1237	Ntare	Betty	347	776802345	Mwezi	Kyeyitabya	
-					Kayitale	Anthony	348	776802343	Mwezi	Kyeyitabya	
-					Mukamutala	Agnes	349	776802342	Mwezi	Kibanga A	
-					Namusisi	Shakirah	351	776802340	Mwezi	Lukuga	
-					Nalugo	Sylivia	353	776802338	Mwezi	Lukuga	
-					Nalima	Ruth	353	776802347	Mwezi	Mwezi B	
-					Nakalyango	Getrude	354	776802337	Mwezi	Mwezi B	
-					Zalunda	Christopher	355	776802335	Mwezi	Mwezi A	
-					Nansubuga 	Cate	356	776802330	Mwezi	Mwezi A	
-					Namawejje	Robinah	357	776802329	Mwezi	Bitibyamukasa	
-					Kigongo	Yabezi	937	776801084	Mwezi	Kibanga B	
+Kiryandongo	Kiryandongo		Lakony Isaac A	Ozelle	 Denis	101	776801925	Kichwabugingo	Karungu 1	
+			776802358	Dramadri	 Francis	105	776801932	Kichwabugingo	Nyinga 1	
+			1202	Wathum	 Terensio 	106	776801933	Kichwabugingo	Kiyogoma 2	
+				Orach	 David	107	776801934	Kichwabugingo	Nyinga 2	
+				Jawiambe	 Damas	108	776801935	Kichwabugingo	Kiyogoma 2	
+				Sekwat	 Simon	109	776801936	Kichwabugingo	Nyinga 2	
+				Oyamo	 Samson	110	776801892	Kichwabugingo	Karungu 2	
+				Jawiambe	 Willam	104	776801930	Kichwabugingo	Karungu 2	
+				Komakech	 Francis	117	776801458	Kichwabugingo	Karungu 1	
+				Isingoma	 Godfrey 	113	776801452	Kichwabugingo	Nyinga 1	
+										
+Kiryandongo	Kiryandongo		Fanirwoth Charlotte	Akanyo	 Betty	120	776801460	Kichwabugingo	Adagwoo	
+			776802364	Alinga	 Mary	119	776801459	Kichwabugingo	Adagwoo	
+			1211	Nyeko	 Richard	118	776801481	Kichwabugingo	Nyamusasa	
+				Ochan	 James 	115	776801454	Kichwabugingo	Pucheng	
+				Odong	 Ernest	116	776801456	Kichwabugingo	Pucheng	
+				Omusaija	 Absalom	112	776801451	Kichwabugingo	Bweyale	
+				Kagwa	 John	114	776801453	Kichwabugingo	Kichwabugingo	
+				Munguriek	 Agnes	102	776801927	Kichwabugingo	Bweyale	
+				Katusabe	 Grace	103	776801929	Kichwabugingo	Kichwabugingo	
+				Okello	 Erick	111	776801893	Kichwabugingo	Nyamusasa	
+										
+Kiryandongo	Kiryandongo		Odong Emmanuel	Atuhura	 Bosco	866	776801337	Kichwabugingo	Katulikire	
+			776802361	Kabayaga 	Jesca	675	776801719	Kichwabugingo	Kyabahulu	
+			1209	Acikane	 Topista	984	776802749	Kichwabugingo	Kyogoma 1	
+				Nyanda 	Christine	981	776802681	Kichwabugingo	Kanaba	
+				Alwoch 	Regina	858	776801349	Kichwabugingo	Katulikire	
+				Lenga	 Innocent	992	776801843	Kichwabugingo	Kyabahulu	
+				Kajura	 Phillip	995	776802745	Kichwabugingo	Opok 1	
+				Picho	 Ismail	991	776802741	Kichwabugingo	Coopelwor	
+				Olobo	 Joel	986	776802682	Kichwabugingo	Kanaba	
+				Okema 	Patrick	989	776802743	Kichwabugingo	Kyogoma 1	
+				Musinguzi	 Vincent	864	776802402	Kichwabugingo	Kitwanga	
+				Otto	 Jino	978	776801837	Kichwabugingo	Opok 1	
+				Ongiera 	Francis	996	776801838	Kichwabugingo	Coopelwor	
+				Ociracan	 Louis	865	776801353	Kichwabugingo	Opok 2	
+				Ocowun	 Alfred	987	776801583	Kichwabugingo	Opok 2	
+				Businge	 James	990	776802744	Kichwabugingo	Kitwanga	
+				Lenga	 Patrick 	863	776802388	Kichwabugingo	Kisona	
+										
+Kiryandongo	Kiryandongo		Bako Proscovia	Byaruhanga 	Monica	994	776802761	Kichwabugingo	Siriba	
+			776802366	Babua	 Arikanjilo	993	776802762	Kichwabugingo	Siriba	
+			1200	Latim 	Christine	859	776801348	Kichwabugingo	Nyakadote	
+				Oteka	 Catherine	867	776801354	Kichwabugingo	Nyakadote	
+				Ageno	 paska	977	776802763	Kichwabugingo	Panyadoli	
+				Maima	 Winerose	985	776802739	Kichwabugingo	Panyadoli	
+				Gitohok K	 Joseph	980	776802738	Kichwabugingo	Panyadoli	
+				Ochan 	Augustine	988	776802740	Kichwabugingo	Panyadoli	
+				Shipuya 	Wycliffe	982	776802676	Kichwabugingo	Bududa	
+				Wambete	  Pinoni	983	776802751	Kichwabugingo	Bududa	
+				Namutosi	 Farida 	979	776802748	Kichwabugingo	Bududa	
+				Watsemba 	Irene	857	776801343	Kichwabugingo	Bududa	
+										
+Kiryandongo	Kiryandongo		Ogwal Francis Okello	Kisembo	Jolly	885	776802397	Kitwara	Kyansanyi	
+			776802365	Kadogo	Geofrey	879	776802372	Kitwara	Kooki	
+			1208	Nyangoma	Jeska	878	776802377	Kitwara	Kitwara	
+				Ssebirungi	Robert	887	776802407	Kitwara	Kitongozi	
+				Namayalo	Jane	881	776802370	Kitwara	Kyamakubagi	
+				Ongom	James	895	776802374	Kitwara	Kabonyi	
+				Kisembo	Charles	896	776802395	Kitwara	Kitwara	
+				Kyaligonza	Rehema	888	776802406	Kitwara	Kapundo	
+				Kabagambe	Robert	883	776802375	Kitwara	Kankoba	
+				Butagasire	Charles	892	776802378	Kitwara	Kirogolo	
+				Wafula	Dominic	894	776802394	Kitwara	Kiryampungula	
+				Nagawa	Margaret	886	776802398	Kitwara	Kiryampungula	
+				Wandera	Joseph	891	776802392	Kitwara	Kyamakubagi	
+				Nsengiyunva	Isaiah	880	776802369	Kitwara	Kitongozi	
+				Muhumuza	Charles	882	776802376	Kitwara	Kyansanyi	
+				Mboineki	Moses	893	776802396	Kitwara	Kabonyi	
+				Mboineki	James	889	776802391	Kitwara	Kooki	
+				Kisembo	James	890	776802408	Kitwara	Kankoba	
+										
+										
+Kiryandongo	Kiryandongo		Dacan Romano	Simiyu	Moses	158	776801916	Kikuube	Mirima	
+			776802359	Magado 	Sam	149	776801882	Kikuube	Mirima	
+			1207	Okapesi	Jackson	144	776801871	Kikuube	Kalwala	
+				Ayesiga	Godwin	148	776801881	Kikuube	Nyabukoni	
+				Lutalo	Godfrey	151	776801912	Kikuube	Nyabukoni	
+				Mbaganyire	Francis	675	776801716	Kikuube	Tecwaa	
+										
+Kiryandongo	Kiryandongo		Avuni Anican Alba	Nakigozi	Annet	84	776801863	Kikuube	Runyanya	
+			776802357	Katusiime	Joyce	83	776801867	Kikuube	Mahonge	
+			1203	Nankya	Hadijah	141	776801877	Kikuube	Nyakatama	
+				Kisembo	Geofrey	157	776801915	Kikuube	Kisekura	
+				Byaruhanga	Ronald	150	776801883	Kikuube	Dyang	
+				Birungi	Evasi	159	776801917	Kikuube	Kisunga 1	
+				Businge 	Betty	154	776801891	Kikuube	Nyakakindo	
+				Osirwa	John	82	776801868	Kikuube	Kyembera	
+				Onjiga	Ark	147	776801879	Kikuube	Nyakakindo	
+				Birungi	Beatrice	145	776801870	Kikuube	Kinyomozi	
+				Kyahurwa	Mary	153	776801894	Kikuube	Dyang	
+				Nyanjura	Flora	143	776801872	Kikuube	Kirooko 1	
+				Byakutaaga	Justine	160	776801923	Kikuube	Runyanya	
+				Mulinde	John	34	776801083	Kikuube	Karokarungi	
+				Ssebirungi	Ronald	156	776801913	Kikuube	Kyembera	
+				Wamalwa	Elizabeth	884	776802373	Kikuube	Kitaleba	
+				Araba	Nusura	22	781065757	Kikuube	Kitaleba	
+				Mbabazi	Florence	23	781065785	Kikuube	Mukonogumu	
+				Mweyagazi	Stephen	24	781065769	Kikuube	Kyakalyabe	
+				Atwani	Jane	25	781065754	Kikuube	Kiryandongo	
+				Nyamusana	Beatrice	26	781065784	Kikuube	Nyabiiso	
+				Mbabazi	Mary	27	781065767	Kikuube	Kirooko 1	
+				Kisembo	Deo	28	781167005	Kikuube	Masamba	
+				Murungi	Julius	29	781065755	Kikuube	Kirooko 2	
+				Dawako	Paul	30	781065766	Kikuube	Kirooko 2	
+				Mugisha	Zakayo	31	776801073	Kikuube	Nyabiiso	
+				Kugonza	Stephen	32	776801074	Kikuube	Masamba	
+				Sunday	Suleman	33	776801077	Kikuube	Mukonogumu	
+				Kabanyoro	Florence	35	776801081	Kikuube	Kalangala	
+				Mbabazi	Sarah	36	776801101	Kikuube	Kikuube	
+				Asiimwe	Ester	37	776801102	Kikuube	Kikuube	
+				Atim	Florence	38	776801103	Kikuube	Kalangala	
+				Maiso	Jenipher	39	776801104	Kikuube	Karokarungi	
+				Mbabazi	Rose	40	776801105	Kikuube	Nyakagando	
+				Nasande	Scovia	41	776801106	Kikuube	Nyakagando	
+				Majara	Benjamin	526	776801463	Kikuube	Kiryandongo 1	
+				Omokola	Denis	528	776801469	Kikuube	Mahonge	
+										
+Kiryandongo	Kiryandongo		Jangur Smith	Okello	 Aldo	861	776801347	Kyankende	Mombi	
+			776802356	Muchwampaka	 Amadi	203	776802390	Kyankende	Kisunga 2	
+			1201	Lawino	 Filder	860	776801338	Kyankende	Kihura	
+				Oridi 	Fred	219	776801582	Kyankende	Kirwala	
+				Namagoye 	Leonard	220	776802380	Kyankende	Kahara	
+				Dumba	 Richard	218	776801596	Kyankende	Kigaya	
+				Olul 	Patrick	207	776801586	Kyankende	Kisweka	
+				Bagonza	 Stephen	217	776802381	Kyankende	Kibimbya	
+				Okethwengu 	Patrick	204	776801693	Kyankende	Sambya	
+				Chwinya -Ai 	Nickson	216	776801581	Kyankende	Kyesimbwa	
+				Mujumbi 	Robert	215	776802383	Kyankende	Kihura	
+				Oramba	 Richard	214	776802384	Kyankende	Kisweka	
+				Chwinya -AI	 Kapadalwala	213	776802385	Kyankende	Kyankende	
+				Yombo 	Stephen	212	776801587	Kyankende	Bunyama	
+				Marjela	 James	202	776802403	Kyankende	Kibimbya	
+				Onen	 Micheal	211	776802379	Kyankende	Bunyama	
+				Byaruhanga	 Mathias	209	776802387	Kyankende	Kyankende	
+				Bagi	 Richard	208	776802400	Kyankende	Sambya	
+				Apali	 Jane	210	776802386	Kyankende	Kirwala	
+				Mukoi	 Richard	862	776801597	Kyankende	Tugo	
+				Atum	 Alfred	205	776801341	Kyankende	Karagalya	
+				Bungu	 Ismail	877	776802368	Kyankende	Tugo	
+				Bigenonga	 Jacob	201	776801595	Kyankende	Karagalya	
+				Katusabe	 Christine	206	776801340	Kyankende	Kyankulu	
+				Kizza	Johnson	155	776801890	Kyankende	Kisorosoro	
+				Bazaale	Deo	152	776801895	Kyankende	Kisorosoro	
+										
+Kiryandongo	Masindi Port		Amayo Ceril	Nkusi	 Fred	55	776801099	Kaduku	Wakisanyi	
+			776802363	Nwamanya 	Oliver	59	776801221	Kaduku	Kaduku 2	
+			1205	Akullo 	Agnes	525	776801467	Kaduku	Wakisanyi	
+				Mamai 	Dismas	47	776801086	Kaduku	Kinyonga 1	
+				Onzima	 Sadik	57	776801227	Kaduku	Kaduku 2	
+				Nwagyira	 Godfrey	58	776801224	Kaduku	Katuugo	
+				Kasabiti 	Violet	60	776801218	Kaduku	Katuugo	
+				Byamugayo	 Teddy	53	776801096	Kaduku	Kaduku 1	
+				Mbabazi 	Juliet	54	776801097	Kaduku	Kaduku 1	
+				Wamalwa	 Joseph	61	776801217	Kaduku	Kinyonga 1	
+				Asuman	 Yusuf	43	776801109	Kaduku	Kitaleba	
+										
+Kiryandongo	Masindi Port		Ayot Bruno	Arach	 Jane	42	776801107	Waibango	Kituguza	
+			776801854	Nyongesa	 James	45	776801113	Waibango	Kiryanseka	
+			1212	Kasozi Mijumbi	 Richard	44	776801110	Waibango	Waibango	
+				Kambarara Mwine	 Stephen 	46	776801085	Waibango	Rwenkunyi	
+				Ajam	Adam	50	776801089	Waibango	Kimioka	
+				Medina 	Juma	52	776801095	Waibango	Kitukuza	
+				Byaruhanga	Richard	48	776801087	Waibango	Namilyango	
+				Yegira	 Edison	51	776801093	Waibango	Kimioka	
+				Gobi 	Grace	56	776801309	Waibango	Namilyango	
+				Baguma	Joram	49	776801984	Waibango	Rwenkunyi	
+										
+Hoima	Kyabigambire		Kugonza Fred	Muwaya	Donamu	584	776801951		Kibaali	
+			777828187	Nyakato	Jane Rose	597	776801964		Buyanja	
+			n/a	Katusime	Rose Mary	594	776801943		Kiranga	
+				Kiiza	Bridget	587	776801947		Kirimya	
+				Akugiribwe	Rosemary	595	776801959		Kibaali	
+				Musobozi	Robert	581	776801962		Kakira	
+				Byaruhanga	Edward	580	776801941		Rwobunyonyi	
+				Talemwa A	Patrick	582	776801696		Buyanja	
+				Mpairwe	Margret	579	776801953		Kasinina	
+				Mbabazi 	Joyce	589	776801952		Kitema	
+				Byaruhanga	Samuel	596	776801963		Kasinina	
+				Sunday	Benon	588	776801960		Busanga	
+				Kato Lwanga	Charles	592	776801940		Kiranga	
+				Byabasaija N	Florence	585	776801968		Kakira-Ngobye	
+				Alinaitwe	Stephen	672	776801066		Kirimya	
+				Tumwesige	Lilian	590	776801958		Rwobunyonyi	
+				Balemesa	Mary	583	776801942		Kasiita	
+				Wabwona Asaba	Oliver	593	776801939		Kikara	
+				Cosia K	Comrade	668	776801944		Kisagara	
+				Kyaligonza	Enidi	578	776801948		Goroba	
+				Kaahwa	Joice	389	776802635		Katuugo	
+				Drabbe	David	643	776801444		Katuugo	
+				Asiimwe	Walter	642	776802760		Mparangasi	
+				Mwesigwa	Y	650	776801513		Kiryabutuzi	
+				Musinguzi	D	654	776801512		Nyakabaale	
+				Tumusiime	C	647	776801447		Bwizibwera	
+				Kagoro	Faith	639	776801450		Mparangasi	
+				Wandera	D	648	776801441		Kiryabutuzi	
+				Nsungwa	T	644	776801539		Kibegenya	
+				Kunihira 	F	653	776801543		Kyabigambire	
+				Mbabazi 	Darlson	368	776802636		Kiryankimba	
+				Onuiti	Robert	657	776801437		Kyarubanga	
+				Akugizibwe	E	381	776802633		Kasomoro	
+				Musinguzi	J	378	776802630		Kyarubanga	
+				Azoora	Sam	379	776802629		Kasomoro	
+				Nyandera	Y	397	776802631		Bugomoro	
+				Akuzibwe	E	380	776802632		Kitongole	
+				Akuzibwe	F	384	776802529		Kitongole	
+				Bulega	Abdul	641	776801423		Kihwera	
+				Kyomuhendo	J	382	776802634		Bugomoro	
+				Katuramu	M	383	776802576		Karungu	
+				Birungi	Judith	1131	776801979		Kibegenya	
+				Muhereza	A	646	776801445		Nyakabaale	
+				Kwesiga	Patrick	1125	776801987		Karungu	
+				Mutegeki	E	1123	776801057		Bwizibwera	
+				Mijumbi	Eric	1130	776801021		Kiryankimba	
+										
+Hoima	Kyabigambire		Kibagumya Cecillia	Bitamazire 	Geofrey	1126	776801986		Kihambya	
+			782502982	Mutumba	Mary	395	776802521		Kihambya	
+			n/a	Birungi	Everce	385	776802528		Kigungu	
+				Kigonza	Eve	486	776802607		Kibaire	
+				Wandera	Twaha	491	776802625		Kyampaka	
+				Miteto	Mwatumu	496	776802638		Kibaire	
+				Businge	Juliet	390	776802520		Kiseeta	
+				Mpairwe	Annet	487	776802608		Nyaituuma	
+				Mugasa	Nelson	488	776802573		Kiseeta	
+				Asiimwe	Robinah	396	776802522		Katikara	
+				Kyaligonza	Judith	490	776802566		Katikara	
+				Buyeza	Margaret	394	776802518		Kihoro/Kyabiteke	
+				Kusiima	Sarah	483	776802571		Kyamongi	
+				Balikurungi	Samali	656	776801541		Kigungu	
+				Mwajuma	Miriam	481	77802582		Kyakamese	
+				Galihambabi	Beatrice	484	776802613		Kyampaka	
+				Atuhairwe	William	393	776802517		Kyakamese	
+				Isingoma	Collet	1133	776801054		Kihoro/Kyabiteke	
+				Koozo	Cristopher	551	776801151		Nyaituuma	
+				Mbabazi	Everce	495	776802622		Kyamongi	
+				Tugonzebwa	Harriet	543	776801129		Kakindo	
+				Kaahwa	Violet	442	776802009		Kakindo	
+				Isingoma	Scovia	538	776801182		Nyakakonge	
+				Nyandera	Hildah	441	776801904		Nyakakonge	
+										
+Hoima	Kyabigambire		Nansamba Beatrice	Nyakahara	Margaret	1136	776801059		Katikara	
+			782016274	Businge	Simon	1135	776801975		Kigawa	
+			n/a	Dralia	Esau	1128	776801980		Bugandale	
+				Adriko	Sadrack	1117	776801024		Nyakabingo	
+				Agotre	Amosi	1129	776801981		Kalyango	
+				Bob B	Emmanuel	1127	776801058		Bineneza	
+				Aseera	Jasinta	1118	776801715		Kalyango	
+				Kutegeka	Leonard	655	776801435		Kasokero	
+				Atuhura	Irene	1162	776802301		Kasunga	
+				Mugisa	Jenipher	392	776802523		Kasunga	
+				Kalyegira 	James	637	776801424		Kasokero	
+				Fungatwendo	Micheal	645	776801448		Kigang	
+				Orondrio	David	492	776802614		Bugandale	
+				Okudeyo 	Samson	497	776802616		Nyakabingo	
+				Ngozebwa	Elizabeth	493	776802612		Kabalikera	
+				Kabatooro	Peruth	391	776802610		Kyakaseeka	
+				Nsemerirwe	Leonard	489	776802574		Kyakaseeka	
+				Kiiza	Joyce	494	776802620		Bussuga	
+				Kugonza	Oliver	652	776801440		Katikara	
+				Amina	Kajubi	485	776802615		Kabbalikera	
+				Muchwa	Margaret	848	776801438		Ruhunga	
+				Asaba	Sarah	480	776802621		Ruhunga	776802441
+				Barungi	Rakeri	388	776802569		Bineneza	
+				Muchwankende	Milliamu	478	776802570		Kanyamunya	
+				Tumwesige	Nebaiaoth	386	776802526		Kanyamunya	
+				Susu	Gilbert	477	776802581		Nyakabingo	
+				Balijuka	Francis	651	776801439		Busanga	
+				Tibihikiirra Kiiza	John	840	776801434		Busuuga	
+										
+Hoima	Kyabigambire		Mbehwereze Auleria	Omviti	Robert	657	776801437		Kyarubanga	
+			772830058	Musinguzi	Joyce	378	776802630		Kyarubanga	
+			n/a	Kunihira	Florence	653	776801543		Kyabigambire	
+				Nsungwa	Teopista	648	776801539		Kibegenya	
+				Mutegeki	Edison	1123	776801057		Bwibibwera	
+				Katuramu	Margaret	383	776802576		Karungu	
+				Kaahwa	Joyce	389	776802635		Katugo	
+				Nyandera	Yeresi	397	776802631		Bugomoro	
+				Drabe	David	643	776801444		Katugo	
+				Tumusiime	Comrade	647	776801447		Bwizibwera	
+				Wandera	Darlson	644	776801441		Kiryabutuzi	
+				Makuno B	Sunny		776801055		Kihwera	
+				Asiimwe	Walter	642	776802760		Mparangasi	
+				Ayesiga	Miriosi	1121	776801992		Kyabigambire-Central	
+				Azora	Sam	379	776802629		Kasomoro	
+				Akugizibwe	Elizabeth	381	776802633		Kasomoro	
+				Akugizibwe	Francis	384	776802529		Kitongole	
+				Akugizibwe	Ezira	380	776802632		Kitongole	
+				Bulega	Abdul	641	776801423		Kihwera	
+				Burungi	Judith	1131	776801979		Kibegenya	
+				Kwesiga	Patrick	1125	776801987		Karungu	
+				Mijumbi	Eric	1130	776801021		Kiryankimba	
+				Kyomuhendo	Joshua	382	776802634		Bugomero	
+				Kagoro	Faith	639	776801450		Mparangasi	
+				Mwesigwa	Yeremiya	650	776801513		Kiryabutuzi	
+				Muhereza	Amanyire	646	776801445		Nyakabale	
+				Musinguzi	Davis	654	776801812		Nyakabale	
+				Mbabazi	Darlison	387	776802636		Kiryankimba	
+										
+Hoima	Kiborobya		Nakimuli Jesca	Byenkya K	Alfred	459	776801420		Hanga	
+			772543987	Ochaki	Godfrey	632	776801664		Buhirigi	
+			n/a	Nakimuli	Jesca	629	776801552		Wayayo	
+				Ochamgiu	Dona	627	776801566		Lenju	
+				Abiria	Andrew	628	776801565		Kanyiira	
+				Bahemuka	Aloysius	633	776801551		Kanyiira	
+				Birungi	Jane	747	776801286		Marongo	
+				Drichiru	Joan	740	776801725		Mabira	
+				Magada	Eric	754	776801227		Nyamundeija	
+				Isingoma	Betty	744	76801283		Bugoma	
+				Abigaba	Joyce	750	776801207		Kitunga	
+				Assimwe	Victoria	742	776801724		Kitunga	
+				Akugizibwe	Julian	754	776801208		Katugo	
+				Kisemba	Oliver	739	776801284		Katugo	
+				Keno	Alphonse	753	776801996		Bugoma	
+				Abigaba	Harriet	756	776801218		Nyamundeija	
+										
+Hoima	Kiborobya		Ahabwona Grace	Mulinzi	Annet	324	776801610		Kigomba	
+			772371411	Busobozi	David	751	776801732		Bwikya	
+			n/a	Atugonza	Emilyne	620	776801553		Kisaka	
+				Byabagambi	Dorothy	743	776801282		Hanga Kyabisagazi	
+				Mugabi	Henry	746	776801210		Bwikya	
+				Kiyamahunge	Robina	752	776801224		Kisukuma	
+				Kaahwa	Fred	737	776801720		Kisukuma	
+				Kyalisiima	Evarce	749	776801993		Kyeramya	
+				Katusabe	Mwikiriza	748	776801217		Kabatindule	
+				Kaahwa	Betty	327	776801835		Kiganja	
+				Alinde	Monic	328	776801640		Kiganja	
+				Atuhura	Judith	329	776801622		Kyabisagazi	
+				Abigaba	Rosemary	320	776801620		Kamugembe 1	
+				Ntegeka 	Specioza	326	776801830		Kyabisazi 1	
+				Bamuhiiga	Mildred	336	776801613		Kamugembe 2   	
+				Byabali	Christine	330	776801621		Kajuura	
+				Birungi	Charlotte	322	776801614		Kigumba	
+				Nyamahunge 	Joyce	334	776801609		Kyamucumba	
+				Kaija	Frank	323	776801612		Hanga	
+				Kabagire	Plaxeda	333	776801615		Kamugembe 2   	
+				Birungi	Ruth	289	776802650		Kyeramya	
+				Kiiza	Justine	332	776801845		Kamugembe 1	
+				Tibesigwa	David	325	776801618		Kigumba	
+				Baraza	Beatrice	591	776801949		Kijonjo	
+				Nyanjura	Juliet	335	776801834		Kyabisangazi 2	
+				Asiimwe	Aidah	741	776801974		Kamugembe 2   	
+				Banage	Gertrude	331	776801832		Kijonjo	
+				Kyohuhendo	Annet	626	776801567		Kisaka	
+				Kaahwa	Lucy	619	776801557		Kyamabara	
+				Businge	Marrion	476	776801650		Kiryandongo	
+				Nyagireki	Grace	460	776801592		Kiryandongo	
+				Balikooha	Abubakari	461	776801651		Kyeramya	
+				Busobozi	JohnBosco	458	776801430		Kyamabara	
+				Orombi	Albert	465	776801411		Bukona	
+				Amanyire	Juliet	467	776801593		Kajuura	
+				Nsisireki	Everlyn	470	776801647		Kitekura	
+				Mugenyi	Maliseri	479	776801632		Kigomba	
+				Kaahwa 	Betty	327	776801635	Kiganja	Kiganja	
+				Nsisireki	Evelyne	337	776801836	Kiganja	Kitekura	
+				Aseera	Elizabeth	318	776801852	Kiganja	Kitekura	
+				Birungi 	Sharot	322	776801614	Kiganja	Kigumba	
+				Kusemererwa	Margaret	319	776801831	Kijongo	Kyamucumba	
+				Bazara 	Beatrice	591	776801949	Kijongo	Kijongo	
+				Birungi	Ruth	289	776802650		Kyeramya	
+				Katusabe	Irene	295	776802318		Kapapi 1	
+				Kamanyire	Robinah	288	776801602		Buraza	
+				Okura	Gaudensio	554	776801147		Kapapi 2	
+				Atiku	John	285	776801626		Kapapi 2	
+				Okumu	Richard	550	776801172		Waaki	
+				Sunaday	Matia	287	776801635		Siiba	
+				Kinolekya Musonga	Paskal	282	776801628		Runga	
+				Baguma Lwanga	Charles	291	776801855		Kibengeya	
+				Busingye 	Elizabeth	555	776801198		Kibengeya	
+										
+Hoima	Kiborobya		Dawin Dawa Robert	Katusiime	Gloria	546	776801128		Siiba	
+				Buguma Lwanga	Charles	291	776801855		Kibengeya	
+				Nyamutiabwa	Jovia	294	776801846		Bikunyu	
+				Asiimwe Mugenyi	Simon	293	776802651		Runga	
+				Katusba	Irene	295	776802318		Kapapi 1	
+				Onen	Gerald	284	776801623		Kyamukwenda	
+				Kiiza	Sarah	281	776801630		Kibuye	
+				Businge	Elizabeth	555	776801198		Kibengeya	
+				Ayebale	Godfrey	338	776802268		Kiryawanga	
+				Asaaba	Carolyne	283	776801844		Kiryawanga	
+				Mbabazi	Scovia	339	776802267		Kibuye	
+				Kamanyire	Robinah	286	776801602		Buraza	
+				Kyakuha	Teddy	635	776801692		Haibaale	
+				Kanyage	Teddy	636	776801668		Kyakasato	
+				Basemera	Roseline	340	776802266		Buraza	
+				Matia	Sunday	287	776801635		Siiba	
+				Nyandera Mugazi	Nefiisah	288	776801629		Kyamukwenda	
+				Barongo	Godfrey	290	776802317		Songa Gagi	
+				Amia	Dorine	292	776802697		Kapapi 1	
+				Wathum	 David	297	776801851		Kyamukwenda	
+				Okura	 Gaudensio	554	776801147		Kapapi 2	
+				Kwolekya Musonga	 Pascal	285	776801626		Runga	
+				Atiku	John	282	776801628		Kapapi 2	
+				Kusiima	Sarah	468	776801657		Kibiro	
+				Mbabazi	Edward	466	776801652		Ndaragi	
+				Birwinyo	Godfrey	472	776801588		Kyamukwenda	
+				Kabagambe	Everlyn	464	776801656		Haibaale	
+				Atuhura	Margaret	621	776801556		Kyakasato	
+				 Bagaaya	Justine	623	776801558		Haibaale 2	
+				Agaba	Absalom	634	776801665		Kapapi 1	
+				Kaija	Julius	630	776801550		Bukona	
+				Kabacencura	Xavoir	625	776801559		Haibaale 2	
+				Rubanga K	Jimmy	624	776801561		Kibiro	
+				Mbabazi	Jackline	755	776801201		Mpetye	
+				Kabagambe	Johnson	321	776801611	Kyabisagazi	Kyabisagazi 2	
+										
+Hoima	Kitoba		Mbaheera Grace	Happy	Jennipher	451	776801196		Kyesiga Kiswenge	
+			782567502	Kahunga	Florence	456	776801897		Kyesiga West	
+			n/a	Busajja	Getrid	446	776802015		Kyesiga Kijwenge	
+				Kugonza	Susan	1099	776801187		Kiizi Wageisa 	
+				Businge	Immaculate	701	776802322		Kijwenge	
+				Kusemererwa	Elizabeth	697	776802328		Bulemwa	
+				Atuhuura	Hellen	1108	776801132		Bulemwa	
+				Kabwongera	Aisha	1112	776801209		Parajwoki	
+				Kiiza	Sofia	557	776801142		Parajwoki	
+				Birungi	Betty	341	776802246		Kyesiga East	
+				Ayebale	Teddy	662	776801946		Kyesiga West	
+				Sunday	Judith	343	776802351		Dwooli East	
+				Isingoma	Aggrey	548	776801126		Bwendero	
+				Birungi	Nobbu	296	776801847		Dwoli West	
+				Kato	Beatrice	542	776801195			
+				Sauda	Yasin	452	776801896		Kyesiga East	
+				Barongo	Edward	698	776802324		Dwoli West	
+				Tekereza	Wilberforce	449	776801899		Iseisa	
+				Birihoha	Deo	443	776802021		Dwoli West	
+										
+Hoima	Kitoba	Mbarara HCII	Rudagya Jane Rose	Kyomya K	Stepehn	1182	776802063	Bulyango	Nyakafunjo	
+			776802474	Nkalubo	Jamidah	1186	776802065		Kikoonoka	
+			1241	Irumba	Teddy	1192	776802058		Kikoonoka	
+				Akugizibwe	Yasinta	1185	776802056		Bujwahya	
+				Kaahwa	Jane	1172	776802215		Bulyango	
+				Namakula	Kevin	1166	776802211		Bujwahya  West	
+				Byakuhambya	Daisy	1170	776802224		Kiraira	
+				Isongoma	Rosemary	1160	776802262		Nyakabale	
+				Aseera	Jenepher	1169	776802217		Kiraira	
+				Kaahwa	Rosemary	1174	776802219		Kaboijana	
+				Nsubuga	Christopher	1157	776802216		Mbarara	
+				Ayebale	Stewart	1167	776802218		Mbarara	
+				Asaba	John	1165	776802228		Bulyango Central	
+				Achadribo	Godfrey	1175	776802229		Mbarara	
+				Kajura John	Paul	1168	776802231		Bujwahya West	
+				Gazooka	John	1158	776802234		Bujwahya	
+				Birungi	Reginah	1085	776801027		Nyakatoke	
+										
+Hoima	Kitoba	Karongo HC III	Muhereza Oswald	Birungi	Peninah	1183	776802067		Bujuura	
+			772562271	Kiiza	Evelyne	1193	776802061		Bubaale	
+			n/a	Abigaba	Juliet	1177	776802054		Iseisa	
+				Byenkya	Faridah	1189	776802057		Iseisa	
+				Kiiza 	Juliet	453	776802016		Buhiga	
+				Kwerunga	Fred	342	776802352		Butembe	
+				Musisi	Oliver	1188	776802053		Bubaale	
+				Kiiza	Beatrice	1180	776802059		Budaka	
+				Tumwesige	Sayuni	1187	776802066		Kyakakoizi	
+				Nyangoma	Harriet	1179	776802099		Kyakakoizi	
+				Kaahwa	Sally	1181	776802099		Butembe	
+				Monday	Oliver	1094	776802718		Kataikwa	
+				Bahat	Sedrach	1173	776802230		Kaboijana	
+				Bahemuka	Teopista	1161	776802227		Kipapati	
+				Katusiime	Evans	1163	776802232		Kibanjwa	
+				Kiiza	Tophace	482	776802515		Kipapati	
+				Biingi	Robert	1080	776801166		Kibanjwa	
+				Rwegaba	Betty	1176	776802225		Kibanjwa	
+				Nyamahunge	Annette	1093	776801064		Kyarusuura	
+				Kusiima	Atuhairwe	1082	776807706		Kyarusuura	
+				Katahoire	Sarah	1164	776802306		Kibanjwa	
+				Kugonza	Herbert	1159	776802310		Kibanjwa	
+				Kabagahya	Samali	1186	776802708		Bukerenge	
+				Kaahwa	Eric	1081	776801158		Kipapati	
+				Birungi	Oliver	1090	776801026		Birongo	
+										
+Hoima	Kitoba	Kiseke HC II	Tibakanya Imelda	Kaahwa	Solomon	971	776802035		Mpunda	
+			776802207	Nyangoma	Teopsita	1194	776802037		Kitoba	
+			n/a	Kato	Patrick	1178	776802068		Kitoba	
+				Mwesige	Danson	974	776802033		Kitesukura	
+				Kyaligonza	Gladdys	450	776802006		Kiizi Wageisa 	
+				Kibuka Kasangaki	Wilson	963	776802238		Kitesukura	
+				Ajuna	Sylvia	959	776802353		Mbiiwe	
+				Isingoma	Asumpta	972	776802034		Kiswero	
+				Aheebwa	Francis	960	776802260		Mwiiwe	
+				Kobusingye	Resty	961	776802261		Kiswero	
+				Byonabye	Joyce	1190	776802069		Buhumba	
+				Katahoire	Fred	958	776802288		Birongo	
+				Ntakimanye	Edinance	970	776802096		Mpunda	
+				Ndindwa	Evenon	964	776802236		Birongo	
+				Mugasa	Lennox	973	776802484		Buhamba	
+										
+Hoima	Kitoba	Kyabasengya HCII	Mbabazi Consolate	Nyamaizi	Scolla	975	776802029		Kiryangobe	
+			776802211	Nyangoma	Jenipher	967	776802025		Kiryangobe	
+			n/a	Tinka	Regina	1191	776801744		Nyakafunjo	
+				Irumba	Jackson	1196	776801063		Kyabasengira	
+				Barongo	Edward	965	776802207		Buniina	
+				Twaha	Mariam	1184	776802098		Kitembeka	
+				Atungonza	Hannah	968	776802024		Buniina	
+				Balikenda	Stella	962	776802237		Kitembeka	
+				Muhumuza	Leonard	1195	776802040		Kibuurwa	
+				Abimanyire	Godfrey	966	776802239		Kibuurwa	
+				Mbabazi	Sadayo	959	776802027		Kibuurwa	
+				Kalibagwa	Beatrice	957	776802287		Kiryangobe	
+				Kiiza	Sally	976	776802028		Kyabasengya	
+				Ajuna	Sylvia	959	776802353		Mbiiwe	
+				Nkulubo	Jamida	1186	776802065		Kikonoka	
+				Ryegaba	Betty	1176	776802225		Kibanjwa	
+				Katahoire	Sarah	1164	776802306		Kyarusura	
+				Kugonza	Herbert	1159	776802310		Kibanjwa	
+				Kabagahya	Samali	1086	776802708		Bukurenge	
+				Atakwatuliire	Peter	539	776801152		Katahikwa	
+				Mucunguza	Richard	545	776801127		Birongo	
+				Wabyona	Edwin	552	776801145		Kyakakoizi	
+				Byenkya	Nelson	546	776801175		Butembe	
+				Mbaraga	Joseph	498	776807137		Munounda	
+				Ayebale	Teddy	602	776801946		Kyesiiga West	
+				Barongo	Edward	698	776802324		Dwoli West	
+				Kusemererwa	Elizabeth	697	776802328		Bulembwa	
+										
+Buliisa	Kigwera		Wobusobozi Evace	Tumusiimwe	Ronald	1048	776801826		Bikongoro	
+			776802735	Balikurahi	Julius	1049	776801417		Bikongoro	
+			1224	Baguma	Keneth	1111	776801575		Kigwera S/W	
+				Balyesiima	Lilian	1054	776801661		Kiyere	
+				Bitadwa	David	1051	776801662		Kigwera S/E	
+				Kusemererwa	Lovis	1045	776801821		Kigwera N/W	
+				Byensi	Evelyn	1055	776801663		Kigwera S/W	
+				Maeambo	Alfred	1038	776801644		Katodio	
+				Tibakunirwa	Joyce	1039	776801820		Kigwera N/E	
+				Azoora	Godfrey	1046	776801646		Kiwera S/W	
+				Rugadya	Godfrey	1043	776801429		Kichoke	
+				Kyomuhendo	Richard	1037	776801829		Kirama	
+				Tundulu	Mark	1053	776801823		Kigwera N/W	
+				Muhangi	Denis	1041	776801643		Wanseko	
+				Mijhemba	Justine	1052	776801827		Kisansya. E	
+				Balinkenda	Godfrey	1047	776801642		Kiwgwera N/E	
+				Byarufu	Stephen	1050	776801825		Kirama	
+				Kusiima	Irene	1044	776801822		Kichoke	
+				Katusabe	Annette	1056	776801824		Katodio	
+				Katusiime	Gilbert	1042	776801819		Kisansya. E	
+				Mwesigwa	Jonathan	1040	776801641		Masaka	
+				Ngonzebwa	Alice	1100	776801720		Katanga	
+				Kabagambe	Robert	1109	776801850		Kisansya. W	
+				Byaleero	Christopher	1114	776801591		Kisansya W	
+				Katusiime	John	1098	776801287		Katanga	
+				Manyireki	Scolastica	1116	776801570		Ndandamire	
+				Birungi K	Oliver	1102	776801842		Wanseko	
+				Byenkya	Francis	457	776802017		Kiyeere	
+				Muhumuza	Francis	1110	776801594		Ndandamire	
+				Katusiime	Zainah	1103	776801828		Masaka	
+										
+Kibaale	Muhoro		Musiime Fausta	Tibesigwa 	Andrew	801	776801970		Muhorro Central	
+			774251166	Bagonza	Semastian	812	776801517		Kilyabyenju	
+			n/a	Kizito 	Mabanga	805	776801515		Kibanga	
+				Namata	Rosemary	806	776801053		Kahyoro	
+				Tinka	Tereza	808	776801036		Kahyoro	
+				Kyomya	Sefuroza	799	776801050		Kitooro	
+				Kabagaya	Margaret	810	776801052		Kilyabyenju	
+				Fatuma	Sanday	800	776801041		Igulika	
+				Katusabe	Zaituna	674	776801117		Muhorro Central	
+				Tumukunde	Tusabe	659	776801726		Karuswiga E	
+				Ajuna 	Robert	813	776801510		Kibanga	
+				Kalyegira 	Charles	803	776802758		Kyamurodo	
+				Nyamahunge	Gladys	664	776801627		Kisenyi	
+				Mukonyezi	Kirumira	804	776801047		Karuswiga Central	
+				Kajumba	Twesige	997	776801535		Karuswiga West	
+				Tusiime	Annet	660	776801717		Karuswiga East	
+				Kasaija	Kagidi	1010	776801676		Ruswiga	
+				Kugonza	Balisanyuka	1012	776801677		Nyabubaale	
+				Mwalimu	Rashid	666	776801907		Kihereza	
+				Saba	George William	661	776801718		Kisenyi	
+				Baitwababu	Sarapio	1001	776801542		Karuswiga West	
+				Kabasindi	Sebiyombi	815	776801516		Kanywamiyaga	
+				Ategeka 	Kahwa	1009	776801681		Karuswiga West	
+				Atuhairwe	Baguma	663	776801991		Karuswiga East	
+				Kabasaigi	Musinguzi	798	776801042		Kihereza	
+				Tumusiime	Rose 	802	776801035		Kyamurodo	
+				Nakaweke	Rose	807	776801506		Ruswiga	
+				Busiinge	Byenkya	811	776801038		Kanywamiyaga	
+				Nasazi	Hadija	814	776801507		Igulika	
+				Tibenda	Francis	816	776801039		Nyamiti	
+				Musinguzi 	Gadi	256	776802468		Kyesamire B	
+				MBABAZI	AIRET	242	776802457		Kyokorongoto	
+				RWABUGIRI	DANIEL	249	776802460		Kabuga A	
+				MWESIGE	FRACIS	244	776802461		Kyanyarara	
+				TUMWEKWASE	JUDITH	146	776801878		Ibanda	
+				NYANJURA	ALICE	1113	776801633		Kyakajwiga	
+				NDOLERIRE	SAMUEL	689	776801524		Nyamacumu	
+				MPIGIZA	ENOCH	241			Kyakajwiga	
+				AGABA	NYANSIO	536	776802668		Kyabasenja	
+				MBABAZI	CHRISTOPHER	85	776801857		Kyesamire B	
+				KYAKUHAIRE	EDINANSI	704	776802499		Nyamacumu	
+				KABAGAMBE	YOWERI	706	776802490		Kyesamire AB	
+				MUGISHA	ADOLF	700	776802319		Kyambogo	
+				TUMUHIMBISE	GODFREY	702	776802514		Nyambeho	
+				NGORONSA	TEREZA	1104	776801589		Nyamigisa	
+				BAGAMBE	ALIFUNSI	682	776802719		Ibanda	
+				BYARUHANGA	VICENT	258	776802453		Bununkya	
+				BYONANEBYE	ODIRA	248	776802469		Kyabasenja	
+				MBABAZI	FAUSTA	705	776802491		Kabuga A	
+				ALIJUNOHA	FRACIS	251	776802467		Kasoga	
+				TWIKIRIZE	GRACE	534	776800513		Nyamigisa A	
+				NDYANABANGI	SILVER	699	776802321		Kambogo	
+				MUHOOZI	SAMSON	532	776802485		Kyankorongoto	
+				TWINOBUSIGYE	PROVIA	1097	776801576		Bununkya	
+				BAKEIHAHWENKI	FLAVIA	708	776802509		Nyamigisa B	
+				MUHEREZA	OVADI	246	776802458		Kyanyarara	
+				ASABA	MOSES	243	776802475		Nyamigisa B	
+				TURYATEMBA	JUSTUS	703	776802486		Kasoga	
+				TWEBAZE	JACKRINE	713	776802533		Kyesamire A	
+				Birungi	Robert	574	776802168		Nyambeho	
+				Omuhereza	Nitalimugese	562	776802767		Nyankoma B	
+				Bunita	Obed	723	776801494		Rutooma A	
+				Musika	Silivano	730	776802420		Nyakasozi	
+				Maniragaba	Karoli	729	776801486		Nyakasozi	
+				Byabagye	Bernard	95	776801706		Bweera	
+				Nzabonimpa	David	729	776801482		Bugarama	
+				Mugabe	Abudullah	1023	776801797		Musandika	
+				Kabigumira	Bernard	718	776801495		Taliboreka A	
+				Mwesige 	Robert Fulton	731	776801490		Nyankoma A	
+				Tukamwijuka	Livinstone	734	776801793		Galiboleka B	
+				Safari	Emmanuel	725	776801487		Bugarama	
+				Nabaasa	Lydia	720	776802422		Rwentahi	
+				Busesire	Evas	1032	776802451		Galibore A	
+				Birungi	Safiina	735	776801489		Kyenjojo	
+				Kyalisiima	Zaituni	724	776801483		Nyankoma A	
+				Munyarukindo	Charles	736	776801484		Nyaruhanga	
+				Byaruhanga	Milton	1022	776801794		Rutooma B	
+				Safari	Josephat	94	776801792		Kagarama	
+				Rukabeeba I	Didas	719	776802419		Nyaruhanga	
+				Namande 	Halima	726	776802421		Nyankoma B	
+				Ahabyoona	Wilson	732	776802482		Musandika	
+				Turyagyenda	Charles	1027	776801785		Kajuma	
+				Bubahamya	Didas	1030	776801787		Kajuma	
+				Asiimwe	George	1036	776801789		Busungubwa	
+				Tombuuza	Hornest	1031	776802463		Busungubwa	
+				Bwambale 	B James	1021	776802671		Rwentahi	
+				Malingumu	Patrick Bosco	1033	776802464		Kyenjojo	
+				Mbabazi	Godfrey	722	776801493		Galiboleka B	
+										
+Kibaale	Mpeefu		Thembo Selevano	Turyahikayo	Zayerio	677	776801994		Wangeyo B	
+			776802765	Tumuhimbise	Kenneth	1002	776802302		Kabadede	
+			1226	Sekabanza	Vincent	933	776801449		Soborwa	
+				Beddi	Michael	926	776801426		Tweyanze	
+				Tumuhimbise	Richard	934	776801414		Kiyenzi	
+				Mugabe	John	921	776801427		Kiyenzi	
+				Masika 	Serufoza	925	776802531		Lyanda	
+				Byaruhanga	Julius	919	776801518		Wangeyo B	
+				Tibenda	John	924	776802546		Mpumude	
+				Iragaba	Robert	918	776801433		Wangeyo A	
+				Kacwabirago	Joshua	922	776802565		Kabadede	
+				Abigaba	Matayo	917	776801428		Kyomukama B	
+				Byaruhanga	Francis	923	776802532		Kitumba B	
+				Rwamwenge	Joseph	920	776801410		Kyaterekera A	
+				Bwambale 	Henry	927	776802498		Kakooga	
+				Uzelly 	Paskalinah	929	776802756		Nyantoz	
+				Kabarwani	Jatrida	930	776801422		Lubiri	
+				Nkurunungi	John Bosco	928	776802530		Tweyanze	
+				Thembo	Enock	1004	776801690		Lyanda	
+				Museveni	John	933	776802757		Kyomukama A	
+				Maathe	Luke	931	776801431		Kyaterekera B	
+				TUSINGWIRE 	JOHNSON	935	776801415		MURUHA	
+				BALUKU	HERIZON	936	776801421		MUZIIZI A	
+				BIIRA	LOICE	1013	776802304		KYATEREKERA B	
+				MATESO	ABEL	1000	776802305		LUBIRI	
+				MASEREKA	AMOS	1015	776802603		MUZIIZI A	
+				MUKINE	ZEBIAH	1014	776802307		KITUMBA B	
+				Bwambale 	ABASI	998	776801668		KAKOOGA	
+				NDOLERAHO	SAMUEL	1005	776802606		WANGEYO  C	
+				mubatsi	siira	1011	776802299		buswaka	
+				BIRUNGI	PASCAL	1016	776802602		SOBORWA	
+				CWINYAAIH	GODFREY	1006	776801538		NYANTONU	
+				KULE	NASAN	1007	776801537		KATERERA	
+				KWEYAMBA	COSMA	999	776801636		BUSWAKA	
+				SATUKINA	TUMWESUGYE	1008	776801687		WANGEYO  C	
+				MUHINDO	LHUHANDYA	1003	776801689		MUZIIZI B	
+				Mawanda	Enid	363	776802199		mpeefu	
+				Twesigye	Justus	374	776802685		Galiraya	
+				Halimpisa	Jack	358	776801803		Rubirizi A	
+				Mwambusa	Stephen	257	776802456		Buligira	
+				Korusiriko	Vastina	254	776802450		Galiraya	
+				Habutungira	Yeremia	376	776802691		Mpeefu A	
+				Katalikawe	Sicola	362	776801806		Kayera	
+				Tumwebaze	Moses	371	776802686		Mpeefu A	
+				Nkwasiibwe	Pius	361	776802720		Nyakabale	
+				Kato	Donozio	260	776802466		Nyakabale	
+				Mbabazi	William	368	77680690		Rukoora	
+				Agaaba	Francis	259	776802494		Buligira	
+				Byamukama	Gidion	247	776802470		Nyamukara	
+				Mbabazi	Miria	377	776802639		Waihembe	
+				Bemazaki	Justus	252	776802454		Kandora	
+				Alineitwe	Moses	360	776801805		Kanyamunguse	
+				Barigye	Sylivest	370	776802692		Mutule	
+				Mugyenyi	James	369	776802645		Mpookya	
+				Rwakibaale	Kasomoko	372	776802699		Mutuule	
+				Bimugwaho	David	250	776802495		Kijuru	
+				Tindyebwa	Edward	245	776802471		Waihembe	
+				Tumuhereze	Judith	373	776802689		Kandora	
+				Mburanomwe	Robert	367	776802696		Rukoora	
+				Kyomugambi	Edward	365	776802695		Mpeefu Central	
+				Lukundo	Tito	364	776802693		Kasara	
+				Tweheyo	Julius	253	776802452		Kanyamunguse	
+				Ndinabo 	Julius	375	776802480		Nyamukara	
+				Kusiima	Josephine	255	776802449		Mpookya	
+				Byarugaba	Paul	366	776801807		Kayera	
+				KEMIGISA	Mbikwase	359	776802200		Kijuru	
+				Akampurira	Emmanuel	575	776801501		Nyamigisa	
+				Tumusiime	Fred	1025	776801790		Mujeiguru B	
+				Bamuhiiga	Lourence	516	776801714		Kurukuru A	
+				Kabyesiza	Sympson	1034	776802144		Sion	
+				Bakwatirenda	Mathias	784	776801772		Buraza	
+				Nezehose 	Damiand	1024	776801798		Kanyamiyaga	
+				Turyomuresi	Ivan	561	776802768		Mugyenza	
+				Ahumuza	Immanuel	783	77680770		Buraza	
+				Mwesigwa	Tanazio	780	776801779		Rujumbura	
+				Byamukama 	Felex	1018	776802678		Rugambwa	
+				Turyakira	Edson	825	776802141		Nyakagyera	
+				Bakiga	Bex Freedom	576	776802167		Nyamigisa	
+				Tukamushaba	Allen	793	776801322		Kibengo	
+				Semudari	Francis	1026	776801796		Kurukuru B	
+				Kyansimire	Sikoviya	1019	776801795		Kurukuru A	
+				Tumwehe	Charles	1020	776802674		Rujumbura	
+				Seja 	Emmy	558	776801519		Kurukuru B	
+				Olibariho	Denis	1150	776801811		Mugyenza	
+				Kaberuka 	Evarest	790	776801778		Kibengo	
+				Habumugisha	Jimmy	721	776801492		Nyakagyera	
+				Unyuthfua	William	786	776801782		Ndaiga	
+				Matte	Rogers	788	776801774		Kamina	
+				Uwonda	D Samuel	792	776802142		Rwebigonyoro	
+				Bahemukambo	B	791	776801769		Kabukaruga	
+				Kwayampora	John	796	778601776		Nyamasoga	
+				Ocay Serere	Justus	787	776801773		Kitebere	
+				Chwinya 	Tito	777	776802140		Kitebere	
+				Mukonyezi	Omuhereza	782	776801767		Kabukanga	
+				Owonda	Diedonne	779	776801765		Songarao	
+				Atimu	Elizabeth	794	776802652		Ndaiga	
+				Maberinda	Denis	832	776801775		Songarao	
+				Baluku	Simon	795	776801783		Nyamasoga	
+				Ategeka	Augustine	785	776801766		Rwebigonyoro	
+				Byamukama 	Muhereza	789	776802653		Kamina	
+										
+Masindi	Pakanyi	Kilanyi HC	Ambayo Mathew	Bigambwa A	Leonard	423	776802147		Kisanja	
+			776802049	Kabonesa	Margaret	431	776801531		Kidwera II	
+			1198	Kabikuru	Jeska	420	776802145		Labongo	
+				Nyanjura	Justine	499	776801532		Labongo	
+				Bukenya	Tadeo	434	776801533		Nyakyanika I	
+				Kabaseke	Beatrice	426	776802156		Kisabagwa	
+				Wandera	Paskal	429	776802148		Kidwera I	
+				Atuhairwe	Robert	437	776802104		Kyamugwera	
+				Okecha	Jinaro	560	776802160		Kigunia	
+				Tumusime K	Johnson	1084	776802736		Kituka Central	
+				Bahikyayo	Joyce	424	776802105		Nyakyanika II	
+				Kiiza	Godfrey	436	776802149		Kyamugwera	
+				Kayondo	Charles	573	776802165		Kihonda	
+				Magezi 	Steven	565	776802754		Bokwe	
+				Balikurugi	Joseph	567	776801505		Kidwera I	
+				Onen	Noah	430	776801528		Nyakyanika II	
+				Wandera	Livingstone	1077	776802547		Kijumbura	
+				Kyamanywa	Robert	564	776802161		Kasenyi Bokwe	
+				Wandera	Coronuel	1096	776802549		Kihanguzi	
+				Byarunhanga	Robert	419	776802128		Kigunia	
+				Otwiya	Rufino	421	77680		Hanga	
+				Alia	Charles	427	776802103		Kijumbura	
+				Namuddu	Fatuma	428	776801527		Walyoba	
+				Nyangureki	Rosemary	425	776802119		Hanga	
+				Balibagana	Deo	432	776802153		Kigaragara	
+				Ngonzebwa	Evelyn	435	776801530		Kisabagwa	
+				Nyangireki	Enid	498	776802154		Kihanguzi	
+				Amanya	Nelson	422	776802129		Kilanyi	
+				Nyangoma	Noeline	566	776802115		Kisanja	
+				Ofezu	Moses	1091	776802707		Kihonda	
+				Kakara	Safian	1089	776801028		Kidwera II	
+				Kasaija	Sam	570	776802163		Walyoba	
+				Tholit	Alex	1083	776801034		Kituka II	
+										
+Masindi	Pakanyi	Pakanyi HC III	Nyanjura Zaituni	Oryema	Abdul	365	776801671		Katugu	
+			776802043	Canbithum	Wilberforce	267	776801674		Kaborogota	
+			1248	Mbambazi	Joyce	1120	776801982		Katumba	
+				Kiiza	Semi	1134	776801988		Kisindi	
+				Musiige	Lawrence	1119	776801983		Kyakamese	
+				Agaba	Simon	274	776801670		Kyatwenge	
+				Acaye	Santolina	278	776802597		Kibamba	
+				Birungi	Scovia	269	776801673		Kyatwenge	
+				Benda	Jane	280	776802600		Kibamba	
+				Majara	Yosam	273	776801547		Kasomoro	
+				Katalikakwe	Jackline	268	776802599		Kisinzi	
+				Nyangureki	Dinah	261	776801669		Kasomoro	
+				  Atimnedi	Richard	279	776802598		Kyarumbeiha	
+				Mugisa	Ephram	263	776801667		Katumba	
+				Ayebale	Fred	264	776801691		Nyakatoogo	
+				Mugisa	Chrisestom	270	776802601		Nyakatoogo	
+				Kugonza	Immaculate	1122	776801005		Kyakamese	
+				Mijumbi	Esther	275	776802312		Kisindizi	
+				Nyambubi	Robinah	276	776801672		Katugo	
+				Katusiime	Justine	271	776801546		Kyarumbeiha	
+				Kiiza	Robinah	272	776802575		Pakanyi	
+				Kermu 	Emmy	262	776802628		Kaborogota	
+				Wedunga	John	277	776801548		Kisindi	
+				Mbona Joseph	Henry	266	776801545		Pakanyi	
+										
+Masindi	Pakanyi		Kyamanywa Edward	Okumu	Alfred	1092	776802704		Katugo	
+			776802048	Manano	Vasco	571	776802173		Kyambogo	
+			1234	Osoba	Alphonse	443	776802197		Kisekula I	
+				Barugahara K	Charles	509	776802107		Kiboijogoro II	
+				Dokcen J	Richard	517	776802118		Kisekula 	
+				Odaga	Julius	418	776802100		Kibibira	
+				Ayesiga	Racheal	569	776802752		Kyakayaga I	
+				Aziz K	Badru	515	776802111		Kyababyara	
+				Mulisi	Balikurungi	513	776802117		Kyakayaga II	
+				Kahwa	Scola	503	776802124		Kisindizi II	
+				Kasamba	Christopher	577	776802174		Nyakasagazi	
+				Ngabikunya	Gilbert	568	776801503		Kibibira	
+				Susu	Alfred	508	776802127		Kyakayaga I	
+				Susu	Mario	559	776802170		Kiboijogoro II	
+				Agaba	Charles	572	776802755		Kyabakami	
+				Byembandwa	Sunny	1079	776801159		Kiboijogoro I	
+				Onyai	Richard	510	776802125		Katugo	
+				Okila	Lawrance	1087	776802548		Nyakabale	
+				Onim E	Willy	502	776802106		Kyababyara	
+				Onegiu	Gilbert	511	776802126		Kyakayaga II	
+				Joan	Night	1095	776802701		Nyalabaale	
+				Birungi	Aisha	500	776802123		Kisindizi/Nyabindo	
+				Malyate	Harriet	501	776802112		Kyambogo	
+				Ayesiga	Justus	1088	776802175		Kiboijogoro I	
+				Onyai	Santino	563	776801521		Kyatiri	
+				Abigaba	Madinah	514	776802110		Kyatiri	
+				Birungi	Marion	506	776802113		Kyabakami	
+				Opar	Godfrey	505	776802122		Nyakasagazi	
+				Amanya	Nebart	504	776802108		Nyambindo	
+				Byenkya	Fred	507	776802158		Kisindizi II	
+										
+Masindi	`	Kintanyata HC II	Mandera Lucy	Kyegondeza	Sunny	135	77680		Kitengule	
+			776802044	Ongeirwoth	David		776801163		Nyakabongo	
+			1240	Kato 	James	123	776802551		Kimina	
+				Okumu	Anjelo	131	776802506		Kitengule	
+				Kwegondeza	Sunny	129	776802541		Kitengule	
+				Jawiya	Swaleh	127	776802553		Nyakatoma	
+				Kabanyoro	Alice	139	776802589		Waiga	
+				Katusiime	Alikanjero	707	776802557		Kiyuya	
+				Nyamusana Wanda	Alice	711	776802588		Ibaralibi	
+				Mukasa	Deo	709	776802556		Nyakarongo	
+				Mugisa	Robert	138	776802592		Kisweramahinda	
+				Nyamususwa	Betty	714	776802585		Kibirani	
+				Kyalisiima	Scovia	122	776802537		Ibaralibi	
+				Musindi	Joseph	140	776802590		Nyakakoma	
+				Kasngaki	Wilson	133	776802503		Kiruli	
+				Yotaro	Scovia	128	776802593		Kihuya	
+				Nambooze	Beninya	125	776802596		Kiruli	
+				Oryama	Godfrey	710	776802536		Kibirani	
+				Oki	Samson	136	776802508		Alimugonza	
+				Sunday	Grace	121	776802488		Kitanyata	
+				Tigalyoma	Betty	137	776802539		Waiga	
+				Kabahumuza	Mary	126	776802505		Kisweramahinda	
+				Bagonza	John	132	776802500		Kimina	
+				Aguunda	Monday	130	776802591		Kyamudikya	
+				Byebwoha	Herbert	134	776802559		Kitanyata	
+				Sulaiman	Vasco	716	776802583		Kyamudikya	
+				Magara	Asaheri	124	776802558		Kyangamwoyo	
+				Kiisa	Miriam	715	776802587		Alimugonza	
+				Ndolere	Evelyne	712	776802298		Kyangamwoyo	
+										
+Kyankwanzi	Ntwetwe		Nansamba Ruth	Tukamuhebwa	Eziidoro	181	776802441	Kitwala	Nzoo	
+			776801014	Mbazira	Patrick	182	776802443	Kitwala	Nzoo	
+			1227	Hakizimaana	Sypriano	183	776802427	Kitwala	Muwangi	
+				Sekasi	Godfrey	184	776802444	Sirimula	Kayindiyindi	
+				Nansumbi	Jane	185	776802437	Kitwala	Degeya	
+				Emorut	James	186	776801488	Sirimula	Kigalama	
+				Kasana	Yonasaani	187	776802440	Sirimula	Kikolooto	
+				Musuhuke	Daniel	188	776801859	Kitwala	Bambala	
+				Niyonsenga	Samuel	189	776802439	Sirimula	Sirimula	
+				Matovu	Nelson	190	776802717	Sirimula	Kigalama	
+				Uwamungu	Damaseni	191	776802431	Kitwala	Muwangi	
+				Natoozo	Agnes	192	776802433	Sirimula	Kikolooto B	
+				Rwabukambiza	Amtoni	193	776802429	Sirimula	Kikolooto B	
+				Kisambira	Ali	194	776802432	Kitwala	Degeya	
+				Sindambiwe	Damaseni	195	776802438	Kitwala	Bambala	
+				Bugingo	Mariseeli	196	776802435	Kitwala	Kyamuteete	
+										
+Kyankwanzi	Ntwetwe		Nandaula Pheoba	Mugerwa	G.W	62	776801278	Bulagwe	Bulagwe	
+			776801019	Nansubuga	Christine	63	776801277	Bulagwe	Kabinduula	
+			1225	Nansubuga	Lestetuta	64	776801275	Kitabona	Kitabona East	
+				Semanda	Godfrey	65	776801274	Kitabona	Kaggi	
+				Nitegeka Ssebagala	David	66	776801273	Kitabona	Katuugo	
+				Muyanja	Simon	67	776801304	Kitabona	Kabinduula	
+				Nabukeera	Topista	68	776801303	Kitabona	Kitabona East	
+				Ssekitene	Charles	69	776801302	Kitabona	Kitabona West	
+				Musisi	Richard	70	776801301	Kitabona	Kanyerere	
+				Muyingo 	Isa	71	776801299	Bulagwe	Kabuwuka West	
+				Sebuliba	Fred	72	776801295	Bulagwe	Kabuwuka East	
+				Biryeti	Jesica	74	776801291	Kitabona	Kaggi	
+				Kisiriko	Fred	75	776801290	Kitabona	Kanyerere	
+				Nabakooza	Annet	76	776801288	Bulagwe	Selunyonyi	
+				Nabiryo	Kate	77	776801318	Bulagwe	Kyambizzi	
+				Nakaweesi	Passy	78	776801317	Bulagwe	Bulagwe	
+				Benda	Masitula	79	776801316	Bulagwe	Kabuwuka West	
+				Nakitto	Joyce	80	776801315	Bulagwe	Selunyonyi	
+				Nanziri	Rosemary	81	778668801	Bulagwe	Kabuwuka	
+				Nazziwa	Janepher	409	776802414	Bulagwe	Natyole	
+				Odubi	John Bosco	410	776802646	Natyole	Ndibata	
+				Kaweesi	Andrew	411	776802405	Natyole	Kanyogoga	
+				Kiwanuka	Mike	412	776802404	Natyole	Natyole	
+				Tebukozza	Vicent	413	776802418	Natyole	Ngugwe	
+				Nansita	Jane	414	776802642	Natyole	Ngugwe	
+				Nakafeero	Ruth	415	776801578	Natyole	Buduku	
+				Ssebbowa	Matia	416	776802413	Natyole	Kanyogoga	
+				Nabuuso	Catherine	417	776802724	Natyole	Ndibata	
+				Nakanjako	Teopisita	518	776801478	Natyole	Kyambizzi	
+				Kayiwa	Gerald	520	776801479	Natyole	Kitabona West	
+				Namagembe	Domina	671	776801312	Natyole	Budduku	
+				Magembe	Willy	757	776801253	Ntiba	Nkandwa A	
+				Misanvu	Dan	758	776801254	Ntiba	Ntiba	
+				Nalwadda	Amina	759	776801251	Nkandwa	Nkandwa C	
+				Nansamba	Mary	760	776801256	Ntiba	Kyabasiita	
+				Ssekanyumiza	Teddy	761	776801255	Ntiba	Ntiba	
+				Yawe	Eriabu	762	776801249	Ntiba	Ntuuti	
+				Kyeyune 	James M	763	776801247	Ntiba	Buyondo A	
+				Kiwanuka Ssalongo	Isa	764	776801252	Nkandwa	Nkandwa C	
+				Zawedde	Sarah	765	776801259	Nkandwa	Buyondo C	
+				Babirye	Esther	766	776801264	Nkandwa	Buyondo A	
+				Ssekatawa	Emmanuel	767	776801263	Ntiba	Nakalama	
+				Namukisa	Saveera	768	776801258	Ntiba	Nakalama	
+				Nakasinde	Florence	769	776801266	Ntiba	Nakalama	
+				Nakayiza	Mary	770	776801267	Nkandwa	Kiryanongo	
+				Nangonzi	Josephine	771	776801265	Nkandwa	Kiryanongo	
+				Namuyanja	Sarah	772	776801268	Ntiba	Ntuuti	
+				Nakirya	Olivar	773	776801269	Ntiba	Kyengeza	
+				Kasibante	Margret	774	776801271	Nkandwa	Nkandwa A	
+				Namagembe	Tereza	775	776801270	Nkandwa	Buyondo C	
+				Lule	Mathias	868	776801599	Ntwetwe	Ntwetwe B	
+				Namubiru	Veronica	869	776801352	Ntwetwe	Kigoma	
+				Nakato	Deborah	870	776801362	Ntwetwe	Ntwetwe B	
+				Nabukenya	Alice	871	776801351	Ntwetwe	Kaloddo	
+				Sebunje	Michael	872	776801345	Ntwetwe	Ntwetwe A	
+				Namitala	Joyce	873	776801342	Ntwetwe	Kisojjo	
+				Nsanja	Siitivini	874	776801339	Ntwetwe	Kigoma	
+				Nantume	Resty	875	776801598	Ntwetwe	Kaloddo	
+				Ssemakula	John	876	776801360	Ntwetwe	Kisojjo	
+				Nakaweesi	Josephin	938	776801008	Ntiba	Kikajjo West B	
+				Sserunkuuma	Paddy	939	776802023	Ntiba	Kyabasiita	
+				Nabageraka	Gorreti	940	776801007	Ntiba	Kiyinikibi	
+				Tebuseeke	Sulumaani	941	776801006	Nkandwa	Buyondo B	
+				Nakimera Mayanja	Benna	942	776802259	Bugomolwa	Bugomolwa	
+				Ssentamu	Mathius	943	776802257	Ntiba	Kiyinikibi	
+				Bukirwa	Christine	944	776802256	Bugomolwa	Bugomolwa	
+				Bogere	Christopher	945	776802286	Ntiba	Malungu	
+				Nabukeera	Alice	946	776802255	Bugomolwa	Kasoolo	
+				Ssemanda	Dosiano	947	776802281	Bugomolwa	Bugomolwa B	
+				Balongo	Patrick	948	776802273	Bugomolwa	Bugomolwa A	
+				Namuyige	Jenet	949	776801869	Ntiba	Kikajjo	
+				Kyalisiima	Mary	950	776802679	Ntiba	Nkandwa B	
+				Lwanyaga	Sulaimani	951	776802284	Bugomolwa	Kasoolo	
+				Katongole	Madina	952	776802272	Ntiba	Malungu	
+				Namukasa	Mebo	953	776802249	Ntiba	Kikajjo West A	
+				Nakyanzi	Getrude	954	776802278	Nkandwa	Buyondo	
+				Muzamiru	Kalid	955	776802275	Nkandwa	Nkandwa B	
+				Nanyunja	Rose	956	776802269	Ntiba	Kikajjo West A	
+										
+Kiboga	Bukomero		Kaidu Harriet	Nabukalu	Milly	298	776801169	Kyomya	Kyomya	
+			776801013	Kayimbye	Joyce	299	776801133	Kyomya	Kyomya	
+			1214	Namazzi	Prossy	300	776801170	Kyomya	Kiyamba	
+				Ssennyonjo	Francis	301	776801167	Kyomya	Kiyamba	
+				Kobonko	Eva	302	776801308	Kyomya	Nakaseeta	
+				Walusimbi	Betty	304	776801306	Kyomya	Nakaseeta	
+				Nagitta	Florence	305	776801305	Kyomya	Kabbo	
+				Ssekyato	Joseph	306	776801319	Kyomya	Kabbo	
+				Nalukenge	Gladys	307	776801246	Kyomya	Kabamba West	
+				Ssenabulya	Joseph	308	776801244	Kyomya	Kabamba West	
+				Nnamwanje	Teddy	309	776801243	Kyomya	Kabamba East	
+				Kato	Charles	310	776801242	Kyomya	Kabamba East	
+				Najingo	Keti	311	776801237	Kyomya	Mpangala West	
+				Wuutu	Edward	312	776801236	Kyomya	Mpangala West	
+				Lukwago	Peeto	313	776801235	Kyomya	Mpangala East	
+				Nanozi	Josephine	314	776801233	Kyomya	Mpangala East	
+				Nakyambadde	Harriet	315	776801232	Kyomya	Kayunga	
+				Ssebyala	Chrizestom J	316	776801135	Kyomya	Kayunga	
+				Kakumba	John	317	776801228	Kyomya	Kabayima	
+										
+Kiboga	Bukomero		Nsubuga Amos	Salongo	M	345	776802348	Mwezi	Sogolero	
+			776801015	Namukasa	Ephrance	346	776802346	Mwezi	Sogolero	
+			1237	Ntare	Betty	347	776802345	Mwezi	Kyeyitabya	
+				Kayitale	Anthony	348	776802343	Mwezi	Kyeyitabya	
+				Mukamutala	Agnes	349	776802342	Mwezi	Kibanga A	
+				Namusisi	Shakirah	351	776802340	Mwezi	Lukuga	
+				Nalugo	Sylivia	353	776802338	Mwezi	Lukuga	
+				Nalima	Ruth	353	776802347	Mwezi	Mwezi B	
+				Nakalyango	Getrude	354	776802337	Mwezi	Mwezi B	
+				Zalunda	Christopher	355	776802335	Mwezi	Mwezi A	
+				Nansubuga 	Cate	356	776802330	Mwezi	Mwezi A	
+				Namawejje	Robinah	357	776802329	Mwezi	Bitibyamukasa	
+				Kigongo	Yabezi	937	776801084	Mwezi	Kibanga B	
+										
+Kiboga	Bukomero		Nannyanzi Claire	Nassali	Jannat	1	781065715	Bukomero	Lutti	
+			776801011	Nahhuma	Harriet	2	781065765		Kakunyu.A	
+			1232	Nakanwagi	Margaret	3	781167068		Lwattimba	
+				Nalongo N	Milly	4	781065723		Kateera	
+				Nabirye	Alice	5	781065739		Kosolokindo	
+				Kamya	Livingstone	6	781065770		Nakaziba	
+				Mukalazi	Ishaac	7	781065730		Lwattimba	
+				Kyolaba	Deborah	8	781065799		Kalagala. B	
+				Namuli	Hasifah	9	778668800		Temabekali.B	
+				Namakula	Hanipher	11	778668802		Mataagi	
+				Namirembe	Talisya	12	778668805		Temabekali.B	
+				Nabukenya	Madina	13	778668806		Mataagi	
+				Lwamba	Asumani	14	778668829		Lutti	
+				Nsereko	Monica	15	781065728		Kyamanyooli	
+				Busuulwa G	William	16	781065718		Kalagala. A	
+				Seggane	Harriet	17	781065721		Kalagala.A	
+				Nansasi	Madrine	18	781065719		Temabekali.A	
+				Sentamu	Augustine	19	781065733		Busaasa	
+				Kiwanuka	Copriam	20	781065714		Kateera	
+				Namuli K	Margaret	21	781065729		Kalagala. B	
+				Lumu W	Samuel	1073	776801728		Nakaziba	
+				Sennyojo A	Joseph	1070	776801736		Bukomero. C	
+				BUsuulwa 	Vincent	1072	776801730		Temanakalia	
+				Bamulaasa	Faisal	1076	776801731		Kasololindo	
+				Mukalazi	Richard				Busaasa	
+				Nawedde	Robinah	86	776802424		Kayonza	
+				Lule	Moses	87	776802435		Kibanda	
+				Sali	Peter	88	776801865		Kibanda	
+				Mukasa	Ssalongo	89	776801860		Nasiriba	
+				Nakuya	Oliver	90	776801862		Kikooba	
+				Nambi	Martha	91	776801702		Nakiluri	
+				Kizito	Lydia	92	776801861		Kikooba	
+				Ayiko	Aloysius	93	776801705		Nakiluri	
+				Mulwana	Bosco	96	776801697		Nakatooke	
+				Nalunga	Joyce	97	776801698		Nakatooke	
+				Birungi	Aisha	98	776801699		Wabikunyu	
+				Kato	Ronald	99	776801703		Masiriba	
+				Kiggundu	Abdu	100	776801701		Kayonza	
+				Kalule	Mariam	197	776802428		Bukomero. A	
+				Miyingo S	Ronald	198	7768902447		Kijoojolo . A	
+				Tebajjanga	Francis	199	776802442		Bukomero. A	
+				Nakitende	Annette	200	776802436		Kakunyu . C	
+				Nakimbugwe	Maxencia	717	776801856		Kijoojolo . A	
+				Kaliisa S	Charles	723	776802423		Kijoojolo . B	
+										
+Kiboga	Bukomero		Natukunda Jenifer	Nanyonyi	Ruth	398	776802721		Kagogo. B	
+			776801012	Nakyobe	Suzan	399	776802722		Kyaterekera	
+			1247	Nyamungu	Gertrude	400	776802648		Lwanjjiri	
+				Nalukenge	Mastulah	401	776802733		Kyanamuyonjo	
+				Byasali	Gerald	402	776802725		Lwanjjiri	
+				Masengere	Aidah	403	776802409		Kanziiira	
+				Luyinda	Sylvia	404	776802412		Bulyankuyege.A	
+				Semakula	Twaha	405	776802726		Kanziiira	
+				Mukasa	Sarah	406	776802730		Kyomya	
+				Nalule	Gertrude	407	776802732		Bulyankuyege.B	
+				Nakatima	Robinah	1074	776801886		Kyanamuyonjo	
+				Musisi	Deborah	1068	776801908		Kyetinda	
+				Kayizuka	Diasy	1069	776801887		Bulyankuyege.A	
+				Nalwanga	Benah	1075	776801735		Lusaana	
+				Tebugulwa	Justine	1067	776801909		Bulyankuyege. B	
+				Nansambu	Zulayika	1071	776801729		Kyetinda	
+										
+										
+Kyegegwa	Ruyonza			Tumwine	Mary	1148	776801876		Mugaju	
+				Kamuntu	Hillary	1140	776802661		Mirembe	
+				Tibananuka	Beatrice	902	776801330		Kisojo	
+				Ssenvubu	Vincencio	854	776802164		Kisagazi East	
+				Tumusiime	George	1019	776802677		Kamutumi	
+				Katwiremu	Glorious	529	776801461		Akooma	
+				Mujuni	Fred	1035	776801500		Mugaju	
+				Kigozi	Sarah	1139	776802673		Katete	
+				Keneema	Claire	1142	776802683		Katairwe	
+				Mpumwire	Naume	1149	776802684		Mirembe	
+				Mucunguzi	Frank	1137	776802448		Katete	
+				Kiiza	Teddy	1145	776801813		Ruhoko	
+				Mutabazi	Paul	1028	776802172		Kasikizi	
+				Rubega	Lawrence	916	776801368		Kisojo	
+				Mukiiza	james	897	776801326		Akooma	
+				Tumusiime	Patrick	853	776801333		Kisagazi East	
+				Abaho	Josephat	1147	776802770		Kijongobya	
+				Emanzi 	K John	1029	776801799		Kisagazi West	
+				Rwesemereza	Elasto	899	776801366		Kamutumi	
+				Birungi	Imelda	1143	776802660		Kasikizi	
+				Kabacwezi	Tereza	1138	776802656		Kisagazi West	
+				Nantume	Rosette	1144	776802670		Ruterwa	
+				Katasweusi	Francis	903	776801355		Kanyonza	
+				Tumubwine	Edward	908	776801363		Kanyonza	
+				Simbwa	John	1148	776802672			
+				Kansiime	Stella	1151	776801811		Kijongobya	
+										
+Kyegegwa	Mpara			Nambooze	Theopista	617	776801760		Kyamagabu	
+				Kisembo	Imelda	612	776801761		Kisambya	
+				Nahwera	Juliua	598	776802245		Kyesega A	
+				Nsungwa	Beatrice	615	776801762		Rwahunga	
+				Aheebwa	Grace	606	776801753		Kijwiga	
+				Tulinomuhangi	Godfrey	856	776802196		Iringa A	
+				Kyomuhenio	Noelina	614	776801751		Iringa A	
+				Mugume	Gorret	603	776802274		Musanju	
+				Karubanga	Margret	599	776801763		Nyakatooke	
+				Kakyo	Evelyne	607	776802241		Kyeganga	
+				Mbabazi	Restetuta	616	776801745		Barwenda	
+				Nyendwoha	Grant	604	776802204		Kyamutyetye	
+				Mbabazi	Annet	608			Kinjunju	
+				Tibakanya	Florence	601	776802243		Kiranda	
+				Kaahwa	Magaret	849	776801746		Kisambya	
+				Satade	K Angelica	602	776801752		Kyegayuke	
+				Sunday	Augustine	844	776802195		Rwahunga	
+				Twikirize	Joachim	846	776802191		Kibaale	
+				Tugaineyo	Moses	839	776802194		Nyakatoma	
+				Borongo	Joseph	843	776802180		Kitabomba	
+				Agaba	Ben	851	776802181		Barwenda	
+				Asiimwe	K James	845	776802479		Kyegayuke	
+				Nswinga	Emmanuel	613	776802242		Kitabomba	
+				Katashari	Wilson	840	776802189		Kyehega	
+				Akampwera	Didas	852	776801756		Ruseese	
+				Mucunguzi	Beatrice	609	776801764		Nyakatoma	
+				Tusiime	Concepta	610	776802248		Kiranda	
+				Katusabe	Peluce	838	776802197		Kijunju	
+				Kabalembeki	Felesta	605	776801759		Musanju	
+				Kyabaana	Nsungwa	850	776802190		Kyeganga	
+				Tushabe	George	847	776802185		Kyakalinzi	
+				Kabalaya	Margret	611	776802462		Mpara	
+				Twesiime	Amos	837	776802181		Ntuntu	
+				Mugyendagye	Ahimbisibwe	848	776802184		Kibaale	
+				Tumwine	Stephen	855	776802192		Kijwiga	
+				Muhanguzi	Enos	600	776802354		Nyakasaka	
