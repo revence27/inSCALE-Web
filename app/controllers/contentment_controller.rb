@@ -357,7 +357,7 @@ class ContentmentController < ApplicationController
           fin.call rsp
         rescue Exception => e
           $stderr.puts url, e.inspect, e.backtrace
-          File.open('/tmp/mamanze.txt', 'w') {|f| f.puts url, e.inspect, e.backtrace }
+          File.open('/tmp/mamanze.txt', 'w+') {|f| f.puts(Time.now, url, e.inspect, e.backtrace) }
         end
       end
     end
@@ -374,13 +374,44 @@ class ContentmentController < ApplicationController
     redirect_to feedback_path if red
   end
 
+  def sups_update
+    @sup  = Supervisor.find_by_id(request[:id])
+  end
+
+  def sups_change
+    @sup        = Supervisor.find_by_id(request[:id])
+    @sup.name   = request[:name]
+    @sup.number = request[:number]
+    @sup.save
+    redirect_to(sups_update_path(@sup))
+  end
+
+  def users_update
+    @user = SystemUser.find_by_id(request[:id])
+    @sups = Supervisor.order('name ASC')
+  end
+
+  def users_change
+    @user = SystemUser.find_by_id(request[:id])
+    @user.name          = request[:name]
+    @user.number        = request[:number]
+    @user.code          = request[:code]
+    @user.supervisor_id = request[:supervisor]
+    @user.save
+    redirect_to(users_update_path(@user))
+  end
+
+  def supervisors
+    @sup  = Supervisor.find_by_id(request[:supid])
+  end
+
   def users
     if request[:userid] then
       @user  = SystemUser.find_by_id(request[:userid])
       @subs  = @user.submissions.order('created_at DESC').paginate(:page => request[:page])
     end
-    @users  = @client.system_users.paginate(:page => request[:page])
-    @sups   = Supervisor.order('name ASC')
+    @users  = @client.system_users.order('code ASC').paginate(:page => request[:page])
+    @sups   = Supervisor.order('name ASC').paginate(:page => request[:page])
   end
 
   def vht_responses
@@ -460,6 +491,12 @@ class ContentmentController < ApplicationController
 
   def delete_user
     usr = SystemUser.find_by_id request[:id]
+    usr.destroy
+    redirect_to users_path
+  end
+
+  def delete_supervisor
+    usr = Supervisor.find_by_id request[:id]
     usr.destroy
     redirect_to users_path
   end

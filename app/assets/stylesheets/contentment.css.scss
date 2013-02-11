@@ -147,3 +147,12 @@ code
   font-size: $base_font_size;
   color: lighten($base_colour, 50%);
 }
+
+input[type="text"], input[type="password"], textarea
+{
+  font: inherit;
+  font-size: 75%;
+  font-weight: bold;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  padding-left: 0.5em;
+}

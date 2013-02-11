@@ -16,11 +16,11 @@ class IncorporateVhts < ActiveRecord::Migration
       fch.each_line do |ligne|
         pieces  = ligne.strip.split("\t")
         if pieces.length == 10 then
-          sname   = pieces[3]
-          sname   = 'Supervisor Not Named' unless sname.strip != ''
-          actsup  = Supervisor.create(:name => sname, :number => DEFAULT_PHONE_NUMBER)
           actdist = pieces[0]
           actsubc = pieces[1]
+          sname   = pieces[3]
+          sname   = "Supervisor (#{actdist} #{actsubc}) Not Named" unless sname.strip != ''
+          actsup  = Supervisor.create(:name => sname, :number => DEFAULT_PHONE_NUMBER)
         else
           if pieces.length == 7 then
             if actsup.number == DEFAULT_PHONE_NUMBER then

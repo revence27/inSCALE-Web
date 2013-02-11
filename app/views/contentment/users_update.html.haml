@@ -1,0 +1,30 @@
+.jarring
+  Modify
+  = @user.name
+.subtitle
+  = @user.number
+  %br/
+  %small
+    Supervisor:
+    = link_to @user.supervisor.name, sups_path(:supid => @user.supervisor.id)
+    = surround '(', ')' do
+      = link_to @user.supervisor.number, messaging_path(:dest => @user.supervisor.number)
+%hr/
+= form_tag users_change_path(@user) do
+  %fieldset
+    %legend Name
+    %input{:type => :text, :name => :name, :value => @user.name, :size => 55}/
+  %fieldset
+    %legend Phone Number
+    %input{:type => :text, :name => :number, :value => @user.number, :size => 55}/
+  %fieldset
+    %legend Code
+    %input{:type => :text, :name => :code, :value => @user.code, :size => 55}/
+  %fieldset
+    %legend Supervisor
+    %select{:name => :supervisor}
+      - @sups.each do |sup|
+        %option{:value => sup.id}
+          = sup.name
+
+  %input{:type => :submit, :value => 'Record Changes'}/

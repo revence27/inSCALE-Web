@@ -15,10 +15,13 @@ Contentment::Application.routes.draw do
     match 'excel', :to => 'statistics#csv', :as => 'csv'
     match 'feedback(/:page)', :to => 'contentment#feedback', :as => 'feedback'
     match 'users(/:userid)', :to => 'contentment#users', :as => 'users'
+    match 'supervisors/:supid', :to => 'contentment#supervisors', :as => 'sups'
     match 'tag(/:name)', :to => 'contentment#tags', :as => 'tag'
     match 'sendmessages', :to => 'contentment#send_messages', :as => 'send_messages'
     match 'responses', :to => 'contentment#vht_responses', :as => 'responses'
     match 'response/:id', :to => 'contentment#vht_response_change', :as => 'response_change'
+    match 'users_update/:id', :to => 'contentment#users_update', :as => 'users_update'
+    match 'sups_update/:id', :to => 'contentment#sups_update', :as => 'sups_update'
 
     match 'response_changer/:id', :to => 'contentment#vht_response_changer', :as => 'response_changer', :via => :post
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
@@ -33,6 +36,9 @@ Contentment::Application.routes.draw do
     match 'delete_tag/:id', :to => 'contentment#delete_tag', :as => 'delete_tag', :via => :post
     match 'create_user', :to => 'contentment#create_user', :as => 'create_user', :via => :post
     match 'delete_user/:id', :to => 'contentment#delete_user', :as => 'delete_user', :via => :post
+    match 'delete_sup/:id', :to => 'contentment#delete_supervisor', :as => 'delete_sup', :via => :post
+    match 'users_change/:id', :to => 'contentment#users_change', :as => 'users_change', :via => :post
+    match 'sups_change/:id', :to => 'contentment#sups_change', :as => 'sups_change', :via => :post
   end
 
   scope '/data' do

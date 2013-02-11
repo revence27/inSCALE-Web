@@ -15,17 +15,4 @@ TODO
 
 3.  Outgoing SMS: models, sending mechanism.
 
-4.  CRUD for VHTs
-
-5.  CRUD for supervisors.
-
-6.  Connection to SMS-sending kit by the system.
-
-Others
-------
-
-- CUGs (figure shit out, train users)
-
-- Coverage access assessment
-
-- MUAC tape is never used in responses.
+4.  Connection to SMS-sending kit by the system.

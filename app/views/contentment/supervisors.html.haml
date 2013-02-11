@@ -1,0 +1,24 @@
+.jarring
+  = link_to(@sup.name, sups_update_path(@sup))
+.subtitle
+  = @sup.number
+  %br
+  = link_to %[Send #{@sup.name} a message], messaging_path(:dest => @sup.number)
+%hr/
+%h6
+  Users Supervised By
+  = @sup.name
+.sysusers{:class => 'span-24'}
+  - @sup.system_users.each do |user|
+    .sysuser{:class => 'span-24'}
+      .name{:class => 'span-8'}
+        = link_to user.name, users_path(:userid => user.id)
+      .number{:class => 'span-8'}
+        - if user.code then
+          = user.code
+          = surround '(', ')' do
+            = link_to user.number, messaging_path(:dest => user.number)
+        - else
+          = link_to user.number, messaging_path(:dest => user.number)
+      .outside{:class => 'span-8 last'}
+        = button_to %[Delete #{user.name}], delete_user_path(user), {:confirm => %[#{user.name} will be deleted forever. Are you sure?]}

@@ -1,0 +1,15 @@
+.jarring
+  Modify
+  = @sup.name
+.subtitle
+  = @sup.number
+
+%hr/
+= form_tag sups_change_path(@sup) do
+  %fieldset
+    %legend Name
+    %input{:type => :text, :name => :name, :value => @sup.name, :size => 55}/
+  %fieldset
+    %legend Phone Number
+    %input{:type => :text, :name => :number, :value => @sup.number, :size => 55}/
+  %input{:type => :submit, :value => 'Record Changes'}/
