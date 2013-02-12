@@ -5,6 +5,10 @@ class Submission < ActiveRecord::Base
   belongs_to  :system_user
   has_one  :collected_info
 
+  def sender
+    SystemUser.find_by_code((CollectedInfo.find_by_submission_id(self.id).vht_code).gsub(/^0*/, ''))
+  end
+
   def save *args
     super *args
     # vht 13b3a5a9b46 0653 11/18/2012 2 5 1 4 2 4 5 0 0 2 0 2 1 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18 7 27 23 17 10 39 MT5
