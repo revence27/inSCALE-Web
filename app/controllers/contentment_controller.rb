@@ -360,7 +360,11 @@ class ContentmentController < ApplicationController
           fin.call rsp
         rescue Exception => e
           $stderr.puts url, e.inspect, e.backtrace
-          File.open('/tmp/mamanze.txt', 'w+') {|f| f.puts(Time.now, url, e.inspect, e.backtrace) }
+          begin
+            File.open('/tmp/sendtracker.log', 'w+') {|f| f.puts(Time.now, url, e.inspect, e.backtrace, "===" * 8, "\n\n\n\n") }
+          rescue Exception => e
+            # Killing you softly.
+          end
         end
       end
     end
