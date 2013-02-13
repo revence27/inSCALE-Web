@@ -40,6 +40,7 @@ class ContentmentController < ApplicationController
     sub.save do |info|
       supervisor_alert info
       sender_response info
+      send_messages false
     end
     render :text => 'OK'
   end
@@ -69,7 +70,8 @@ class ContentmentController < ApplicationController
         %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is under-treating diarrhoea and needs supervision in when to use ORS and zinc.]
       ],
       [
-        info.danger_sign < info.referred,
+        # info.danger_sign < info.referred,
+        info.danger_sign > info.referred,
         %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not referring all children with danger signs and needs supervision in when to refer.]
       ],
       [
@@ -78,7 +80,8 @@ class ContentmentController < ApplicationController
         %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not testing all children with fever for malaria and needs supervision in when to do an RDT.]
       ],
       [
-        (info.newborns_with_danger_sign > (info.newborns_referred + 5)),
+        # (info.newborns_with_danger_sign > (info.newborns_referred + 5)),
+        info.newborns_with_danger_sign > info.newborns_referred,
         %[Greetings! Your supervision is helpful to VHTs. #{vht.name} is not referring all newborns with danger signs and needs supervision in when to refer newborn babies.]
       ],
       [
@@ -111,9 +114,12 @@ class ContentmentController < ApplicationController
       ],
       [
         # CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
-        CollectedInfo.order('end_date DESC').where(['LOWER(vht_code) = ? AND end_date IS NOT ?', vht.code.downcase, nil]).limit(4).inject(0) do |p, n|
+
+        # TODO.
+        false || (CollectedInfo.order('end_date DESC').where(['LOWER(vht_code) = ? AND end_date IS NOT ?', vht.code.downcase, nil]).limit(4).inject(0) do |p, n|
           p + n.male_children + n.female_children
-        end < 1,
+        end < 1),
+
         %[Greetings! #{vht.name} has not seen any children in the last one month. Please make contact and find out why.]
       ]
     ].each do |cond|
@@ -121,7 +127,7 @@ class ContentmentController < ApplicationController
         Feedback.create :message => cond[1], :number => sup.number, :sender => sms_gateway_is_broken(vht.number)
       end
     end
-    self.send_messages false
+    # self.send_messages false
     nil
   end
 
@@ -146,7 +152,7 @@ class ContentmentController < ApplicationController
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
     Feedback.create :message => msg, :number => sysu.number
-    self.send_messages false
+    # self.send_messages false
     nil
   end
 
