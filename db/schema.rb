@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219063831) do
+ActiveRecord::Schema.define(:version => 20130331181501) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20121219063831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "system_response"
+    t.text     "tag",             :default => "routine", :null => false
   end
 
   create_table "jad_fields", :force => true do |t|
@@ -115,6 +116,13 @@ ActiveRecord::Schema.define(:version => 20121219063831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "binary_id"
+  end
+
+  create_table "motivational_messages", :force => true do |t|
+    t.integer  "month"
+    t.text     "english"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "publishers", :force => true do |t|

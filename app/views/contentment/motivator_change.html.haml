@@ -1,0 +1,8 @@
+.jarring
+  = @client.name
+  Motivator for Month #{@motivator.month}
+
+= form_tag motivator_changer_path(:id => @motivator.id) do
+  %fieldset
+    %textarea{:name => :english} #{@motivator.english}
+  %input{:type => :submit, :value => 'Change'}

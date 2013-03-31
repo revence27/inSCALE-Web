@@ -1,0 +1,12 @@
+1	Referral	sense of collective self efficacy	R	"VHTs are powerful! In Uganda VHTs save many lives each week by referring children with danger signs, even if not reported by the caregiver. We are proud of you!"	160
+2	Diarrhoea	Technical reminder	F	VHTs are making a difference! Continue to give zinc along with ORS to children with diarrhoea. Zinc helps to build stronger children. Be proud of your work!	156
+3	Referral	sense of accountability	N	VHT teamwork is good work! A first dose of drug before referral gives the child the best chance to stay alive up to health centre and recover. We count on you! 	160
+4	Mixed infections	sense of collective self efficacy	R	"VHTs lead the way! When you show caregivers how to give first drug dose to a child, you are treating and also helping to educate others. VHTs build the future!"	159
+5	Mixed infections	Technical reminder	F	"VHTs are building the future! Cough with normal breathing rate is NOT pneumonia, and does not need amoxicillin. Educate caregivers. You are making a difference!"	160
+6	Diarrhoea	sense of accountability	N	"VHT teamwork is good work! For severe diarrhoea, help the child drink ORS before referral to avoid dehydration. Well done. Together, we are making a difference!"	160
+7	Record keeping	sense of collective self efficacy	R	"We are proud of VHTs! In Uganda VHTs treat 30,000 children per week. Send your data via your phone weekly on Sunday or Monday to share your success. Thank you!"	159
+8	Mixed infections	Technical reminder	F	"VHTs lead the way! In severe pneumonia, a first dose of amoxicillin before referral is life-saving. Check the child's age for right dose. Your work saves lives!"	160
+9	Mixed Infections	sense of Accountability	N	We are proud of VHTs! Continue checking for all diseases even if only one is reported by the caregiver; you can treat mixed diseases together. We trust you!	156
+10	Diarrhoea	sense of collective self efficacy	R	"VHTs are leading the way! In Uganda, every week, VHTs treat 335,000 children with diarrhoea, using only ORS and Zinc - not antibiotics. Keep up the good work!"	158
+11	Record keeping	sense of Accountability	N	VHT teamwork is great work! Keep your records accurate. Write in registers after each child seen. Updated records make reports quick and easy. We are together!	159
+12	Referral	sense of collective self efficacy	R	VHTs are powerful! Severe malaria can kill a child. Artesunate can keep him alive. VHTs save many lives by giving rectal artesunate before referral!	148

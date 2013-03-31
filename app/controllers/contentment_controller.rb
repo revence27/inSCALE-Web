@@ -1,7 +1,8 @@
 require 'net/http'
 require 'thread'
 
-VERSION_START_TIME = Time.mktime 2011, 7, 27
+DESIGNATED_PASSWORD = 'quiconquecroitenlui'
+VERSION_START_TIME  = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
   before_filter :select_client
@@ -124,7 +125,7 @@ class ContentmentController < ApplicationController
       ]
     ].each do |cond|
       if cond[0] then
-        Feedback.create :message => cond[1], :number => sup.number, :sender => sms_gateway_is_broken(vht.number)
+        Feedback.create :message => cond[1], :tag => 'supervisor alert', :number => sup.number, :sender => sms_gateway_is_broken(vht.number)
       end
     end
     # self.send_messages false
@@ -151,21 +152,36 @@ class ContentmentController < ApplicationController
     msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ?', sysu.code.downcase]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
-    Feedback.create :message => msg, :number => sysu.number
+    Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
     # self.send_messages false
     nil
   end
 
   def monthly
-    # TODO.
+    unless request[:password] == DESIGNATED_PASSWORD then
+      render :text => 'PASSWORD MISSING', :status => 403
+      return
+    end
+    mon = Time.now.month
+    msg = MotivationalMessage.where(:month => mon).first
+    SystemUser.all.each do |su|
+      Feedback.create :message => msg.english, :tag => 'monthly motivation', :number => su.number
+    end
+    self.send_messages false
+    render :text => "Reminders sent for month #{mon}", :status => 403
+    nil
   end
 
   def weekly
+    unless request[:password] == DESIGNATED_PASSWORD then
+      render :text => 'PASSWORD MISSING', :status => 403
+      return
+    end
     SystemUser.all.each do |su|
       # t2 = su.submissions.order('actual_time DESC').first.actual_time
       t2 = su.submissions.order('end_date DESC').first.actual_time
       if (Time.now - t2) > 518399 then
-        Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number
+        Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number, :tag => 'weekly'
       end
     end
     self.send_messages false
@@ -427,12 +443,29 @@ class ContentmentController < ApplicationController
     @sups   = Supervisor.order('name ASC').paginate(:page => request[:page])
   end
 
+  def vht_motivators
+    @motivators = MotivationalMessage.order('month ASC')
+    render 'motivational_messages'
+  end
+
   def vht_responses
     @responses  = VhtResponse.order('week ASC')
   end
 
+  def vht_motivator_change
+    @motivator  = MotivationalMessage.find_by_id(request[:id])
+    render 'motivator_change'
+  end
+
   def vht_response_change
     @response = VhtResponse.find_by_id(request[:id])
+  end
+
+  def vht_motivator_changer
+    @motivator          = MotivationalMessage.find_by_id(request[:id])
+    @motivator.english  = request[:english]
+    @motivator.save
+    redirect_to motivator_change_path(:id => @motivator.id)
   end
 
   def vht_response_changer

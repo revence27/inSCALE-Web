@@ -1,0 +1,21 @@
+.jarring
+  = @client.name
+  Monthly Motivational Messages
+
+%table
+  %thead
+    %tr
+      %th Month
+      %th{:colspan => 2} Message (English)
+      %th
+  %tbody
+    - @motivators.each do |rsp|
+      %tr
+        %td
+          = rsp.month
+        %td
+          = rsp.english
+          .charcount
+            = rsp.english.length
+        %td
+          %a{:href => motivator_change_path(:id => rsp.id)} Change

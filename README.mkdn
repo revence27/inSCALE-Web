@@ -1,3 +1,10 @@
 Contentment Management Interface (Web)
 ======================================
 The web interface with which menu items can be added to the Contentment system.
+
+Cronjobs
+--------
+
+The following cronjob will trigger the monthly motivational messages:
+
+  @monthly curl -s -D/dev/stderr http://inscale.malariaconsortium.org:3000/monthly

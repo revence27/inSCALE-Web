@@ -50,7 +50,20 @@ body, table
       li
       {
         display: inline;
-        margin: 1em;
+        margin: 0.25em;
+        white-space: auto;
+
+        a
+        {
+          padding: 0.25em;
+
+          &:hover
+          {
+            border-radius: 0.5em 0.5em 0.5em 0.5em;
+            border: solid 1px $inscale_red;
+            background: lighten($inscale_red, 50%);
+          }
+        }
       }
     }
   }

@@ -2,6 +2,7 @@ Contentment::Application.routes.draw do
   root :to => 'contentment#chooser', :as => 'beginning'
   match 'record/:data', :to => 'contentment#record', :as => 'record'
   match 'inbound', :to => 'contentment#inbound', :as => 'inbound'
+  match 'monthly', :to => 'contentment#monthly', :as => 'monthly'
 
   scope '/system' do
     root :to => 'contentment#index', :as => 'home'
@@ -20,9 +21,12 @@ Contentment::Application.routes.draw do
     match 'sendmessages', :to => 'contentment#send_messages', :as => 'send_messages'
     match 'responses', :to => 'contentment#vht_responses', :as => 'responses'
     match 'response/:id', :to => 'contentment#vht_response_change', :as => 'response_change'
+    match 'motivators', :to => 'contentment#vht_motivators', :as => 'motivators'
+    match 'motivator/:id', :to => 'contentment#vht_motivator_change', :as => 'motivator_change'
     match 'users_update/:id', :to => 'contentment#users_update', :as => 'users_update'
     match 'sups_update/:id', :to => 'contentment#sups_update', :as => 'sups_update'
 
+    match 'motivator_changer/:id', :to => 'contentment#vht_motivator_changer', :as => 'motivator_changer', :via => :post
     match 'response_changer/:id', :to => 'contentment#vht_response_changer', :as => 'response_changer', :via => :post
     match 'destroy/:app', :to => 'contentment#destroy_app', :as => 'destroy_app', :via => :post
     match 'create_app', :to => 'contentment#create_app', :as => 'app_create', :via => :post

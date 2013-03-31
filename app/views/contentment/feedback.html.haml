@@ -9,6 +9,7 @@
     %th Date
     %th To
     %th Message
+    %th Tag
     %th Sent on
     %th System Response
   %tbody
@@ -29,6 +30,8 @@
             = msg.number
         %td
           = msg.message
+        %td
+          = msg.tag
         %td
           - if msg.sent_on then
             = msg.sent_on
