@@ -7,7 +7,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    #main{:class => 'container'}
+    #main{:class => %[container#{if flash[:flashy] then ' dotherounds' else '' end}]}
       #header{:class => 'span-24'}
         #logopart{:class => 'span-8'}
           %img{:src => asset_path('inscale.png')}
