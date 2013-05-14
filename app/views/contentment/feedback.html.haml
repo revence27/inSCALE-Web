@@ -14,7 +14,7 @@
     %th System Response
   %tbody
     - @feedback.each do |msg|
-      %tr{:class => (msg.sent_on ? '' : 'error')}
+      %tr{:class => 'respond' + (msg.sent_on ? ' ' : ' error')}
         %td
           = time_ago_in_words msg.created_at
           ago

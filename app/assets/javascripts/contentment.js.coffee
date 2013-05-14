@@ -9,8 +9,9 @@ $ ->
     '/assets/kids3.jpg'
     '/assets/kids4.jpg'
     '/assets/kids5.jpg'
-    '/assets/kids6.jpg'
+    # '/assets/kids6.jpg'
     ], 10000)
+  makeRowsResponsive()
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false

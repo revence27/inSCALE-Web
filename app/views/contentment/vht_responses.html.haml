@@ -15,7 +15,7 @@
       %th
   %tbody
     - @responses.each do |rsp|
-      %tr
+      %tr{:class => 'respond'}
         %td
           = rsp.week
         %td

@@ -48,7 +48,7 @@
   %hr/
   .pdus
   - @subs.each do |sub|
-    .pdu
+    .pdu{:class => 'respond'}
       .message
         = sub.pdu
       .time{:class => 'subtitle'}
@@ -98,7 +98,7 @@
   %h6 Supervisors
   .sysusers{:class => 'span-24'}
     - @sups.each do |sup|
-      .sysuser{:class => 'span-24'}
+      .sysuser{:class => 'span-24 respond'}
         .name{:class => 'span-8'}
           = link_to sup.name, sups_path(:supid => sup.id)
         .number{:class => 'span-8'}
@@ -112,7 +112,7 @@
   %h6 Other Users
   .sysusers{:class => 'span-24'}
     - @users.each do |user|
-      .sysuser{:class => 'span-24'}
+      .sysuser{:class => 'span-24 respond'}
         .name{:class => 'span-8'}
           = link_to user.name, users_path(:userid => user.id)
         .number{:class => 'span-8'}
