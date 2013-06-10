@@ -425,6 +425,7 @@ class ContentmentController < ApplicationController
     @user.name          = request[:name]
     @user.number        = request[:number]
     @user.code          = request[:code]
+    @user.sort_code     = (request[:code].to_i || 0)
     @user.supervisor_id = request[:supervisor]
     @user.save
     redirect_to(users_update_path(@user))
@@ -439,7 +440,8 @@ class ContentmentController < ApplicationController
       @user  = SystemUser.find_by_id(request[:userid])
       @subs  = @user.submissions.order('created_at DESC').paginate(:page => request[:page])
     end
-    @users  = @client.system_users.order('code ASC').paginate(:page => request[:page])
+    # @users  = @client.system_users.order('code ASC').paginate(:page => request[:page])
+    @users  = @client.system_users.order('sort_code ASC').paginate(:page => request[:page])
     @sups   = Supervisor.order('name ASC').paginate(:page => request[:page])
   end
 
@@ -517,6 +519,7 @@ class ContentmentController < ApplicationController
                             :number => request[:number],
                          :client_id => @client.id,
                               :code => request[:code],
+                         :sort_code => (request[:code].to_i || 0),
                      :supervisor_id => request[:supervisor]
       usr.save
       unless usr.valid? then
