@@ -3,6 +3,8 @@
     %thead
       %tr
         %th Submission Date
+        %th Start Date of Report
+        %th End Date of Report
         %th VHT Code
         %th Male Children
         %th Female Children
@@ -48,6 +50,8 @@
       - @subs.each do |sub|
         %tr
           %td #{sub.time_sent}
+          %td #{sub.start_date}
+          %td #{sub.end_date}
           %td #{sub.vht_code}
           %td #{sub.male_children}
           %td #{sub.female_children}
