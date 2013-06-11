@@ -105,7 +105,7 @@
           = link_to sup.number, messaging_path(:dest => sup.number)
         .metadata{:class => 'span-8 last'}
           = button_to %[Delete #{sup.name}], delete_sup_path(sup), {:confirm => %[#{sup.name} will be deleted forever. Are you sure?]}
-  = will_paginate @sups
+  = will_paginate @sups, :param_name => :spage
 
   %hr/
 

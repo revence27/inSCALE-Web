@@ -442,7 +442,7 @@ class ContentmentController < ApplicationController
     end
     # @users  = @client.system_users.order('code ASC').paginate(:page => request[:page])
     @users  = @client.system_users.order('sort_code ASC').paginate(:page => request[:page])
-    @sups   = Supervisor.order('name ASC').paginate(:page => request[:page])
+    @sups   = Supervisor.order('name ASC').paginate(:page => request[:spage])
   end
 
   def vht_motivators
