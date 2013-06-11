@@ -352,7 +352,11 @@ class ContentmentController < ApplicationController
         dest << num.strip
       else
         UserTag.where(:name => num.strip).each do |tag|
-          dest << tag.system_user.number
+          begin
+            dest << tag.system_user.number
+          rescue Exception => e
+            $stderr.puts [tag.inspect, tag.system_user.inspect, e.inspect]
+          end
         end
       end
     end
@@ -478,6 +482,7 @@ class ContentmentController < ApplicationController
     redirect_to response_change_path(:id => @response.id)
   end
 
+  # TODO: Make pagination work with the below.
   def tags
     if request[:name] then
       tags    = UserTag.where(:name => request[:name]).select('system_user_id')
