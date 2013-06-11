@@ -4,7 +4,7 @@
     = flash[:error]
 
 = form_tag auth_path(:who => :stat) do
-  .jarring Enter as a Bio Statistician:
+  .jarring Bio-Statistics Portal
   = field_set_tag do
     Select your name:
     %br/
@@ -21,9 +21,9 @@
 %hr/
 
 = form_tag auth_path(:who => :client) do
-  .jarring Enter in lieu of a client:
+  .jarring Phone Application Management
   = field_set_tag do
-    Client name:
+    Select the phone application:
     %br/
     %select{:name => 'client'}
       - @clients.each do |client|
@@ -34,13 +34,13 @@
     %br/
     = password_field_tag :password
   = submit_tag 'Enter'
+- proc do
+  %hr/
 
-%hr/
-
-= form_tag auth_path(:who => :root) do
-  .jarring Enter as <em>the</em> king of the system:
-  = field_set_tag do
-    Password:
-    %br/
-    = password_field_tag :password
-  = submit_tag 'Enter'
+  = form_tag auth_path(:who => :root) do
+    .jarring Enter as <em>the</em> king of the system:
+    = field_set_tag do
+      Password:
+      %br/
+      = password_field_tag :password
+    = submit_tag 'Enter'
