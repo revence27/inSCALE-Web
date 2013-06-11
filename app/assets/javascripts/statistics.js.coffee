@@ -12,7 +12,7 @@ downloadingByDate = () ->
   link.hide()
 
 deleteableColumns = () ->
-  for t, i in $('table thead th')
+  for t, i in $('.largetable thead th')
     td  = $(t)
     hd  = $('<a href="javascript://dio.1st.ug/">x</a>')
     hd.attr 'title', "Hide the '#{td.text()}' column"
