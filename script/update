@@ -4,15 +4,14 @@ DEFAULT_RAILS_PORT = 3000
 
 def main args
   Dir.chdir(Dir.pwd) do
-    (ENV['NO_UPDATE'] ? [] : ['git pull']) + ['pkill -KILL -f rails', 'rails s -d -p%d' % [args.empty? ? DEFAULT_RAILS_PORT : args.first.to_i]].each do |cmd|
-      system cmd
+    ((ENV['NO_UPDATE'] ? [] : ['git pull']) + ['pkill -KILL -f rails', 'rails s -d -p%d' % [args.empty? ? DEFAULT_RAILS_PORT : args.first.to_i]]).each do |cmd|
       $stderr.flush
       $stderr.puts((%[\r%s%s] % [cmd, '    ' * 20])[0, 75])
+      system cmd
       unless $?.success? then
         $stderr.puts
         return $?.exitstatus 
       end
-      return $?.exitstatus unless $?.success?
       $stderr.flush
     end
     $stderr.puts
