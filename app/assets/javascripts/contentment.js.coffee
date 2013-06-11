@@ -11,7 +11,6 @@ $ ->
     '/assets/kids5.jpg'
     # '/assets/kids6.jpg'
     ], 10000)
-  makeRowsResponsive()
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false
