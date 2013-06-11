@@ -4,6 +4,12 @@
 
 $ ->
   deleteableColumns()
+  downloadingByDate()
+
+downloadingByDate = () ->
+  $('.dater').datepicker({dateFormat: 'dd/mm/yy'})
+  link    = $('#exceldownload')
+  link.hide()
 
 deleteableColumns = () ->
   for t, i in $('table thead th')
