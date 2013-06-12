@@ -3,9 +3,11 @@
     %thead
       %tr
         %th Submission Date
+        %th VHT
+        %th VHT Code
+        %th Parish
         %th Start Date of Report
         %th End Date of Report
-        %th VHT Code
         %th Male Children
         %th Female Children
         %th Number of RDTs Positive
@@ -48,11 +50,17 @@
         %th MUAC tape present?
     %tbody
       - @subs.each do |sub|
+        - sbm = sub.submission
+        - next unless sbm
+        - sdr = sbm.system_user
+        - sup = sdr.supervisor.location
         %tr
           %td #{sub.time_sent}
+          %td #{sdr.number}
+          %td #{sub.vht_code}
+          %td #{sup ? sup.name : ''}
           %td #{sub.start_date}
           %td #{sub.end_date}
-          %td #{sub.vht_code}
           %td #{sub.male_children}
           %td #{sub.female_children}
           %td #{sub.positive_rdt}

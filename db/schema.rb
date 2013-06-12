@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610145306) do
+ActiveRecord::Schema.define(:version => 20130612183528) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -118,6 +118,12 @@ ActiveRecord::Schema.define(:version => 20130610145306) do
     t.integer  "binary_id"
   end
 
+  create_table "locations", :force => true do |t|
+    t.float "xcoord"
+    t.float "ycoord"
+    t.text  "name"
+  end
+
   create_table "motivational_messages", :force => true do |t|
     t.integer  "month"
     t.text     "english"
@@ -153,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20130610145306) do
     t.text     "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
   create_table "system_users", :force => true do |t|

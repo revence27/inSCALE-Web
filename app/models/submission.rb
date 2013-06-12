@@ -5,9 +5,9 @@ class Submission < ActiveRecord::Base
   belongs_to  :system_user
   has_one  :collected_info
 
-  def sender
-    SystemUser.find_by_code((CollectedInfo.find_by_submission_id(self.id).vht_code).gsub(/^0*/, ''))
-  end
+  # def sender
+  #   SystemUser.find_by_code((CollectedInfo.find_by_submission_id(self.id).vht_code).gsub(/^0*/, ''))
+  # end
 
   def save *args
     super *args
