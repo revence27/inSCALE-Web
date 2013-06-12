@@ -47,16 +47,16 @@
     = submit_tag 'Add Tag'
   %hr/
   .pdus
-  - @subs.each do |sub|
-    .pdu{:class => 'respond'}
-      .message
-        = sub.pdu
-      .time{:class => 'subtitle'}
-        Sent in
-        = time_ago_in_words sub.created_at.localtime
-        ago, at
-        = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
-  = will_paginate @subs
+    - @subs.each do |sub|
+      .pdu{:class => 'respond'}
+        .message
+          = sub.pdu
+        .time{:class => 'subtitle'}
+          Sent in
+          = time_ago_in_words sub.created_at.localtime
+          ago, at
+          = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
+    = will_paginate @subs
 - else
   .jarring
     Management of

@@ -360,6 +360,17 @@ class ContentmentController < ApplicationController
         end
       end
     end
+    if request[:recip] =~ /!/ then
+      SystemUser.all.each do |su|
+        dest << su.number
+      end
+      request[:recip] = '?,' + request[:recip]
+    end
+    if request[:recip] =~ /\?/ then
+      Supervisor.all.each do |su|
+        dest << su.number
+      end
+    end
     dest.each do |d|
       Feedback.create :sender => sms_gateway_is_broken(request[:sender]),
                      :message => request[:message],

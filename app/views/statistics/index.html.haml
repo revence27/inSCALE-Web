@@ -3,9 +3,10 @@
     %thead
       %tr
         %th Submission Date
-        %th VHT
-        %th VHT Code
+        %th VHT Phone Number
+        %th VHT Name
         %th Parish
+        %th VHT Code
         %th Start Date of Report
         %th End Date of Report
         %th Male Children
@@ -57,8 +58,9 @@
         %tr
           %td #{sub.time_sent}
           %td #{sdr.number}
-          %td #{sub.vht_code}
+          %td #{sdr.name}
           %td #{sup ? sup.name : ''}
+          %td #{sub.vht_code}
           %td #{sub.start_date}
           %td #{sub.end_date}
           %td #{sub.male_children}
