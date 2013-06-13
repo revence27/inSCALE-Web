@@ -565,4 +565,13 @@ class ContentmentController < ApplicationController
     usr.destroy
     redirect_to users_path
   end
+
+  def download_feedbacks
+    startat   = Time.mktime(*request[:startat].split('/').reverse).localtime
+    endat     = Time.mktime(*request[:endat].split('/').reverse).localtime
+    @feedback = Feedback.order('created_at DESC').where(['created_at >= ?', startat]).where(['created_at < ?', endat])
+    response.headers['Content-Type'] = %[text/csv; encoding=UTF-8]
+    response.headers['Content-Disposition'] = %[attachment; filename=#{endat.strftime('%d-%B-%Y-%H%Mh')}.csv]
+    render 'download_feedbacks.csv.erb'
+  end
 end

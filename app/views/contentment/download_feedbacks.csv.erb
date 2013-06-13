@@ -1,0 +1,7 @@
+Sent On,VHT Number,VHT Code,VHT Name,Supervisor Name,Tag,Delivered On,System Response,Message
+<%  @feedback.each do |fb|
+      su  = SystemUser.find_by_number(fb.number)
+      sp  = Supervisor.find_by_number(fb.number)
+%>
+<%=   fb.created_at %>,<%=  fb.number %>,<%=  (su ? su.code : '') %>,<%=  (su ? su.name : '') %>,<%=  (sp ? sp.name : '') %>,<%=  fb.tag  %>,<%=  (fb.sent_on ? fb.sent_on : '')  %>,<%=  fb.system_response  %>,<%=  fb.message  %>
+<%  end %>

@@ -26,6 +26,7 @@ Contentment::Application.routes.draw do
     match 'users_update/:id', :to => 'contentment#users_update', :as => 'users_update'
     match 'sups_update/:id', :to => 'contentment#sups_update', :as => 'sups_update'
 
+    match 'download_feedbacks', :to => 'contentment#download_feedbacks', :as => 'download_feedbacks', :via => :post
     match 'ranged_excel', :to => 'statistics#ranged_csv', :as => 'ranged_csv', :via => :post
     match 'motivator_changer/:id', :to => 'contentment#vht_motivator_changer', :as => 'motivator_changer', :via => :post
     match 'response_changer/:id', :to => 'contentment#vht_response_changer', :as => 'response_changer', :via => :post

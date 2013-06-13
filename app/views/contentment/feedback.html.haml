@@ -2,6 +2,11 @@
   = @client.name
   Feedback Message Queue
 
+= form_tag download_feedbacks_path do
+  %input{:type => 'text', :name => :startat, :class => :dater, :value => ((Time.now - 1.month).strftime('01/%m/%Y'))}/
+  to
+  %input{:type => 'text', :name => :endat, :class => :dater, :value => (Time.now.strftime('01/%m/%Y'))}/
+  %input{:type => 'submit', :value => 'Download Feedbacks'}/
 %form{:action => send_messages_path}
   %input{:type => 'submit', :value => 'Send Now'}/
 %table
@@ -22,12 +27,18 @@
             = msg.created_at
         %td
           - su  = SystemUser.find_by_number(msg.number)
+          - sp  = Supervisor.find_by_number(msg.number)
           - if su then
             = su.name
             = surround '(', ')' do
               = msg.number
           - else
-            = msg.number
+            - if sp then
+              = sp.name
+              = surround '[', ']' do
+                = msg.number
+            - else
+              = msg.number
         %td
           = msg.message
         %td
