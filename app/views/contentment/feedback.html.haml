@@ -10,46 +10,9 @@
 %form{:action => send_messages_path}
   %input{:type => 'submit', :value => 'Send Now'}/
 %table
-  %thead
-    %th Date
-    %th To
-    %th Message
-    %th Tag
-    %th Sent on
-    %th System Response
+  = feedb_table_header
   %tbody
     - @feedback.each do |msg|
-      %tr{:class => 'respond' + (msg.sent_on ? ' ' : ' error')}
-        %td
-          = time_ago_in_words msg.created_at
-          ago
-          = surround '(', ')' do
-            = msg.created_at
-        %td
-          - su  = SystemUser.find_by_number(msg.number)
-          - sp  = Supervisor.find_by_number(msg.number)
-          - if su then
-            = su.name
-            = surround '(', ')' do
-              = msg.number
-          - else
-            - if sp then
-              = sp.name
-              = surround '[', ']' do
-                = msg.number
-            - else
-              = msg.number
-        %td
-          = msg.message
-        %td
-          = msg.tag
-        %td
-          - if msg.sent_on then
-            = msg.sent_on
-            = surround '(', ')' do
-              = time_ago_in_words msg.sent_on
-              ago
-        %td
-          = msg.system_response
+      = feedb_table_row msg
   %tfoot
     = will_paginate @feedback

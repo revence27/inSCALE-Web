@@ -51,11 +51,24 @@
       .pdu{:class => 'respond'}
         .message
           = sub.pdu
+        - cinf    = sub.collected_info
+        %table{:class => 'largetable'}
+          = ci_table_header
+          %tbody
+            = ci_table_row cinf, sub
         .time{:class => 'subtitle'}
           Sent in
           = time_ago_in_words sub.created_at.localtime
           ago, at
           = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
+        - answers = sub.collected_info.responses
+        - if answers.any? then
+          .responses
+            %table
+              = feedb_table_header
+              %tbody
+                - sub.collected_info.responses.each do |rsp|
+                  = feedb_table_row rsp
     = will_paginate @subs
 - else
   .jarring

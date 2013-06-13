@@ -48,8 +48,8 @@ module CollectedInfoHelperHelper
           haml_tag :th, 'Green Amoxicillin balance'
           haml_tag :th, 'RDT balance'
           haml_tag :th, 'Rectal Artesunate balance'
-          haml_tag :th, 'Gloves left'
-          haml_tag :th, 'MUAC tape present?'
+          # haml_tag :th, 'Gloves left'
+          # haml_tag :th, 'MUAC tape present?'
         end
       end
     end

@@ -29,7 +29,10 @@ class ContentmentController < ApplicationController
     cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
     usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase.gsub(/^0*/, '')]).first
     unless usr then
-      return render :text => 'FAILED'
+      usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
+      unless usr then
+        return render :text => 'FAILED'
+      end
     end
     uid = usr.id if usr
     sub = Submission.new :pdu => request[:data],
