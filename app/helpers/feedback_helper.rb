@@ -19,7 +19,7 @@ module FeedbackHelper
         haml_tag :td do
           su  = SystemUser.find_by_number(msg.number)
           sp  = SystemUser.find_by_number(msg.number)
-          if su then
+          rez = if su then
             %[%s (%s)] % [link_to(su.name, users_path(su.id)), link_to(msg.number, messaging_path(msg.number))]
           else
             if sp then
@@ -28,6 +28,7 @@ module FeedbackHelper
               link_to msg.number, messaging_path(msg.number)
             end
           end
+          haml_concat rez
         end
         haml_tag :td, msg.message
         haml_tag :td, msg.tag
