@@ -57,7 +57,7 @@ module CollectedInfoHelperHelper
 
   def ci_table_row sub, sbm
     sdr = sbm.system_user
-    sup = sdr.supervisor.location
+    sup = sdr.supervisor.parish
     capture_haml do
       haml_tag :tr do
         haml_tag :td, sub.time_sent

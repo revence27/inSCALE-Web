@@ -5,6 +5,16 @@
     = @user.number
     %br/
     %small
+      - if @user.village_id then
+        = @user.village.name
+        village,
+      - if @user.parish_id then
+        = @user.parish.name
+        parish,
+      - if @user.district_id then
+        = @user.district.name
+        district
+      %br/
       Supervisor:
       = link_to @user.supervisor.name, sups_path(:supid => @user.supervisor.id)
       = surround '(', ')' do

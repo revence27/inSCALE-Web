@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612183528) do
+ActiveRecord::Schema.define(:version => 20130616134252) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -99,6 +99,12 @@ ActiveRecord::Schema.define(:version => 20130612183528) do
     t.datetime "end_date"
   end
 
+  create_table "districts", :force => true do |t|
+    t.text  "name"
+    t.float "xpos"
+    t.float "ypos"
+  end
+
   create_table "feedbacks", :force => true do |t|
     t.text     "message"
     t.text     "number"
@@ -131,6 +137,12 @@ ActiveRecord::Schema.define(:version => 20130612183528) do
     t.datetime "updated_at"
   end
 
+  create_table "parishes", :force => true do |t|
+    t.text  "name"
+    t.float "xpos"
+    t.float "ypos"
+  end
+
   create_table "publishers", :force => true do |t|
     t.text     "name"
     t.text     "address"
@@ -160,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20130612183528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.integer  "parish_id"
   end
 
   create_table "system_users", :force => true do |t|
@@ -171,6 +184,9 @@ ActiveRecord::Schema.define(:version => 20130612183528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sort_code",     :default => 0, :null => false
+    t.integer  "parish_id"
+    t.integer  "village_id"
+    t.integer  "district_id"
   end
 
   create_table "user_tags", :force => true do |t|
@@ -186,6 +202,12 @@ ActiveRecord::Schema.define(:version => 20130612183528) do
     t.text     "no_kids"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "villages", :force => true do |t|
+    t.text  "name"
+    t.float "xpos"
+    t.float "ypos"
   end
 
 end

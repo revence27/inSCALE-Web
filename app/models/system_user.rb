@@ -3,6 +3,9 @@ class SystemUser < ActiveRecord::Base
   has_many :submissions
   belongs_to  :client
   belongs_to  :supervisor
+  belongs_to  :parish
+  belongs_to  :district
+  belongs_to  :village
 
   validates :name, :presence => true
   validates :number, :presence => true
