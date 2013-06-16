@@ -7,7 +7,7 @@ class FillOutLocations < ActiveRecord::Migration
 
     UserTag.all.each do |tag|
       sysu  = tag.system_user
-      next unless sysu.supervisor
+      next unless sysu and sysu.supervisor
       supr  = sysu.supervisor
       if tag.name =~ /^(.*)-parish$/ then
         if $1 then
