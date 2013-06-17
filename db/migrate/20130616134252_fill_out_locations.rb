@@ -12,7 +12,8 @@ class FillOutLocations < ActiveRecord::Migration
       if tag.name =~ /^(.*)-parish$/ then
         if $1 then
           par = $1.capitalize
-          pob = Parish.create :name => par
+          pop = Parish.find_by_name par
+          pob = Parish.create(:name => par) unless pob
           if supr.parish_id.nil? then
             supr.parish_id = pob.id
             supr.save
@@ -23,14 +24,16 @@ class FillOutLocations < ActiveRecord::Migration
         if tag.name =~ /^(.*)-district/ then
           if $1 then
             dist              = $1.capitalize
-            dst               = District.create :name => dist
+            dst               = District.find_by_name dist
+            dst               = District.create(:name => dist) unless dst
             sysu.district_id  = dst.id
           end
         else
           if tag.name =~ /^(.*)-village$/ then
             if $1 then
               vil             = $1.capitalize
-              vlg             = Village.create :name => vil
+              vlg             = Village.find_by_name vil
+              vlg             = Village.create(:name => vil) unless vlg
               sysu.village_id = vlg.id
             end
           end
@@ -45,5 +48,8 @@ class FillOutLocations < ActiveRecord::Migration
     remove_column :system_users, :parish_id
     remove_column :system_users, :village_id
     remove_column :system_users, :district_id
+    District.all.each {|d| d.delete}
+    Parish.all.each {|d| d.delete}
+    Village.all.each {|d| d.delete}
   end
 end

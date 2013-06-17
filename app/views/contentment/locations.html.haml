@@ -1,0 +1,21 @@
+%table
+  %thead
+    %th{:colspan => 3}
+%h4 Districts
+%ol
+  - @dists.each do |dist|
+    %li
+      = dist.name
+
+%h4 Parishes
+%ol
+  - @pars.each do |dist|
+    %li
+      = dist.name
+
+%h4 Villages
+%ol
+  - @vills.each do |dist|
+    %li
+      = dist.name
+

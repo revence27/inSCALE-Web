@@ -42,7 +42,7 @@ class ContentmentController < ApplicationController
       return render :text => 'FAILED'
     end
     sub.save do |info|
-      supervisor_alert info
+      # supervisor_alert info
       sender_response info
       send_messages false
     end
@@ -576,5 +576,11 @@ class ContentmentController < ApplicationController
     response.headers['Content-Type'] = %[text/csv; encoding=UTF-8]
     response.headers['Content-Disposition'] = %[attachment; filename=#{endat.strftime('%d-%B-%Y-%H%Mh')}.csv]
     render 'download_feedbacks.csv.erb'
+  end
+
+  def locations
+    @dists  = District.order('name ASC')
+    @pars   = Parish.order('name ASC')
+    @vills  = Village.order('name ASC')
   end
 end
