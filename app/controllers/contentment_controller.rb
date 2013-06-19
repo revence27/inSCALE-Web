@@ -171,7 +171,7 @@ class ContentmentController < ApplicationController
       Feedback.create :message => msg.english, :tag => 'monthly motivation', :number => su.number
     end
     self.send_messages false
-    render :text => "Reminders sent for month #{mon}", :status => 403
+    render :text => "Reminders sent for month #{mon}", :status => 200
     nil
   end
 
