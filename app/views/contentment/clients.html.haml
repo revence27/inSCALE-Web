@@ -13,9 +13,11 @@
               %br/
               = surround '(uploaded ', ' ago)' do
                 = time_ago_in_words bin.created_at
-              = bin.created_at.to_s
               %br/
               %a{:href => client_download_path(:code => client.code, :version => bin.jar_sha1, :format => :jad)} #{bin.jar_sha1}
+              %br/
+              %small
+                = bin.created_at.to_s
         - if client.binaries.empty?
           %em There are no downloadable clients for #{client.name} yet.
 %hr/
