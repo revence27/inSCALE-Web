@@ -151,8 +151,11 @@ class ContentmentController < ApplicationController
       %[Thank you, [name], for your submission!]
     end
     prm = CollectedInfo.order('time_sent ASC').where(['LOWER(vht_code) = ?', sysu.code.downcase]).first
+    unless prm
+      prm = CollectedInfo.order('time_sent ASC').where(['LOWER(vht_code) = ?', sysu.code.gsub(/^0*/, '').downcase]).first
+    end
     # msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.order('end_date DESC').limit(4).inject(0) do |p, n|
-    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ?', sysu.code.downcase]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
+    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ? OR LOWER(vht_code) = ?', sysu.code.downcase, sysu.code.gsub(/^0/, '')]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
     Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
@@ -328,18 +331,21 @@ class ContentmentController < ApplicationController
         end.first
         publist = pubs.map {|pub| %[\x00#{pub.address}\x00#{pub.name}]}
         applist = apps.map do |app|
-          [
-            sorter[app.publisher_id],
-            app.name,
-            app.description,
-            app.code
-          ].join("\x03")
-        end.join("\x03")
-        ans = %[PROVIDERS\x00#{newid}#{publist}\x01#{applist}]
+          # [
+          #   sorter[app.publisher_id],
+          #   app.name,
+          #   app.description,
+          #   app.code
+          # ].join("\x03")
+          # %[<app id="#{app.name}">#{app.code}</app>]
+          app.code
+        end.join('')
+        # ans = %[PROVIDERS\x00#{newid}#{publist}\x01#{applist}]
+        ans = %[<update v="#{newid}">#{applist}</update>]
         render :text => ans
       end
     else
-      render :text => %[UPDATE\x00] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false)
+      render :text => %[<upgrade href="] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false) + %[" />]
     end
   end
 
