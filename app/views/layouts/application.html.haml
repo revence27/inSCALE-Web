@@ -41,6 +41,8 @@
                 %a{:href => csv_path, :id => 'exceldownload'} Download as Excel
             - if session[:client] or session[:root] or session[:stat] then
               %li
+                %a{:href => periodic_path} Periodic Jobs
+              %li
                 %a{:href => auth_path(:who => :logout)} Log out
           %hr/
           - if session[:stat] then

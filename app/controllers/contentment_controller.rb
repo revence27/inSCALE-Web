@@ -1,5 +1,6 @@
 require 'net/http'
 require 'thread'
+require 'open-uri'
 
 DESIGNATED_PASSWORD = 'quiconquecroitenlui'
 VERSION_START_TIME  = Time.mktime 2011, 7, 27
@@ -22,6 +23,24 @@ class ContentmentController < ApplicationController
   def inbound
     request[:data] = request[:message]
     self.record
+  end
+
+  def periodic
+    @tasks  = PeriodicTask.order('last_successful ASC')
+  end
+
+  def periodic_send
+    them  = []
+    rqid  = request[:identity]
+    if request[:identity] then
+      them << PeriodicTask.find_by_identity(rqid)
+    else
+      them  = PeriodicTask.where('last_successful + seconds_period > ?', Time.now.to_i)
+    end
+    them.each do |it|
+      open(it.running_url + '?password=' + DESIGNATED_PASSWORD)
+    end
+    render(:status => 302, :text => ('Fine. ' + Time.now.localtime.to_s))
   end
 
   def record
@@ -170,11 +189,15 @@ class ContentmentController < ApplicationController
     end
     mon = Time.now.month
     msg = MotivationalMessage.where(:month => mon).first
+    return render(:text => 'No recorded messages to send.') unless msg
     SystemUser.all.each do |su|
       Feedback.create :message => msg.english, :tag => 'monthly motivation', :number => su.number
     end
     self.send_messages false
-    render :text => "Reminders sent for month #{mon}", :status => 200
+    render :text => "Motivational messages sent for month #{mon}", :status => 200
+    pt = PeriodicTask.get_by_identity('motivation')
+    pt.last_successful = Time.now
+    pt.save
     nil
   end
 
@@ -183,14 +206,24 @@ class ContentmentController < ApplicationController
       render :text => 'PASSWORD MISSING', :status => 403
       return
     end
+    ans = []
     SystemUser.all.each do |su|
-      # t2 = su.submissions.order('actual_time DESC').first.actual_time
-      t2 = su.submissions.order('end_date DESC').first.actual_time
+      t2 = su.submissions.order('actual_time DESC').first.actual_time rescue nil
+      unless t2
+        ans << "No submissions from #{su.code} (#{su.name})."
+        next
+      end
       if (Time.now - t2) > 518399 then
-        Feedback.create :message => %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.], :number => su.number, :tag => 'weekly'
+        m = %[#{su.name or %[Hello #{su.code}]}, remember to submit your report for Sunday to Saturday last week.]
+        Feedback.create :message => m, :number => su.number, :tag => 'weekly'
+        ans << m
       end
     end
     self.send_messages false
+    render :text => %[Reminders sent for this week #{Time.now.localtime}.\n\n#{ans.join("\n")}], :status => 200
+    pt = PeriodicTask.find_by_identity('remindvhts')
+    pt.last_successful = Time.now
+    pt.save
     nil
   end
 

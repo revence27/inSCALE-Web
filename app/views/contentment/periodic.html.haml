@@ -1,0 +1,26 @@
+%table
+  %thead
+    %tr
+      %th Name
+      %th Period (days)
+      %th Last Ran
+      %th
+        = form_tag periodic_send_path do
+          %input{:type => :submit, :value => 'Run Pending Tasks'}/
+  %tbody
+    - @tasks.each do |task|
+      %tr{:class => 'respond' + ((Time.now - task.last_successful) < task.seconds_period ? '' : ' error')}
+        %td
+          = task.task_name
+        %td
+          about
+          = task.seconds_period.to_f / (60.0 * 60.0 * 24.0)
+          days
+        %td
+          = task.last_successful
+          = surround '(', ')' do
+            = time_ago_in_words task.last_successful
+        %td
+          = form_tag periodic_send_path do
+            %input{:type => :hidden, :value => task.identity, :name => :identity}/
+            %input{:type => :submit, :value => 'Run ' + task.task_name}

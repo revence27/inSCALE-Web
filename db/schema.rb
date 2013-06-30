@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616134252) do
+ActiveRecord::Schema.define(:version => 20130630182251) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -141,6 +141,16 @@ ActiveRecord::Schema.define(:version => 20130616134252) do
     t.text  "name"
     t.float "xpos"
     t.float "ypos"
+  end
+
+  create_table "periodic_tasks", :force => true do |t|
+    t.text     "task_name"
+    t.text     "identity"
+    t.text     "running_url"
+    t.datetime "last_successful"
+    t.integer  "seconds_period"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "publishers", :force => true do |t|
