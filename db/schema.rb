@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130630182251) do
+ActiveRecord::Schema.define(:version => 20130701165137) do
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(:version => 20130630182251) do
     t.text     "name"
     t.text     "sha1_pass"
     t.text     "sha1_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bug_reports", :force => true do |t|
+    t.text     "description"
+    t.text     "contact"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -130,6 +138,14 @@ ActiveRecord::Schema.define(:version => 20130630182251) do
     t.text  "name"
   end
 
+  create_table "missed_codes", :force => true do |t|
+    t.text     "pdu"
+    t.text     "url"
+    t.text     "tentative_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "motivational_messages", :force => true do |t|
     t.integer  "month"
     t.text     "english"
@@ -163,6 +179,15 @@ ActiveRecord::Schema.define(:version => 20130630182251) do
   create_table "root_accounts", :force => true do |t|
     t.text     "sha1_pass"
     t.text     "sha1_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "submission_errors", :force => true do |t|
+    t.text     "pdu"
+    t.text     "message"
+    t.text     "backtrace"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -11,4 +11,8 @@ class SystemUser < ActiveRecord::Base
   validates :number, :presence => true
   validates :client_id, :presence => true
   validates :supervisor_id, :presence => true
+
+  def latest_feedback
+    Feedback.where('number = ?', self.number).order('created_at DESC').first
+  end
 end

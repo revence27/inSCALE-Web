@@ -1,12 +1,24 @@
+require 'hpricot'
 require 'net/http'
-require 'thread'
 require 'open-uri'
+require 'thread'
 
 DESIGNATED_PASSWORD = 'quiconquecroitenlui'
 VERSION_START_TIME  = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
   before_filter :select_client
+
+  def new_bug_report
+    BugReport.create :url => params[:url], :description => params[:descr], :contact => params[:contact]
+    redirect_to system_health_path
+  end
+
+  def system_health
+    @reports  = BugReport.order('created_at DESC').paginate(:page => params[:page])
+    @missed   = MissedCode.order('created_at DESC').paginate(:page => params[:code])
+    @suberr   = SubmissionError.order('created_at DESC').paginate(:page => params[:subm])
+  end
 
   def sms_gateway_is_broken str
     str.gsub(/^(\+)?256/, '0')
@@ -21,8 +33,14 @@ class ContentmentController < ApplicationController
   end
 
   def inbound
-    request[:data] = request[:message]
-    self.record
+    begin
+      request[:data] = request[:message]
+      return self.record
+    rescue Exception => e
+      ans = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
+      raise e
+      return render(:status => 500, :text => e.message)
+    end
   end
 
   def periodic
@@ -65,29 +83,47 @@ class ContentmentController < ApplicationController
     redirect_to periodic_path
   end
 
+  def record_xml! xml
+    doc = Hpricot::XML xml.gsub(/^vht\s+/, '')
+    raise Exception.new(doc.inspect)
+    raise Exception.new(%[The XML data processor is still under construction.])
+    # TODO: Return equivalent of usr.latest_feedback
+  end
+
   def record
-    uid = 1
-    cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
-    usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase.gsub(/^0*/, '')]).first
-    unless usr then
-      usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
-      unless usr then
-        return render :text => 'FAILED'
+    begin
+      uid = 1
+      cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
+      if $1 =~ /<sub/ then
+        return record_xml! request[:data]
       end
+      usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase.gsub(/^0*/, '')]).first
+      unless usr then
+        usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
+        unless usr then
+          MissedCode.create :pdu => request[:data], :tentative_code => cod[2], :url => request.url
+          return render(:status => 404, :text => %[This VHT code (#{cod[2]}) is unknown.])
+        end
+      end
+      sub = Submission.new :pdu => request[:data],
+                :system_user_id => usr.id,
+                :actual_time    => Time.mktime(1970, 1, 1).localtime + (cod[1].to_i(16) / 1000)
+      unless sub.valid? then
+        return render(:status => 402, :text => 'FAILED')
+      end
+      gosp  = 'Successful submission to the server.'
+      sub.save do |info|
+        # supervisor_alert info
+        gosp  = sender_response info
+        send_messages false
+      end
+      gosp  = usr.latest_feedback
+      return render(:status => 200, :text => gosp)
+    rescue Exception => e
+      ans = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
+      raise e
+      return render(:status => 500, :text => e.message)
     end
-    uid = usr.id if usr
-    sub = Submission.new :pdu => request[:data],
-              :system_user_id => uid,
-              :actual_time    => Time.mktime(1970, 1, 1).localtime + (cod[1].to_i(16) / 1000)
-    unless sub.valid? then
-      return render :text => 'FAILED'
-    end
-    sub.save do |info|
-      # supervisor_alert info
-      sender_response info
-      send_messages false
-    end
-    render :text => 'OK'
   end
 
   def supervisor_alert info
@@ -201,7 +237,7 @@ class ContentmentController < ApplicationController
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
     Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
     # self.send_messages false
-    nil
+    msg
   end
 
   def monthly

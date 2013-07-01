@@ -27,6 +27,7 @@ Contentment::Application.routes.draw do
     match 'users_update/:id',                           :to => 'contentment#users_update',                                          :as => 'users_update'
     match 'sups_update/:id',                            :to => 'contentment#sups_update',                                           :as => 'sups_update'
     match 'periodic',                                   :to => 'contentment#periodic',                                              :as => 'periodic'
+    match 'system_health',                              :to => 'contentment#system_health',                                         :as => 'system_health'
     # match 'locations',                                  :to => 'contentment#locations',                                             :as => 'locations'
 
     match 'download_feedbacks',                         :to => 'contentment#download_feedbacks',                                    :as => 'download_feedbacks',              :via => :post
@@ -50,6 +51,7 @@ Contentment::Application.routes.draw do
     match 'sups_change/:id',                            :to => 'contentment#sups_change',                                           :as => 'sups_change',                     :via => :post
     match 'periodic_send',                              :to => 'contentment#periodic_send',                                         :as => 'periodic_send',                   :via => :post
     match 'create_task',                                :to => 'contentment#create_task',                                           :as => 'create_task',                     :via => :post
+    match 'new_bug_report',                             :to => 'contentment#new_bug_report',                                        :as => 'new_bug_report',                  :via => :post
   end
 
   scope '/data' do

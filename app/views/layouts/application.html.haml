@@ -43,6 +43,8 @@
               %li
                 %a{:href => periodic_path} Periodic Jobs
               %li
+                %a{:href => system_health_path} System Health
+              %li
                 %a{:href => auth_path(:who => :logout)} Log out
           %hr/
           - if session[:stat] then

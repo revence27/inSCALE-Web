@@ -39,3 +39,4 @@ end
 
 gem 'haml'
 gem 'will_paginate'
+gem 'hpricot'

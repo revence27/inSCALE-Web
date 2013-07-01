@@ -1,0 +1,46 @@
+%div{:class => 'span-10'}
+  .jarring Bug Reports
+  = form_tag new_bug_report_path, :method => :post do
+    %fieldset
+      %legend Your contact details:
+      %input{:type => :text, :name => :contact}/
+    %fieldset
+      %legend URL (if relevant):
+      %input{:type => :text, :name => :url}/
+    %fieldset
+      %legend Detailed description:
+      %textarea{:name => :descr}
+    %input{:type => :submit, :value => 'File a new bug report'}
+  %dl
+    - @reports.each do |rep|
+      %dt
+        = link_to rep.contact, rep.url
+      %dd
+        = rep.description
+        %small{:style => 'display: block'}
+          filed
+          = time_ago_in_words rep.created_at
+          ago
+  = will_paginate @reports
+%div{:class => 'span-10 last'}
+  .jarring Missed Codes
+  %dl
+    - @missed.each do |m|
+      %dt
+        Missed code:
+        = link_to m.tentative_code, m.url
+      %dd
+        %br/
+        = m.pdu
+  = will_paginate @missed, :param_name => :code
+%div{:class => 'span-20'}
+  .jarring System Errors
+  %dl
+    - @suberr.each do |se|
+      %dt
+        = link_to se.message, se.url
+      %dd
+        %pre #{se.pdu}
+        - # %pre #{se.backtrace}
+        - # %textarea #{se.pdu}
+  = will_paginate @suberr, :param_name => :subm
