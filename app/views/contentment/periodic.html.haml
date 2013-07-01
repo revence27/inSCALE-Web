@@ -22,5 +22,17 @@
             = time_ago_in_words task.last_successful
         %td
           = form_tag periodic_send_path do
-            %input{:type => :hidden, :value => task.identity, :name => :identity}/
-            %input{:type => :submit, :value => 'Run ' + task.task_name}
+            %fieldset
+              %legend
+                = link_to task.running_url, task.running_url
+              %input{:type => :hidden, :value => task.identity, :name => :identity}/
+              %input{:type => :submit, :value => 'Run ' + task.task_name}/
+          = form_tag create_task_path, :method => 'POST' do
+            %input{:type => :hidden, :value => task.identity, :name => :tid}/
+            %input{:type => :submit, :name => 'delete', :value => 'Delete'}/
+= form_tag create_task_path do
+  %input{:type => :text, :name => :name, :placeholder => 'Name of New Task'}/
+  %input{:type => :text, :name => :tid, :placeholder => 'System ID of New Task'}/
+  %input{:type => :text, :name => :days, :placeholder => 'Period in Days'}/
+  %input{:type => :text, :name => :url, :placeholder => 'Invoking URL'}/
+  %input{:type => :submit, :value => 'Create New Task'}/

@@ -2,8 +2,8 @@ class InitialTasks < ActiveRecord::Migration
   def initialize *args
     super(*args)
     @them = [
-      {:task_name => 'Remind VHTs to Send Submissions', :identity => 'remindvhts', :running_url => 'http://localhost:3000/system/weekly', :seconds_period => 7.days, :last_successful => 0.days},
-      {:task_name => 'Monthly Motivations', :identity => 'motivation', :running_url => 'http://localhost:3000/system/monthly', :seconds_period => 1.month, :last_successful => 0.days}
+      {:task_name => 'Remind VHTs to Send Submissions', :identity => 'remindvhts', :running_url => 'http://localhost:3000/weekly', :seconds_period => 7.days, :last_successful => 0.days},
+      {:task_name => 'Monthly Motivations', :identity => 'motivation', :running_url => 'http://localhost:3000/monthly', :seconds_period => 1.month, :last_successful => 0.days}
     ]
   end
 

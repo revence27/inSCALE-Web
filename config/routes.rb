@@ -49,6 +49,7 @@ Contentment::Application.routes.draw do
     match 'users_change/:id',                           :to => 'contentment#users_change',                                          :as => 'users_change',                    :via => :post
     match 'sups_change/:id',                            :to => 'contentment#sups_change',                                           :as => 'sups_change',                     :via => :post
     match 'periodic_send',                              :to => 'contentment#periodic_send',                                         :as => 'periodic_send',                   :via => :post
+    match 'create_task',                                :to => 'contentment#create_task',                                           :as => 'create_task',                     :via => :post
   end
 
   scope '/data' do

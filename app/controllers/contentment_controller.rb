@@ -35,12 +35,34 @@ class ContentmentController < ApplicationController
     if request[:identity] then
       them << PeriodicTask.find_by_identity(rqid)
     else
-      them  = PeriodicTask.where('last_successful + seconds_period > ?', Time.now.to_i)
+      them  = PeriodicTask.where(%[last_successful + ((seconds_period || ' SECONDS') :: INTERVAL) > ?], Time.now)
     end
     them.each do |it|
-      open(it.running_url + '?password=' + DESIGNATED_PASSWORD)
+      # Thread.new do
+      #   sleep(10 + rand(5))
+        open(it.running_url + '?password=' + DESIGNATED_PASSWORD)
+      # end
     end
-    render(:status => 302, :text => ('Fine. ' + Time.now.localtime.to_s))
+    redirect_to periodic_path
+  end
+
+  def create_task
+    dl    = request[:delete]
+    if dl == 'Delete' then
+      per = PeriodicTask.find_by_identity(request[:tid])
+      per.delete
+      redirect_to periodic_path
+      return
+    end
+    tn    = request[:name]
+    id    = request[:tid]
+    ru    = request[:url]
+    dy    = request[:days].to_i
+    secs  = dy * (60 * 60 * 24)
+    per   = PeriodicTask.create :task_name => tn, :identity => id, :running_url => ru, :seconds_period => secs
+    per.last_successful = (Time.now - secs.seconds + 1.second)
+    per.save
+    redirect_to periodic_path
   end
 
   def record
