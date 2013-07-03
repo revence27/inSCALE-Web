@@ -1,7 +1,7 @@
 Contentment::Application.routes.draw do
   root                  :to => 'contentment#chooser', :as => 'beginning'
   match 'record/:data', :to => 'contentment#record',  :as => 'record'
-  match 'inbound',      :to => 'contentment#inbound', :as => 'inbound'
+  match 'inbound',      :to => 'contentment#inbound', :as => 'inbound',   :via => :post
   match 'monthly',      :to => 'contentment#monthly', :as => 'monthly'
   match 'weekly',       :to => 'contentment#weekly',  :as => 'weekly'
 
