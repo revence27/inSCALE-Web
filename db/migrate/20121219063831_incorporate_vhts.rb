@@ -38,11 +38,15 @@ class IncorporateVhts < ActiveRecord::Migration
           vil = pieces[9 - diff]
           par = 'Unspecified' unless par.strip != ''
           vil = 'Unspecified' unless vil.strip != ''
-          usr = SystemUser.create :name => nom, :number => num, :code => cod, :supervisor_id => actsup.id, :client_id => actclnt.id
-          ['Script-registered', actdist, actsubc, %[#{vil}-village], %[#{par}-parish]].each do |tag|
-            usr.user_tags << UserTag.create(:name => tag)
+          begin
+            usr = SystemUser.create :name => nom, :number => num, :code => cod, :supervisor_id => actsup.id, :client_id => actclnt.id
+            ['Script-registered', actdist, actsubc, %[#{vil}-village], %[#{par}-parish]].each do |tag|
+              usr.user_tags << UserTag.create(:name => tag)
+            end
+            usr.save
+          rescue Exception => e
+
           end
-          usr.save
         end
         if pieces.length > 0 and pieces.length < 6 then
           puts %[#{pieces.length} #{pieces.inspect}]
