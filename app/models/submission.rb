@@ -64,7 +64,6 @@ class Submission < ActiveRecord::Base
     cinfo.save
     yield(cinfo) if block_given?
   end
-  end
 
   # XXX: Consider this obsolete, even though supported.
   def save *args
