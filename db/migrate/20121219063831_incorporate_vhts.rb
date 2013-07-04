@@ -13,6 +13,10 @@ class IncorporateVhts < ActiveRecord::Migration
       actdist = nil
       actsubc = nil
       actclnt = Client.find_by_name DEFAULT_CLIENT_NAME
+      if actclnt.nil? then
+        # raise Exception.new(%[First seed the DB. rake db:seed])
+        return
+      end
       fch.each_line do |ligne|
         pieces  = ligne.strip.split("\t")
         if pieces.length == 10 then
@@ -38,15 +42,11 @@ class IncorporateVhts < ActiveRecord::Migration
           vil = pieces[9 - diff]
           par = 'Unspecified' unless par.strip != ''
           vil = 'Unspecified' unless vil.strip != ''
-          begin
-            usr = SystemUser.create :name => nom, :number => num, :code => cod, :supervisor_id => actsup.id, :client_id => actclnt.id
-            ['Script-registered', actdist, actsubc, %[#{vil}-village], %[#{par}-parish]].each do |tag|
-              usr.user_tags << UserTag.create(:name => tag)
-            end
-            usr.save
-          rescue Exception => e
-
+          usr = SystemUser.create :name => nom, :number => num, :code => cod, :supervisor_id => actsup.id, :client_id => actclnt.id
+          ['Script-registered', actdist, actsubc, %[#{vil}-village], %[#{par}-parish]].each do |tag|
+            usr.user_tags << UserTag.create(:name => tag)
           end
+          usr.save
         end
         if pieces.length > 0 and pieces.length < 6 then
           puts %[#{pieces.length} #{pieces.inspect}]

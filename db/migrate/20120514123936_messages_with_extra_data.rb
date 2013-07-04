@@ -4,6 +4,6 @@ class MessagesWithExtraData < ActiveRecord::Migration
   end
 
   def down
-    drop_column :feedbacks, :system_response
+    remove_column :feedbacks, :system_response
   end
 end

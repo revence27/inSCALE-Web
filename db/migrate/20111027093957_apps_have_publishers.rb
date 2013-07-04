@@ -4,6 +4,6 @@ class AppsHavePublishers < ActiveRecord::Migration
   end
 
   def down
-    remove_column :applications, :publisher_id, :integer
+    remove_column :applications, :publisher_id
   end
 end

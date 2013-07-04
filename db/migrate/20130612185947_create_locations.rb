@@ -34,8 +34,8 @@ class CreateLocations < ActiveRecord::Migration
 
   def down
     # Will it ever be necessary to delete? We can just always correct on the CreateLocations#up.
-    remove_table :districts
-    remove_table :parishes
-    remove_table :villages
+    drop_table :districts
+    drop_table :parishes
+    drop_table :villages
   end
 end

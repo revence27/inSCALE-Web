@@ -4,6 +4,6 @@ class FeedbackIsTagged < ActiveRecord::Migration
   end
 
   def down
-    remove_column :feedbacks, :tag, :text, :default => 'routine', :null => false
+    remove_column :feedbacks, :tag
   end
 end
