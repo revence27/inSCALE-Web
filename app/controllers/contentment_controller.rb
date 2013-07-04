@@ -85,7 +85,6 @@ class ContentmentController < ApplicationController
 
   def record_xml! xml
     doc = Hpricot::XML xml.gsub(/^vht\s+/, '')
-    raise Exception.new(doc.inspect)
     raise Exception.new(%[The XML data processor is still under construction.])
     # TODO: Return equivalent of usr.latest_feedback
   end
