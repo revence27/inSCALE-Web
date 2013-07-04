@@ -84,10 +84,38 @@ class ContentmentController < ApplicationController
     redirect_to periodic_path
   end
 
+  def roll_into_hash doc
+    ans = (doc / 'v').inject({}) do |p, n|
+      p[n['t'].to_sym] = n.inner_html
+      p
+    end
+  end
+
   def record_xml! xml
-    doc = Hpricot::XML xml.gsub(/^vht\s+/, '')
-    raise Exception.new(%[The XML data processor is still under construction.])
-    # TODO: Return equivalent of usr.latest_feedback
+    doc   = Hpricot::XML xml.gsub(/^vht\s+/, '')
+    data  = roll_into_hash doc
+    usr = SystemUser.where('LOWER(code) = ?', [data[:vc].downcase.gsub(/^0*/, '')]).first
+    unless usr then
+      usr = SystemUser.where('LOWER(code) = ?', [data[:vc].downcase]).first
+      unless usr then
+        MissedCode.create :pdu => request[:data], :tentative_code => data[:vc], :url => request.url
+        return render(:status => 404, :text => %[This VHT code (#{data[:vc]}) is unknown.])
+      end
+    end
+    sub = Submission.new :pdu => request[:data],
+              :system_user_id => usr.id,
+              :actual_time    => Time.mktime(1970, 1, 1) + ((data[:date].to_i(16) + (60 * 60 * 3)) / 1000)
+    unless sub.valid? then
+      return render(:status => 402, :text => 'FAILED')
+    end
+    gosp  = 'Successful submission to the server.'
+    sub.save do |info|
+      # supervisor_alert info
+      gosp  = sender_response info
+      send_messages false
+    end
+    gosp  = usr.latest_feedback
+    return render(:status => 200, :text => gosp)
   end
 
   def record
@@ -390,6 +418,7 @@ class ContentmentController < ApplicationController
       jads  = JadField.where :binary_id => bin.id
       rez   = {#  'MIDlet-Version' => '2.' + bin.id.to_s,
                'MIDlet-Jar-SHA1'  => bin.jar_sha1,
+               'MIDlet-Creation-Date'  => bin.created_at.strftime('%d%b%Y'),
                'MIDlet-Jar-URL'   => client_download_path(:format => 'jar', :only_path => false)}
       jads.each do |jad|
         rez[jad.key] ||= jad.value.strip
