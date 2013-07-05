@@ -1,3 +1,5 @@
+COLOUR_LIST = ['#993333', '#b3b3b3', '#a9a9a9', '#737373', '#333333']
+
 $ ->
   deleteableColumns()
   downloadingByDate()
@@ -8,6 +10,19 @@ $ ->
     '/statics/images/kids5.jpg'
     # '/statics/images/kids6.jpg'
     ], 10000)
+  # google.setOnLoadCallback drawTimeCreeper
+
+drawTimeCreeper = () ->
+  genTable  = ([x, Math.random() * 30 * (x % 12)] for x in [0 .. 23])
+  data      = new google.visualization.arrayToDataTable(genTable)
+  chart     = new google.visualization.ScatterChart($('#usagediv').get(0))
+  chart.draw(data,
+    {
+      title: 'Chart of Submission Times',
+      hAxis: {title: 'Time of the Day', maxValue: 23},
+      vAxis: {title: 'Number of Submissions', maxValue: 230},
+      fontName: 'Quattrocento Sans', colors: COLOUR_LIST
+    })
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false

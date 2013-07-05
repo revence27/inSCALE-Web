@@ -4,9 +4,6 @@
       .pubname
         %a{:href => publisher_path(:id => pub.id)}
           = pub.name
-      .subtitle
-        %a{:href => pub.address}
-          = pub.address
       .apps
         - pub.applications.where(:client_id => session[:client]).each do |app|
           .app
@@ -14,6 +11,8 @@
               %a{:href => application_path(:id => app.id)}
                 = app.name
             .descr #{app.description}
+            #usagediv
+            #babygender
 %hr/
 .jarring Add a Questionnaire
 = form_tag app_create_path do

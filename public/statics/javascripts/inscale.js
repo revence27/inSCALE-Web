@@ -1,10 +1,39 @@
-var deleteableColumns, doTheRounds, downloadingByDate;
+var COLOUR_LIST, deleteableColumns, doTheRounds, downloadingByDate, drawTimeCreeper;
+
+COLOUR_LIST = ['#993333', '#b3b3b3', '#a9a9a9', '#737373', '#333333'];
 
 $(function() {
   deleteableColumns();
   downloadingByDate();
   return doTheRounds(['/statics/images/kids1.jpg', '/statics/images/kids2.jpg', '/statics/images/kids3.jpg', '/statics/images/kids4.jpg', '/statics/images/kids5.jpg'], 10000);
 });
+
+drawTimeCreeper = function() {
+  var chart, data, genTable, x;
+  genTable = (function() {
+    var _results;
+    _results = [];
+    for (x = 0; x <= 23; x++) {
+      _results.push([x, Math.random() * 30 * (x % 12)]);
+    }
+    return _results;
+  })();
+  data = new google.visualization.arrayToDataTable(genTable);
+  chart = new google.visualization.ScatterChart($('#usagediv').get(0));
+  return chart.draw(data, {
+    title: 'Chart of Submission Times',
+    hAxis: {
+      title: 'Time of the Day',
+      maxValue: 23
+    },
+    vAxis: {
+      title: 'Number of Submissions',
+      maxValue: 230
+    },
+    fontName: 'Quattrocento Sans',
+    colors: COLOUR_LIST
+  });
+};
 
 doTheRounds = function(lst, pause) {
   var notForNaught, r, rnd, _i, _len, _ref;
