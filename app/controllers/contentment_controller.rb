@@ -104,7 +104,7 @@ class ContentmentController < ApplicationController
     end
     sub = Submission.new :pdu => request[:data],
               :system_user_id => usr.id,
-              :actual_time    => Time.mktime(1970, 1, 1) + ((data[:date].to_i(16) + (60 * 60 * 3)) / 1000)
+              :actual_time    => (Time.mktime(1970, 1, 1) + 3.hours) + ((data[:date].to_i(16) / 1000))
     unless sub.valid? then
       return render(:status => 402, :text => 'FAILED')
     end

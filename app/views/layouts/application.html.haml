@@ -3,8 +3,11 @@
   %head
     - title = yield(:title).strip
     %title #{(title.empty? ? 'inSCALE Management Interface' : title)}
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    - # = stylesheet_link_tag    "application"
+    - # = javascript_include_tag "application"
+    %link{rel: "stylesheet", href: "/statics/stylesheets/blueprint/screen.css", type: "text/css"}/
+    %link{rel: "stylesheet", href: "/statics/stylesheets/inscale.css", type: "text/css", media: "print,screen"}/
+    %meta{name: "Content-Type", content: "text/html; encoding=UTF-8"}/
     = csrf_meta_tags
   %body
     #main{:class => %[container#{if flash[:flashy] then ' dotherounds' else '' end}]}
@@ -59,3 +62,6 @@
         = succeed '.' do
           %a{:href => 'http://www.malariaconsortium.org/inscale/'} The inSCALE Project
         All Rights Reserved
+    %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"}
+    %script{src: "/statics/javascripts/juif.js"}
+    %script{src: "/statics/javascripts/inscale.js"}

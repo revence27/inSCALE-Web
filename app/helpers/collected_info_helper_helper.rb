@@ -60,7 +60,8 @@ module CollectedInfoHelperHelper
     sup = sdr.supervisor.parish
     capture_haml do
       haml_tag :tr do
-        haml_tag :td, sub.time_sent
+        # haml_tag :td, sub.time_sent
+        haml_tag :td, sub.created_at
         haml_tag :td, sdr.number
         haml_tag :td, sdr.name
         haml_tag :td, (sup ? sup.name : '')
@@ -107,5 +108,7 @@ module CollectedInfoHelperHelper
         haml_tag :td, sub.rectal_artus_balance
       end
     end
+  rescue Exception => e
+    ''
   end
 end

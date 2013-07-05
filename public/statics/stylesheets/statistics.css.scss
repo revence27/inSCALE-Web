@@ -1,0 +1,31 @@
+// Place all the styles related to the statistics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pdus
+{
+  .pdu
+  {
+    border: 1px solid #a9a9a9;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+
+    .pos
+    {
+      font-size: x-small;
+      color: #a9a9a9;
+      display: inline;
+      margin-right: 5em;
+    }
+
+    .message
+    {
+
+    }
+
+    .time
+    {
+      font-size: smaller;
+      color: #a9a9a9;
+    }
+  }
+}

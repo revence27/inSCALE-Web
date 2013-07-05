@@ -1,0 +1,218 @@
+// Place all the styles related to the contentment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$sans_serif: "CabinRegular", "Sans Serif";
+$serif: "QuattrocentoRomanRegular", "Serif";
+$monospace: "Courier New", "Monospace";
+$base_font_size: 12pt;
+$base_colour: #333;
+$inscale_red: #933;
+//  Just to change the SHA1 hash.
+
+body, table
+{
+  font-size: $base_font_size;
+  font-family: $sans_serif;
+  color: $base_colour;
+}
+
+#main
+{
+  text-align: center;
+  margin-top: 2em;
+}
+
+#header
+{
+  margin-bottom: 0.5em;
+  font-family: $serif;
+  font-size: $base_font_size * 3;
+
+  #logopart
+  {
+    //  ?
+    text-align: right;
+  }
+
+  #taglinepart
+  {
+    text-align: left;
+  }
+}
+
+#trunk
+{
+  .navbar
+  {
+    ul
+    {
+      display: inline;
+      li
+      {
+        display: inline;
+        margin: 0.25em;
+        white-space: auto;
+
+        a
+        {
+          padding: 0.25em;
+
+          &:hover
+          {
+            border-radius: 0.5em 0.5em 0.5em 0.5em;
+            border: solid 1px $inscale_red;
+            background: lighten($inscale_red, 50%);
+            box-shadow: 0.125em 0.125em 0.25em $base_colour;
+          }
+        }
+      }
+    }
+  }
+
+  .publishers, .clients
+  {
+    .publisher, .client
+    {
+      .pubname, .clname
+      {
+        font-weight: bold;
+        font-size: $base_font_size * 2;
+      }
+
+      .apps, .binaries
+      {
+        margin-top: 2em;
+        
+        .app, .binary
+        {
+          padding-bottom: 1em;
+
+          .appname, .biname
+          {
+            font-weight: bold;
+          }
+
+          .descr
+          {
+            color: lighten($base_colour, 25%);
+          }
+
+          .code
+          {
+            font-size: 9pt;
+            //  white-space: pre;
+            font-family: $monospace;
+            padding: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .jarring
+  {
+    font-weight: bold;
+    font-size: $base_font_size * 2;
+  }
+
+  fieldset
+  {
+    border-radius: 1em 1em 0.125em 0.125em;
+    margin: 1px;
+    padding: 1px;
+    border-bottom: none;
+    $bgcol: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 3px 5px $bgcol;
+    background: rgba(255, 255, 255, 0.3);
+    background: $bgcol;
+  }
+
+  textarea
+  {
+    
+  }
+
+  .charcount
+  {
+    font-size: 60%;
+  }
+}
+
+#footer
+{
+  font-size: $base_font_size / 2;
+  margin-top: 10em;
+}
+
+a
+{
+  color: $inscale_red;
+  text-decoration: none;
+  &:hover
+  {
+    color: $inscale_red;
+    text-decoration: underline;
+    text-shadow: 0.1em 0.1em 0.1em lighten($base_colour, 50%);
+  }
+}
+
+code
+{
+  white-space: pre;
+  font-family: $monospace;
+}
+
+.subtitle
+{
+  font-size: $base_font_size;
+  color: lighten($base_colour, 50%);
+}
+
+input[type="text"], input[type="password"], textarea
+{
+  font: inherit;
+  font-size: 75%;
+  font-weight: bold;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  padding-left: 0.5em;
+
+  &:focus
+  {
+    border: solid $inscale_red 1px outset;
+    box-shadow: -2px 2px 3px $inscale_red;
+  }
+}
+
+input[type="button"], input[type="submit"]
+{
+  background: $inscale_red;
+  color: lighten($inscale_red, 50%);
+  border-radius: 1em 1em 1em 1em;
+  font: inherit;
+  font-size: 80%;
+  border: outset 3px $inscale_red;
+
+  &:hover
+  {
+    border: inset 3px lighten($inscale_red, 30%);
+  }
+}
+
+.respond
+{
+  &:hover
+  {
+    background: rgba(144, 48, 48, 0.125);
+    border-radius: 1em 1em 1em 1em;
+  }
+}
+
+.dotherounds
+{
+  //  The body, when it is on a page of flashiness.
+  text-shadow: 0em 0em 0.25em lighten($base_colour, 5%);
+  color: white;
+  border-radius: 1em 1em 1em 1em;
+  background: url('<%= asset_path('kids1.jpg') %>');
+}

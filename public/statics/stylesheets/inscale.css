@@ -1,0 +1,125 @@
+@import url("http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic|Quattrocento:400,700|Ubuntu+Mono:400,400italic,700,700italic&subset=latin,latin-ext");
+@import url("/statics/stylesheets/juif.css");
+body, table {
+  font-size: 12pt;
+  font-family: "Quattrocento Sans", sans-serif;
+  color: #333333; }
+
+#main {
+  text-align: center;
+  margin-top: 2em; }
+
+#header {
+  margin-bottom: 0.5em;
+  font-family: "Quattrocento", serif;
+  font-size: 36pt; }
+  #header #logopart {
+    text-align: right; }
+  #header #taglinepart {
+    text-align: left; }
+
+#trunk .navbar ul {
+  display: inline; }
+  #trunk .navbar ul li {
+    display: inline;
+    margin: 0.25em;
+    white-space: auto; }
+    #trunk .navbar ul li a {
+      padding: 0.25em; }
+      #trunk .navbar ul li a:hover {
+        border-radius: 0.5em 0.5em 0.5em 0.5em;
+        border: solid 1px #993333;
+        background: #f2d9d9;
+        box-shadow: 0.125em 0.125em 0.25em #333333; }
+#trunk .publishers .publisher .pubname, #trunk .publishers .publisher .clname, #trunk .publishers .client .pubname, #trunk .publishers .client .clname, #trunk .clients .publisher .pubname, #trunk .clients .publisher .clname, #trunk .clients .client .pubname, #trunk .clients .client .clname {
+  font-weight: bold;
+  font-size: 24pt; }
+#trunk .publishers .publisher .apps, #trunk .publishers .publisher .binaries, #trunk .publishers .client .apps, #trunk .publishers .client .binaries, #trunk .clients .publisher .apps, #trunk .clients .publisher .binaries, #trunk .clients .client .apps, #trunk .clients .client .binaries {
+  margin-top: 2em; }
+  #trunk .publishers .publisher .apps .app, #trunk .publishers .publisher .apps .binary, #trunk .publishers .publisher .binaries .app, #trunk .publishers .publisher .binaries .binary, #trunk .publishers .client .apps .app, #trunk .publishers .client .apps .binary, #trunk .publishers .client .binaries .app, #trunk .publishers .client .binaries .binary, #trunk .clients .publisher .apps .app, #trunk .clients .publisher .apps .binary, #trunk .clients .publisher .binaries .app, #trunk .clients .publisher .binaries .binary, #trunk .clients .client .apps .app, #trunk .clients .client .apps .binary, #trunk .clients .client .binaries .app, #trunk .clients .client .binaries .binary {
+    padding-bottom: 1em; }
+    #trunk .publishers .publisher .apps .app .appname, #trunk .publishers .publisher .apps .app .biname, #trunk .publishers .publisher .apps .binary .appname, #trunk .publishers .publisher .apps .binary .biname, #trunk .publishers .publisher .binaries .app .appname, #trunk .publishers .publisher .binaries .app .biname, #trunk .publishers .publisher .binaries .binary .appname, #trunk .publishers .publisher .binaries .binary .biname, #trunk .publishers .client .apps .app .appname, #trunk .publishers .client .apps .app .biname, #trunk .publishers .client .apps .binary .appname, #trunk .publishers .client .apps .binary .biname, #trunk .publishers .client .binaries .app .appname, #trunk .publishers .client .binaries .app .biname, #trunk .publishers .client .binaries .binary .appname, #trunk .publishers .client .binaries .binary .biname, #trunk .clients .publisher .apps .app .appname, #trunk .clients .publisher .apps .app .biname, #trunk .clients .publisher .apps .binary .appname, #trunk .clients .publisher .apps .binary .biname, #trunk .clients .publisher .binaries .app .appname, #trunk .clients .publisher .binaries .app .biname, #trunk .clients .publisher .binaries .binary .appname, #trunk .clients .publisher .binaries .binary .biname, #trunk .clients .client .apps .app .appname, #trunk .clients .client .apps .app .biname, #trunk .clients .client .apps .binary .appname, #trunk .clients .client .apps .binary .biname, #trunk .clients .client .binaries .app .appname, #trunk .clients .client .binaries .app .biname, #trunk .clients .client .binaries .binary .appname, #trunk .clients .client .binaries .binary .biname {
+      font-weight: bold; }
+    #trunk .publishers .publisher .apps .app .descr, #trunk .publishers .publisher .apps .binary .descr, #trunk .publishers .publisher .binaries .app .descr, #trunk .publishers .publisher .binaries .binary .descr, #trunk .publishers .client .apps .app .descr, #trunk .publishers .client .apps .binary .descr, #trunk .publishers .client .binaries .app .descr, #trunk .publishers .client .binaries .binary .descr, #trunk .clients .publisher .apps .app .descr, #trunk .clients .publisher .apps .binary .descr, #trunk .clients .publisher .binaries .app .descr, #trunk .clients .publisher .binaries .binary .descr, #trunk .clients .client .apps .app .descr, #trunk .clients .client .apps .binary .descr, #trunk .clients .client .binaries .app .descr, #trunk .clients .client .binaries .binary .descr {
+      color: #737373; }
+    #trunk .publishers .publisher .apps .app .code, #trunk .publishers .publisher .apps .binary .code, #trunk .publishers .publisher .binaries .app .code, #trunk .publishers .publisher .binaries .binary .code, #trunk .publishers .client .apps .app .code, #trunk .publishers .client .apps .binary .code, #trunk .publishers .client .binaries .app .code, #trunk .publishers .client .binaries .binary .code, #trunk .clients .publisher .apps .app .code, #trunk .clients .publisher .apps .binary .code, #trunk .clients .publisher .binaries .app .code, #trunk .clients .publisher .binaries .binary .code, #trunk .clients .client .apps .app .code, #trunk .clients .client .apps .binary .code, #trunk .clients .client .binaries .app .code, #trunk .clients .client .binaries .binary .code {
+      font-size: 9pt;
+      font-family: "Ubuntu Mono", sans-serif;
+      padding: 1em; }
+#trunk .jarring {
+  font-weight: bold;
+  font-size: 24pt; }
+#trunk fieldset {
+  border-radius: 1em 1em 0.125em 0.125em;
+  margin: 1px;
+  padding: 1px;
+  border-bottom: none;
+  box-shadow: 0px 3px 5px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3); }
+#trunk .charcount {
+  font-size: 60%; }
+
+#footer {
+  font-size: 6pt;
+  margin-top: 10em; }
+
+a {
+  color: #993333;
+  text-decoration: none; }
+  a:hover {
+    color: #993333;
+    text-decoration: underline;
+    text-shadow: 0.1em 0.1em 0.1em #b3b3b3; }
+
+code {
+  white-space: pre;
+  font-family: "Ubuntu Mono", sans-serif; }
+
+.subtitle {
+  font-size: 12pt;
+  color: #b3b3b3; }
+
+input[type="text"], input[type="password"], textarea {
+  font: inherit;
+  font-size: 75%;
+  font-weight: bold;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  padding-left: 0.5em; }
+  input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+    border: solid #993333 1px outset;
+    box-shadow: -2px 2px 3px #993333; }
+
+input[type="button"], input[type="submit"] {
+  background: #993333;
+  color: #f2d9d9;
+  border-radius: 1em 1em 1em 1em;
+  font: inherit;
+  font-size: 80%;
+  border: outset 3px #993333; }
+  input[type="button"]:hover, input[type="submit"]:hover {
+    border: inset 3px #d98c8c; }
+
+.respond:hover {
+  background: rgba(144, 48, 48, 0.125);
+  border-radius: 1em 1em 1em 1em; }
+
+.dotherounds {
+  text-shadow: 0em 0em 0.25em #404040;
+  color: white;
+  border-radius: 1em 1em 1em 1em;
+  background: url("/statics/images/kids1.jpg"); }
+
+.pdus .pdu {
+  border: 1px solid #a9a9a9;
+  border-radius: 0.5em 0.5em 0.5em 0.5em; }
+
+.pdus .pdu .pos {
+  font-size: x-small;
+  color: #a9a9a9;
+  display: inline;
+  margin-right: 5em; }
+
+.pdus .pdu .time {
+  font-size: smaller;
+  color: #a9a9a9; }
