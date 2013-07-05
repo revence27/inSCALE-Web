@@ -9,20 +9,27 @@ $(function() {
 });
 
 drawTimeCreeper = function() {
-  var chart, data, genTable, targ, x;
+  var chart, data, targ, x, y, _ref;
   drawMonthCreeper();
   markSkeletons();
   targ = $('#usagediv').get(0);
   if (!targ) return;
-  genTable = (function() {
-    var _results;
-    _results = [];
-    for (x = 0; x <= 23; x++) {
-      _results.push([x, Math.random() * 30 * (x % 12)]);
+  data = new google.visualization.DataTable({
+    cols: [
+      {
+        label: 'Hour',
+        type: 'timeofday'
+      }, {
+        label: 'Submissions',
+        type: 'number'
+      }
+    ]
+  });
+  for (x = 0; x <= 23; x++) {
+    for (y = 0, _ref = Math.floor(10 * Math.random()); 0 <= _ref ? y <= _ref : y >= _ref; 0 <= _ref ? y++ : y--) {
+      data.addRow([[x, y, 0, 0], Math.random() * 30 * (x % (Math.random() * 12))]);
     }
-    return _results;
-  })();
-  data = new google.visualization.arrayToDataTable(genTable);
+  }
   chart = new google.visualization.ScatterChart(targ);
   return chart.draw(data, {
     title: 'Chart of Submission Times',

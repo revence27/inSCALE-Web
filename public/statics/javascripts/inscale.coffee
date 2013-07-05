@@ -16,8 +16,10 @@ drawTimeCreeper = () ->
   markSkeletons()
   targ      = $('#usagediv').get(0)
   return unless targ
-  genTable  = ([x, Math.random() * 30 * (x % 12)] for x in [0 .. 23])
-  data      = new google.visualization.arrayToDataTable(genTable)
+  data      = new google.visualization.DataTable({cols: [{label: 'Hour', type: 'timeofday'}, {label: 'Submissions', type: 'number'}]})
+  for x in [0 .. 23]
+    for y in [0 .. Math.floor(10 * Math.random())]
+      data.addRow [[x, y, 0, 0], Math.random() * 30 * (x % (Math.random() * 12))]
   chart     = new google.visualization.ScatterChart targ
   chart.draw(data,
     {
