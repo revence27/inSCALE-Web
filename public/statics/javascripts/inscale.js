@@ -1,4 +1,4 @@
-var COLOUR_LIST, deleteableColumns, doTheRounds, downloadingByDate, drawTimeCreeper;
+var COLOUR_LIST, deleteableColumns, doTheRounds, downloadingByDate, drawTimeCreeper, markSkeletons;
 
 COLOUR_LIST = ['#993333', '#b3b3b3', '#a9a9a9', '#737373', '#333333'];
 
@@ -9,7 +9,10 @@ $(function() {
 });
 
 drawTimeCreeper = function() {
-  var chart, data, genTable, x;
+  var chart, data, genTable, targ, x;
+  markSkeletons();
+  targ = $('#usagediv').get(0);
+  if (!targ) return;
   genTable = (function() {
     var _results;
     _results = [];
@@ -19,7 +22,7 @@ drawTimeCreeper = function() {
     return _results;
   })();
   data = new google.visualization.arrayToDataTable(genTable);
-  chart = new google.visualization.ScatterChart($('#usagediv').get(0));
+  chart = new google.visualization.ScatterChart(targ);
   return chart.draw(data, {
     title: 'Chart of Submission Times',
     hAxis: {
@@ -33,6 +36,19 @@ drawTimeCreeper = function() {
     fontName: 'Quattrocento Sans',
     colors: COLOUR_LIST
   });
+};
+
+markSkeletons = function() {
+  var it, sk, skel, _i, _len, _ref, _results;
+  _ref = $('.skel');
+  _results = [];
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    sk = _ref[_i];
+    skel = $(sk);
+    it = $($('td', sk)[0]);
+    _results.push(it.prepend($('<span class="tabalert">☠</span> <span class="tabalert">&#128137;</span>')));
+  }
+  return _results;
 };
 
 doTheRounds = function(lst, pause) {

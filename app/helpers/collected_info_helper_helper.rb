@@ -59,7 +59,7 @@ module CollectedInfoHelperHelper
     sdr = sbm.system_user
     sup = sdr.supervisor.parish
     capture_haml do
-      haml_tag :tr do
+      haml_tag(:tr, {:class => (sub.died.zero? ? '' : 'skel ')}) do
         # haml_tag :td, sub.time_sent
         haml_tag :td, sub.created_at
         haml_tag :td, sdr.number

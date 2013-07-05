@@ -12,9 +12,12 @@ $ ->
     ], 10000)
 
 drawTimeCreeper = () ->
+  markSkeletons()
+  targ      = $('#usagediv').get(0)
+  return unless targ
   genTable  = ([x, Math.random() * 30 * (x % 12)] for x in [0 .. 23])
   data      = new google.visualization.arrayToDataTable(genTable)
-  chart     = new google.visualization.ScatterChart($('#usagediv').get(0))
+  chart     = new google.visualization.ScatterChart targ
   chart.draw(data,
     {
       title: 'Chart of Submission Times',
@@ -22,6 +25,12 @@ drawTimeCreeper = () ->
       vAxis: {title: 'Number of Submissions', maxValue: 230},
       fontName: 'Quattrocento Sans', colors: COLOUR_LIST
     })
+
+markSkeletons = () ->
+  for sk in $('.skel')
+    skel  = $(sk)
+    it    = $($('td', sk)[0])
+    it.prepend $('<span class="tabalert">☠</span> <span class="tabalert">&#128137;</span>')
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false

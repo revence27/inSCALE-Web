@@ -123,3 +123,7 @@ input[type="button"], input[type="submit"] {
 .pdus .pdu .time {
   font-size: smaller;
   color: #a9a9a9; }
+
+.tabalert {
+  color: #993333;
+  font-weight: bolder; }
