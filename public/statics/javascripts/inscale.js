@@ -39,14 +39,23 @@ drawTimeCreeper = function() {
 };
 
 markSkeletons = function() {
-  var it, sk, skel, _i, _len, _ref, _results;
+  var canv, chart, chosen, it, pie, sk, skel, tds, _i, _len, _ref, _results;
   _ref = $('.skel');
   _results = [];
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     sk = _ref[_i];
     skel = $(sk);
-    it = $($('td', sk)[0]);
-    _results.push(it.prepend($('<span class="tabalert">☠</span> <span class="tabalert">&#128137;</span>')));
+    tds = $('td', sk);
+    it = $(tds[2]);
+    chosen = ['&#9925;', '&#9785;', '&#9733;'][Math.floor(Math.random() * 3)];
+    it.append($('<br /><span class="tabalert">☠</span> <span class="tabalert">&#128137;</span> <span class="tabalert">' + chosen + '</span>'));
+    pie = google.visualization.arrayToDataTable([['Baby Gender', 'Number'], ['Male', parseInt($(tds[7]).text())], ['Female', parseInt($(tds[8]).text())]]);
+    canv = $('<div></div>');
+    $(tds[2]).append(canv);
+    chart = new google.visualization.PieChart(canv.get(0));
+    _results.push(chart.draw(pie, {
+      title: 'Genders'
+    }));
   }
   return _results;
 };

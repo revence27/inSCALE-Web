@@ -28,9 +28,20 @@ drawTimeCreeper = () ->
 
 markSkeletons = () ->
   for sk in $('.skel')
-    skel  = $(sk)
-    it    = $($('td', sk)[0])
-    it.prepend $('<span class="tabalert">☠</span> <span class="tabalert">&#128137;</span>')
+    skel    = $(sk)
+    tds     = $('td', sk)
+    it      = $(tds[2])
+    chosen  = ['&#9925;', '&#9785;', '&#9733;'][Math.floor((Math.random() * 3))]
+    it.append $('<br /><span class="tabalert">☠</span> <span class="tabalert">&#128137;</span> <span class="tabalert">' + chosen + '</span>')
+    pie     = google.visualization.arrayToDataTable([
+      ['Baby Gender', 'Number'],
+      ['Male',    parseInt($(tds[7]).text())],
+      ['Female',  parseInt($(tds[8]).text())],
+    ])
+    canv  = $('<div></div>')
+    $(tds[2]).append(canv)
+    chart = new google.visualization.PieChart(canv.get(0))
+    chart.draw(pie, {title: 'Genders'})
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false
