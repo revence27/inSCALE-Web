@@ -12,6 +12,7 @@ $ ->
     ], 10000)
 
 drawTimeCreeper = () ->
+  drawMonthCreeper()
   markSkeletons()
   targ      = $('#usagediv').get(0)
   return unless targ
@@ -23,6 +24,27 @@ drawTimeCreeper = () ->
       title: 'Chart of Submission Times',
       hAxis: {title: 'Time of the Day', maxValue: 23},
       vAxis: {title: 'Number of Submissions', maxValue: 230},
+      fontName: 'Quattrocento Sans', colors: COLOUR_LIST
+    })
+
+drawMonthCreeper = () ->
+  targ      = $('#monthsdiv').get(0)
+  return unless targ
+  genTable  = new google.visualization.DataTable()
+  genTable.addColumn 'date', 'Period'
+  genTable.addColumn 'number', 'Submissions'
+  genTable.addColumn 'number', 'Punctual Submissions'
+  for x in [0 .. 52]
+    val   = Math.random() * 300 * (x % 12)
+    secs  = (52 - x) * (60 * 60 * 24 * 7 * 1000)
+    curt  = new Date().getTime()
+    genTable.addRow [new Date(curt - secs), val, val * Math.random()]
+  chart     = new google.visualization.LineChart targ
+  chart.draw(genTable,
+    {
+      title: 'Weekly Activity for the Year',
+      vAxis: {title: 'Total Submissions (Week)'},
+      hAxis: {title: 'Period'},
       fontName: 'Quattrocento Sans', colors: COLOUR_LIST
     })
 

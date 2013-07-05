@@ -1,4 +1,4 @@
-var COLOUR_LIST, deleteableColumns, doTheRounds, downloadingByDate, drawTimeCreeper, markSkeletons;
+var COLOUR_LIST, deleteableColumns, doTheRounds, downloadingByDate, drawMonthCreeper, drawTimeCreeper, markSkeletons;
 
 COLOUR_LIST = ['#993333', '#b3b3b3', '#a9a9a9', '#737373', '#333333'];
 
@@ -10,6 +10,7 @@ $(function() {
 
 drawTimeCreeper = function() {
   var chart, data, genTable, targ, x;
+  drawMonthCreeper();
   markSkeletons();
   targ = $('#usagediv').get(0);
   if (!targ) return;
@@ -32,6 +33,34 @@ drawTimeCreeper = function() {
     vAxis: {
       title: 'Number of Submissions',
       maxValue: 230
+    },
+    fontName: 'Quattrocento Sans',
+    colors: COLOUR_LIST
+  });
+};
+
+drawMonthCreeper = function() {
+  var chart, curt, genTable, secs, targ, val, x;
+  targ = $('#monthsdiv').get(0);
+  if (!targ) return;
+  genTable = new google.visualization.DataTable();
+  genTable.addColumn('date', 'Period');
+  genTable.addColumn('number', 'Submissions');
+  genTable.addColumn('number', 'Punctual Submissions');
+  for (x = 0; x <= 52; x++) {
+    val = Math.random() * 300 * (x % 12);
+    secs = (52 - x) * (60 * 60 * 24 * 7 * 1000);
+    curt = new Date().getTime();
+    genTable.addRow([new Date(curt - secs), val, val * Math.random()]);
+  }
+  chart = new google.visualization.LineChart(targ);
+  return chart.draw(genTable, {
+    title: 'Weekly Activity for the Year',
+    vAxis: {
+      title: 'Total Submissions (Week)'
+    },
+    hAxis: {
+      title: 'Period'
     },
     fontName: 'Quattrocento Sans',
     colors: COLOUR_LIST
