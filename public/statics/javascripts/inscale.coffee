@@ -1,12 +1,12 @@
 $ ->
   deleteableColumns()
   downloadingByDate()
-  doTheRounds(['/assets/kids1.jpg'
-    '/assets/kids2.jpg'
-    '/assets/kids3.jpg'
-    '/assets/kids4.jpg'
-    '/assets/kids5.jpg'
-    # '/assets/kids6.jpg'
+  doTheRounds(['/statics/images/kids1.jpg'
+    '/statics/images/kids2.jpg'
+    '/statics/images/kids3.jpg'
+    '/statics/images/kids4.jpg'
+    '/statics/images/kids5.jpg'
+    # '/statics/images/kids6.jpg'
     ], 10000)
 
 doTheRounds = (lst, pause) ->
