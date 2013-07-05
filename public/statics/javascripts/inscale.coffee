@@ -41,7 +41,7 @@ markSkeletons = () ->
     canv  = $('<div></div>')
     $(tds[2]).append(canv)
     chart = new google.visualization.PieChart(canv.get(0))
-    chart.draw(pie, {title: 'Genders'})
+    chart.draw(pie, {title: 'Genders', colors: COLOUR_LIST})
 
 doTheRounds = (lst, pause) ->
   notForNaught    = false

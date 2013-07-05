@@ -54,7 +54,8 @@ markSkeletons = function() {
     $(tds[2]).append(canv);
     chart = new google.visualization.PieChart(canv.get(0));
     _results.push(chart.draw(pie, {
-      title: 'Genders'
+      title: 'Genders',
+      colors: COLOUR_LIST
     }));
   }
   return _results;
