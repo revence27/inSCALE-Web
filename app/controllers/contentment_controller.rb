@@ -112,7 +112,7 @@ class ContentmentController < ApplicationController
     sub.save do |info|
       # supervisor_alert info
       gosp  = sender_response(info).message
-      send_messages false
+      # send_messages false
     end
     # lf  = usr.latest_feedback
     return render(:status => 200, :text => gosp)

@@ -18,7 +18,7 @@ class Submission < ActiveRecord::Base
     end
   end
 
-  def manage_with_xml! xml
+  def manage_with_xml! xml, &block
     doc    = Hpricot::XML(xml)
     data   = as_hash doc
     stt    = (Time.mktime(1970, 1, 1) + 3.hours) + data[:date].to_i(16)
@@ -67,7 +67,7 @@ class Submission < ActiveRecord::Base
       :gloves_left_mt5      =>  data[:glvbal] == 'MT5'
     )
     cinfo.save
-    yield(cinfo) if block_given?
+    block.call(cinfo) if block
   end
 
   # XXX: Consider this obsolete, even though supported.
