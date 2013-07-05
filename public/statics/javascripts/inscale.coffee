@@ -10,7 +10,6 @@ $ ->
     '/statics/images/kids5.jpg'
     # '/statics/images/kids6.jpg'
     ], 10000)
-  # google.setOnLoadCallback drawTimeCreeper
 
 drawTimeCreeper = () ->
   genTable  = ([x, Math.random() * 30 * (x % 12)] for x in [0 .. 23])
