@@ -218,10 +218,10 @@ ActiveRecord::Schema.define(:version => 20130701165137) do
     t.integer  "supervisor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sort_code",     :default => 0, :null => false
     t.integer  "parish_id"
     t.integer  "village_id"
     t.integer  "district_id"
+    t.integer  "sort_code",     :default => 0, :null => false
   end
 
   create_table "user_tags", :force => true do |t|

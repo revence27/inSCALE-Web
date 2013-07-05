@@ -111,10 +111,10 @@ class ContentmentController < ApplicationController
     gosp  = 'Successful submission to the server.'
     sub.save do |info|
       # supervisor_alert info
-      gosp  = sender_response info
+      gosp  = sender_response(info).message
       send_messages false
     end
-    gosp  = usr.latest_feedback
+    # lf  = usr.latest_feedback
     return render(:status => 200, :text => gosp)
   end
 
@@ -123,7 +123,7 @@ class ContentmentController < ApplicationController
       uid = 1
       cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
       if $1 =~ /<sub/ then
-        return record_xml! request[:data]
+        return record_xml!(request[:data])
       end
       usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase.gsub(/^0*/, '')]).first
       unless usr then
@@ -142,10 +142,10 @@ class ContentmentController < ApplicationController
       gosp  = 'Successful submission to the server.'
       sub.save do |info|
         # supervisor_alert info
-        gosp  = sender_response info
+        gosp  = sender_response(info).message
         send_messages false
       end
-      gosp  = usr.latest_feedback
+      # lf  = usr.latest_feedback
       return render(:status => 200, :text => gosp)
     rescue Exception => e
       ans = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
@@ -155,6 +155,10 @@ class ContentmentController < ApplicationController
   end
 
   def supervisor_alert info
+    return self.send_messages(false)
+
+
+
     vht = info.submission.system_user
     sup = vht.supervisor
     [
@@ -263,9 +267,9 @@ class ContentmentController < ApplicationController
     msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ? OR LOWER(vht_code) = ?', sysu.code.downcase, sysu.code.gsub(/^0/, '')]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
-    Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
-    # self.send_messages false
-    msg
+    rsp = Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
+    self.send_messages false
+    rsp
   end
 
   def monthly
