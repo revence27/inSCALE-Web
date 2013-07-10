@@ -1,0 +1,33 @@
+.jarring
+  Admin and Bio-Statistician Mail Address
+%hr/
+.sysusers{:class => 'span-24'}
+  - @admins.each do |user|
+    .sysuser{:class => 'span-24 respond'}
+    .name{:class => 'span-8'}
+      = user.name
+      - if user.biostat then
+        (bio-statistician)
+    .number{:class => 'span-8'}
+      = link_to user.address, %[mailto:#{user.address}]
+    .metadata{:class => 'span-8 last'}
+      Last message sent
+      = time_ago_in_words user.latest
+      ago
+      = button_to %[Delete #{user.name}], delete_mail_path(:id => user.id)
+
+%hr/
+= form_tag add_mail_path do
+  = field_set_tag do
+    = text_field_tag :address, '', {:size => 55}
+    .subtitle
+      Enter the new address
+  = field_set_tag do
+    = text_field_tag :name, '', {:size => 55}
+    .subtitle
+      Enter the name of the user
+  = field_set_tag do
+    %input{:type => :checkbox, :checked => nil, :name => :biostat, :value => 'biostat'}/
+    %label{'for' => :biostat} as a bio-statistician
+    %br/
+    %input{:type => :submit, :value => 'Record'}/

@@ -1,0 +1,36 @@
+.jarring
+  = @client.name
+  User Search
+
+= form_tag nil, {:method => :get} do
+  = text_field_tag :q, request[:q], {:size => 55}
+  %input{:type => :submit}/
+- if request[:q] and @users
+  %h6 Results for &ldquo;#{link_to(request[:q], search_path(:q => request[:q]))}&rdquo;
+
+  - if @users.count < 1 then
+    %i No results.
+  - else
+    %hr/
+
+    .sysusers{:class => 'span-24'}
+      - @users.each do |user|
+        .sysuser{:class => 'span-24 respond'}
+          .name{:class => 'span-8'}
+            = link_to user.name, users_path(:userid => user.id)
+          .number{:class => 'span-8'}
+            - if user.code then
+              = user.code
+              = surround '(', ')' do
+                = link_to user.number, messaging_path(:dest => user.number)
+            - else
+              = link_to user.number, messaging_path(:dest => user.number)
+          .metadata{:class => 'span-8 last'}
+            - first = true
+            - user.user_tags.each do |tag|
+              - unless first then
+                &bull;
+              = link_to tag.name, tag_path(:name => tag.name)
+              - first = false
+            = button_to %[Delete #{user.name}], delete_user_path(user), {:confirm => %[#{user.name} will be deleted forever. Are you sure?]}
+    = will_paginate @users

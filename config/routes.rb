@@ -17,6 +17,8 @@ Contentment::Application.routes.draw do
     match 'excel',                                      :to => 'statistics#csv',                                                    :as => 'csv'
     match 'feedback(/:page)',                           :to => 'contentment#feedback',                                              :as => 'feedback'
     match 'users(/:userid)',                            :to => 'contentment#users',                                                 :as => 'users'
+    match 'admins',                                     :to => 'contentment#admins',                                                :as => 'admins'
+    match 'mails',                                      :to => 'contentment#mails',                                                 :as => 'mails'
     match 'supervisors/:supid',                         :to => 'contentment#supervisors',                                           :as => 'sups'
     match 'tag(/:name)',                                :to => 'contentment#tags',                                                  :as => 'tag'
     match 'sendmessages',                               :to => 'contentment#send_messages',                                         :as => 'send_messages'
@@ -28,6 +30,7 @@ Contentment::Application.routes.draw do
     match 'sups_update/:id',                            :to => 'contentment#sups_update',                                           :as => 'sups_update'
     match 'periodic',                                   :to => 'contentment#periodic',                                              :as => 'periodic'
     match 'system_health',                              :to => 'contentment#system_health',                                         :as => 'system_health'
+    match 'search',                                     :to => 'contentment#search',                                                :as => 'search'
     # match 'locations',                                  :to => 'contentment#locations',                                             :as => 'locations'
 
     match 'download_feedbacks',                         :to => 'contentment#download_feedbacks',                                    :as => 'download_feedbacks',              :via => :post
@@ -46,6 +49,8 @@ Contentment::Application.routes.draw do
     match 'delete_tag/:id',                             :to => 'contentment#delete_tag',                                            :as => 'delete_tag',                      :via => :post
     match 'create_user',                                :to => 'contentment#create_user',                                           :as => 'create_user',                     :via => :post
     match 'delete_user/:id',                            :to => 'contentment#delete_user',                                           :as => 'delete_user',                     :via => :post
+    match 'delete_mail/:id',                            :to => 'contentment#delete_mail',                                           :as => 'delete_mail',                     :via => :post
+    match 'add_mail',                                   :to => 'contentment#add_mail',                                              :as => 'add_mail',                        :via => :post
     match 'delete_sup/:id',                             :to => 'contentment#delete_supervisor',                                     :as => 'delete_sup',                      :via => :post
     match 'users_change/:id',                           :to => 'contentment#users_change',                                          :as => 'users_change',                    :via => :post
     match 'sups_change/:id',                            :to => 'contentment#sups_change',                                           :as => 'sups_change',                     :via => :post

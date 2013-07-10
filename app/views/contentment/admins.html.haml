@@ -1,0 +1,26 @@
+.jarring
+  Change Admin Passwords for
+  = @client.name
+
+- if flash[:error] then
+  .error
+    = flash[:error]
+
+= form_tag do
+  = field_set_tag do
+    Current Admin Password:
+    %br/
+    = password_field_tag :oldpass, '', {:size => 55}
+  = field_set_tag do
+    New Admin Password:
+    %br/
+    = password_field_tag :newpass, '', {:size => 55}
+    .subtitle
+      Leave this field empty if you do <em>not</em> want to change the admin password.
+  = field_set_tag do
+    New Bio-Statistician Password:
+    %br/
+    = password_field_tag :biopass, '', {:size => 55}
+    .subtitle
+      Leave this field empty if you do <em>not</em> want to change the bio-statistician’s password.
+  = submit_tag 'Change Password'

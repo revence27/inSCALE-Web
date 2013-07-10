@@ -5,6 +5,18 @@
       .subtitle
         = surround 'Download ', ' client.' do
           %a{:href => client_update_path(:version => '0', :code => client.code, :status => 'fresh')} #{client.name}
+        %br/
+        %small
+          - total = SystemUser.count
+          - updd  = UserTag.where('name = ?', ['client-updated']).count
+          Number of installed updates:
+          %strong
+            = updd
+          %br/
+          VHTs up-to-date:
+          %strong
+            = succeed '%' do
+              = ((updd.to_f / total.to_f) * 100.00).round(2)
       .binaries
         - client.binaries.order('created_at DESC').each do |bin|
           .binary

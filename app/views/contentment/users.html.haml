@@ -4,6 +4,12 @@
   .subtitle
     = @user.number
     %br/
+    - if @user.client then
+      - clt = Client.find_by_id(@user.client)
+      Phone app:
+      %strong
+        = clt.created_at.strftime('%d%b%Y')
+      %br/
     %small
       - if @user.village_id then
         = @user.village.name
@@ -71,7 +77,7 @@
           = time_ago_in_words sub.created_at.localtime
           ago, at
           = sub.created_at.localtime.strftime('%X, on the %d of %B, %Y')
-        - answers = sub.collected_info.responses
+        - answers = sub.collected_info.responses rescue []
         - if answers.any? then
           .responses
             %table

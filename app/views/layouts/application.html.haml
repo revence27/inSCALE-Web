@@ -43,9 +43,15 @@
                 %a{:href => motivators_path} Motivational Messages
               %li
                 %a{:href => users_path} User Management
+              %li
+                %a{:href => search_path} User Search
               - if Publisher.count > 1 then
                 %li
                   %a{:href => publisher_path} Publishers
+              %li
+                %a{:href => admins_path} Admins
+              %li
+                %a{:href => mails_path} Mails
               %li
                 %a{:href => periodic_path} Periodic Jobs
               %li

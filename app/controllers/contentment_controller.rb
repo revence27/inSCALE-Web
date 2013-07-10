@@ -408,6 +408,8 @@ class ContentmentController < ApplicationController
       key, val = line.strip.split ':', 2
       JadField.create(:key => key, :value => val, :binary_id => bin.id)
     end
+    UserTag.where('name = ?', ['client-updated']).each {|ut| ut.delete  }
+    UserTag.where('name = ?', ['questionnaire-updated']).each {|ut| ut.delete  }
     redirect_to clients_path
   end
 
@@ -438,7 +440,15 @@ class ContentmentController < ApplicationController
     clt = Client.find_by_code request[:code]
     return render(:text => 'OK') if clt.binaries.empty?
     bin = Binary.where(:client_id => clt.id).order('created_at DESC').first
-    if bin.jar_sha1 == request[:version]
+    if bin.jar_sha1 == request[:version] then
+      if request[:vht] then
+        sysu = SystemUser.find_by_code(request[:vht])
+        if sysu then
+          sysu.client = request[:version]
+          sysu.save
+          UserTag.create(:name => 'client-updated', :system_user_id => sysu.id)
+        end
+      end
       group   = Application.where(:client_id => clt.id)
       apps    = group.order('created_at ASC')
       latest  = group.order('updated_at DESC').first.updated_at
@@ -446,6 +456,10 @@ class ContentmentController < ApplicationController
       return render :text => 'OK' if apps.empty?
       newid   = ([latest, publat].max - VERSION_START_TIME).to_i
       if newid.to_s == request[:status] then
+        if request[:vht] then
+          sysu = SystemUser.find_by_code(request[:vht])
+          UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu
+        end
         render :text => 'OK'
       else
         pubs  = Publisher.where(['id IN (?)', Set.new(apps.map {|a| a.publisher_id})])
@@ -584,8 +598,10 @@ class ContentmentController < ApplicationController
 
   def users
     if request[:userid] then
-      @user  = SystemUser.find_by_id(request[:userid])
-      @subs  = @user.submissions.order('created_at DESC').paginate(:page => request[:page])
+      @user = SystemUser.find_by_id(request[:userid])
+      subs  = @user.submissions
+      subs  = request[:submission].nil? ? subs : subs.where('id = ?', [request[:submission]])
+      @subs = subs.order('created_at DESC').paginate(:page => request[:page])
     end
     # @users  = @client.system_users.order('code ASC').paginate(:page => request[:page])
     @users  = @client.system_users.order('sort_code ASC').paginate(:page => request[:page])
@@ -711,5 +727,54 @@ class ContentmentController < ApplicationController
     @dists  = District.order('name ASC')
     @pars   = Parish.order('name ASC')
     @vills  = Village.order('name ASC')
+  end
+
+  def mails
+    # @biostat  = AdminAddress.biostat
+    # @admins   = AdminAddress.admins
+    @admins = AdminAddress.all
+  end
+
+  def add_mail
+    AdminAddress.create(:address => request[:address], :name => request[:name], :latest => Time.now, :biostat => request[:biostat] == 'biostat')
+    redirect_to mails_path
+  end
+
+  def delete_mail
+    AdminAddress.find_by_id(request[:id]).delete
+    redirect_to mails_path
+  end
+
+  def admins
+    if request[:oldpass].to_s != '' then
+      oldpass = (Digest::SHA1.new << %[#{@client.sha1_salt}#{request[:oldpass]}]).to_s
+      if @client.sha1_pass == oldpass then
+        if request[:newpass] != '' then
+          @client.sha1_pass = (Digest::SHA1.new << %[#{@client.sha1_salt}#{request[:newpass]}]).to_s
+        end
+        if request[:oldpass] != '' then
+          bstat           = BioStat.first
+          bstat.sha1_pass = (Digest::SHA1.new << %[#{bstat.sha1_salt}#{request[:biopass]}]).to_s
+          bstat.save
+        end
+        @client.save
+      else
+        flash[:error] = 'Passwords do not match.'
+      end
+      redirect_to admins_path
+    end
+  end
+
+  def search
+    return unless request[:q]
+    @users  = @client.system_users.where([
+            'code = ? OR number = ? OR code = ? OR number = ? OR code = ? OR number = ?',
+            request[:q],
+            request[:q],
+            request[:q].gsub(/^0/, ''),
+            request[:q].gsub(/^\+/, ''),
+      '0' + request[:q],
+      '+' + request[:q]
+    ]).order('sort_code ASC').paginate(:page => request[:page])
   end
 end

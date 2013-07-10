@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701165137) do
+ActiveRecord::Schema.define(:version => 20130710143634) do
+
+  create_table "admin_addresses", :force => true do |t|
+    t.text     "address"
+    t.text     "name"
+    t.datetime "latest"
+    t.boolean  "biostat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "applications", :force => true do |t|
     t.text     "name"
@@ -222,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20130701165137) do
     t.integer  "village_id"
     t.integer  "district_id"
     t.integer  "sort_code",     :default => 0, :null => false
+    t.text     "client"
   end
 
   create_table "user_tags", :force => true do |t|
