@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(:version => 20130710143634) do
     t.integer  "village_id"
     t.integer  "district_id"
     t.integer  "sort_code",     :default => 0, :null => false
-    t.text     "client"
+    t.text     "latest_client"
   end
 
   create_table "user_tags", :force => true do |t|

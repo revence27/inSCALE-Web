@@ -444,7 +444,7 @@ class ContentmentController < ApplicationController
       if request[:vht] then
         sysu = SystemUser.find_by_code(request[:vht])
         if sysu then
-          sysu.client = request[:version]
+          sysu.latest_client = request[:version]
           sysu.save
           UserTag.create(:name => 'client-updated', :system_user_id => sysu.id)
         end

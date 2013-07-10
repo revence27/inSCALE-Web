@@ -4,8 +4,8 @@
   .subtitle
     = @user.number
     %br/
-    - if @user.client then
-      - clt = Client.find_by_id(@user.client)
+    - if @user.latest_client then
+      - clt = Client.find_by_id(@user.latest_client)
       Phone app:
       %strong
         = clt.created_at.strftime('%d%b%Y')
