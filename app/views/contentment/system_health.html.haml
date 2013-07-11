@@ -28,7 +28,7 @@
     - @missed.each do |m|
       %dt
         Missed code:
-        = link_to m.tentative_code, m.url
+        = link_to(m.tentative_code, search_path(:q => m.tentative_code))
       %dd
         %br/
         = m.pdu

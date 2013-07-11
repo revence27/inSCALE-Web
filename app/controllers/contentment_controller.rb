@@ -94,13 +94,10 @@ class ContentmentController < ApplicationController
   def record_xml! xml
     doc   = Hpricot::XML xml.gsub(/^vht\s+/, '')
     data  = roll_into_hash doc
-    usr = SystemUser.where('LOWER(code) = ?', [data[:vc]]).first
+    usr = SystemUser.where('code = ?', [data[:vc]]).first
     unless usr then
-      usr = SystemUser.where('LOWER(code) = ?', [data[:vc].downcase]).first
-      unless usr then
-        MissedCode.create :pdu => request[:data], :tentative_code => data[:vc], :url => request.url
-        return render(:status => 404, :text => %[This VHT code (#{data[:vc]}) is unknown.])
-      end
+      MissedCode.create :pdu => request[:data], :tentative_code => data[:vc], :url => request.url
+      return render(:status => 404, :text => %[This VHT code (#{data[:vc]}) is unknown.])
     end
     sub = Submission.new :pdu => request[:data],
               :system_user_id => usr.id,
@@ -130,9 +127,9 @@ class ContentmentController < ApplicationController
       if $1 =~ /<sub/ then
         return record_xml!(request[:data])
       end
-      usr = SystemUser.where('LOWER(code) = ?', [cod[2]]).first
+      usr = SystemUser.where('code = ?', [cod[2]]).first
       unless usr then
-        usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
+        usr = SystemUser.where('code = ?', [cod[2].downcase]).first
         unless usr then
           MissedCode.create :pdu => request[:data], :tentative_code => cod[2], :url => request.url
           return render(:status => 404, :text => %[This VHT code (#{cod[2]}) is unknown.])
