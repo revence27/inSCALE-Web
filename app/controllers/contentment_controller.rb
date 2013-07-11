@@ -91,6 +91,10 @@ class ContentmentController < ApplicationController
     end
   end
 
+  def quality_control
+    ans = SubmissionError.create(:url => request[:position] || request.url, :pdu => request[:version], :message => request[:message], :backtrace => request[:backtrace] || 'Phone app sent no backtrace.')
+  end
+
   def record_xml! xml
     doc   = Hpricot::XML xml.gsub(/^vht\s+/, '')
     data  = roll_into_hash doc
