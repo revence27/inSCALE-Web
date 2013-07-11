@@ -5,14 +5,10 @@
     = @user.number
     %br/
     - if @user.latest_client then
-      - clt = Client.find_by_id(@user.latest_client)
+      - clt = Binary.find_by_jar_sha1(@user.latest_client)
       Phone app:
       %strong
-        - if clt then
-          = clt.created_at.strftime('%d%b%Y')
-        - else
-          = surround '[', ']' do
-            = @user.latest_client
+        = clt.created_at.strftime('%d%b%Y')
       %br/
     %small
       - if @user.village_id then
