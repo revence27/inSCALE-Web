@@ -111,7 +111,12 @@ class ContentmentController < ApplicationController
     gosp  = 'Successful submission to the server.'
     sub.save do |info|
       # supervisor_alert info
-      gosp  = sender_response(info).message
+      gosp  =
+      begin
+        sender_response(info).message
+      rescue Exception => e
+        gosp
+      end
       # send_messages false
     end
     # lf  = usr.latest_feedback
@@ -143,7 +148,7 @@ class ContentmentController < ApplicationController
       sub.save do |info|
         # supervisor_alert info
         gosp  = sender_response(info).message
-        send_messages false
+        # send_messages false
       end
       # lf  = usr.latest_feedback
       return render(:status => 200, :text => gosp)
