@@ -8,7 +8,11 @@
       - clt = Client.find_by_id(@user.latest_client)
       Phone app:
       %strong
-        = clt.created_at.strftime('%d%b%Y')
+        - if clt then
+          = clt.created_at.strftime('%d%b%Y')
+        - else
+          = surround '[', ']' do
+            = @user.latest_client
       %br/
     %small
       - if @user.village_id then
