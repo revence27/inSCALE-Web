@@ -1,9 +1,10 @@
 Contentment::Application.routes.draw do
-  root                  :to => 'contentment#chooser', :as => 'beginning'
-  match 'record/:data', :to => 'contentment#record',  :as => 'record'
-  match 'inbound',      :to => 'contentment#inbound', :as => 'inbound',   :via => :post
-  match 'monthly',      :to => 'contentment#monthly', :as => 'monthly'
-  match 'weekly',       :to => 'contentment#weekly',  :as => 'weekly'
+  root                  :to => 'contentment#chooser',                     :as => 'beginning'
+  match 'record/:data', :to => 'contentment#record',                      :as => 'record'
+  match 'inbound',      :to => 'contentment#inbound',                     :as => 'inbound',                         :via => :post
+  match 'monthly',      :to => 'contentment#monthly',                     :as => 'monthly'
+  match 'weekly',       :to => 'contentment#weekly',                      :as => 'weekly'
+  match 'qc',           :to => 'contentment#quality_control',             :as => 'quality_control',                 :via => :post
 
   scope '/system' do
     root                                                :to => 'contentment#index',                                                 :as => 'home'
@@ -57,7 +58,6 @@ Contentment::Application.routes.draw do
     match 'periodic_send',                              :to => 'contentment#periodic_send',                                         :as => 'periodic_send',                   :via => :post
     match 'create_task',                                :to => 'contentment#create_task',                                           :as => 'create_task',                     :via => :post
     match 'new_bug_report',                             :to => 'contentment#new_bug_report',                                        :as => 'new_bug_report',                  :via => :post
-    match 'qc',                                         :to => 'contentment#quality_control',                                       :as => 'quality_control',                 :via => :post
   end
 
   scope '/data' do
