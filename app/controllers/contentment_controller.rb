@@ -94,7 +94,7 @@ class ContentmentController < ApplicationController
   def record_xml! xml
     doc   = Hpricot::XML xml.gsub(/^vht\s+/, '')
     data  = roll_into_hash doc
-    usr = SystemUser.where('LOWER(code) = ?', [data[:vc].downcase.gsub(/^0*/, '')]).first
+    usr = SystemUser.where('LOWER(code) = ?', [data[:vc]]).first
     unless usr then
       usr = SystemUser.where('LOWER(code) = ?', [data[:vc].downcase]).first
       unless usr then
@@ -125,7 +125,7 @@ class ContentmentController < ApplicationController
       if $1 =~ /<sub/ then
         return record_xml!(request[:data])
       end
-      usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase.gsub(/^0*/, '')]).first
+      usr = SystemUser.where('LOWER(code) = ?', [cod[2]]).first
       unless usr then
         usr = SystemUser.where('LOWER(code) = ?', [cod[2].downcase]).first
         unless usr then
@@ -229,7 +229,7 @@ class ContentmentController < ApplicationController
         # CollectedInfo.order('time_sent DESC').limit(4).inject(0) do |p, n|
 
         # TODO.
-        false || (CollectedInfo.order('end_date DESC').where(['LOWER(vht_code) = ? AND end_date IS NOT ?', vht.code.downcase, nil]).limit(4).inject(0) do |p, n|
+        false || (CollectedInfo.order('end_date DESC').where(['vht_code = ? AND end_date IS NOT ?', vht.code, nil]).limit(4).inject(0) do |p, n|
           p + n.male_children + n.female_children
         end < 1),
 
@@ -259,12 +259,9 @@ class ContentmentController < ApplicationController
     else
       %[Thank you, [name], for your submission!]
     end
-    prm = CollectedInfo.order('time_sent ASC').where(['LOWER(vht_code) = ?', sysu.code.downcase]).first
-    unless prm
-      prm = CollectedInfo.order('time_sent ASC').where(['LOWER(vht_code) = ?', sysu.code.gsub(/^0*/, '').downcase]).first
-    end
+    prm = CollectedInfo.order('time_sent ASC').where(['vht_code = ?', sysu.code]).first
     # msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.order('end_date DESC').limit(4).inject(0) do |p, n|
-    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['LOWER(vht_code) = ? OR LOWER(vht_code) = ?', sysu.code.downcase, sysu.code.gsub(/^0/, '')]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
+    msg = ans.gsub('[##]', (info.male_children + info.female_children).to_s).gsub('[###]', CollectedInfo.where(['vht_code = ?', sysu.code]).where(['end_date IS NOT ?', nil]).order('end_date DESC').limit(4).inject(0) do |p, n|
       p + n.male_children + n.female_children
     end.to_s).gsub('[name]', sysu.name || sysu.code).gsub('[month]', (prm.start_date ? prm.start_date : prm.time_sent).strftime('%B %Y'))
     rsp = Feedback.create :message => msg, :tag => 'submission response', :number => sysu.number
@@ -769,12 +766,12 @@ class ContentmentController < ApplicationController
     return unless request[:q]
     @users  = @client.system_users.where([
             'code = ? OR number = ? OR code = ? OR number = ? OR code = ? OR number = ?',
-            request[:q],
-            request[:q],
-            request[:q].gsub(/^0/, ''),
-            request[:q].gsub(/^\+/, ''),
-      '0' + request[:q],
-      '+' + request[:q]
+            request[:q].strip,
+            request[:q].strip,
+            request[:q].strip.gsub(/^0/, ''),
+            request[:q].strip.gsub(/^\+/, ''),
+      '0' + request[:q].strip,
+      '+' + request[:q].strip
     ]).order('sort_code ASC').paginate(:page => request[:page])
   end
 end
