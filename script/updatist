@@ -1,0 +1,31 @@
+#!  /usr/bin/env ruby
+
+require 'socket'
+require 'thread'
+
+def main args
+  if args.length != 2 then
+    $stderr.puts %[Arguments: port URL.jad]
+    return 1
+  end
+  TCPServer.open(args.first.to_i) do |sock|
+    $stderr.puts %[0.0.0.0:#{args.first} ...]
+    handle_conns args.last, sock
+  end
+  0
+end
+
+def handle_conns url, sock
+  while true
+    newc  = sock.accept
+    $stderr.puts %[Got connection.]
+    Thread.new(newc) do |conn|
+      ct  = %[UPDATE\0#{url}]
+      cl  = ct.length
+      conn.write(%[HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: #{cl}\r\nContent-Type: text/plain\r\n\r\n#{ct}])
+      conn.close
+    end
+  end
+end
+
+exit(main(ARGV))

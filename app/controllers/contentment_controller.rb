@@ -449,7 +449,7 @@ class ContentmentController < ApplicationController
         if sysu then
           sysu.latest_client = request[:version]
           sysu.save
-          UserTag.create(:name => 'client-updated', :system_user_id => sysu.id)
+          UserTag.create(:name => 'client-updated', :system_user_id => sysu.id) unless UserTag.where(:system_user_id => sysu.id, :name => 'client-updated').first
         end
       end
       group   = Application.where(:client_id => clt.id)
@@ -461,7 +461,7 @@ class ContentmentController < ApplicationController
       if newid.to_s == request[:status] then
         if request[:vht] then
           sysu = SystemUser.find_by_code(request[:vht])
-          UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu
+          UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu and not UserTag.where(:system_user_id => sysu.id, :name => 'questionnaire-updated').first
         end
         render :text => 'OK'
       else
