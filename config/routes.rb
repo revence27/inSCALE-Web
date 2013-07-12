@@ -1,10 +1,10 @@
 Contentment::Application.routes.draw do
-  root                  :to => 'contentment#chooser',                     :as => 'beginning'
-  match 'record/:data', :to => 'contentment#record',                      :as => 'record'
-  match 'inbound',      :to => 'contentment#inbound',                     :as => 'inbound',                         :via => :post
-  match 'monthly',      :to => 'contentment#monthly',                     :as => 'monthly'
-  match 'weekly',       :to => 'contentment#weekly',                      :as => 'weekly'
-  match 'qc',           :to => 'contentment#quality_control',             :as => 'quality_control',                 :via => :post
+  root                              :to => 'contentment#chooser',                     :as => 'beginning'
+  match 'record/:data',             :to => 'contentment#record',                      :as => 'record'
+  match 'inbound',                  :to => 'contentment#inbound',                     :as => 'inbound',                         :via => :post
+  match 'monthly',                  :to => 'contentment#monthly',                     :as => 'monthly'
+  match 'weekly',                   :to => 'contentment#weekly',                      :as => 'weekly'
+  match 'quality_control',          :to => 'contentment#quality_control',             :as => 'quality_control',                 :via => :post
 
   scope '/system' do
     root                                                :to => 'contentment#index',                                                 :as => 'home'

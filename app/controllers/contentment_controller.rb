@@ -7,8 +7,8 @@ DESIGNATED_PASSWORD = 'quiconquecroitenlui'
 VERSION_START_TIME  = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
-  before_filter :select_client, :except => [:inbound]
-  skip_before_filter :verify_authenticity_token, :only => [:inbound]
+  before_filter :select_client, :except => [:inbound, :qc]
+  skip_before_filter :verify_authenticity_token, :only => [:inbound, :quality_control]
 
   def new_bug_report
     BugReport.create :url => params[:url], :description => params[:descr], :contact => params[:contact]
@@ -93,6 +93,7 @@ class ContentmentController < ApplicationController
 
   def quality_control
     ans = SubmissionError.create(:url => request[:position] || request.url, :pdu => request[:version], :message => request[:message], :backtrace => request[:backtrace] || 'Phone app sent no backtrace.')
+    render :text => 'OK'
   end
 
   def record_xml! xml

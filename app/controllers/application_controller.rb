@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :ascertain_logged_in, :except => [:auth, :update, :client_download, :record, :monthly, :inbound, :qc]
+  before_filter :ascertain_logged_in, :except => [:auth, :update, :client_download, :record, :monthly, :inbound, :quality_control]
 
   def auth
     @clients    = Client.all
