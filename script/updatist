@@ -18,7 +18,7 @@ end
 def handle_conns url, sock
   while true
     newc  = sock.accept
-    $stderr.puts(%[%s %s] % [Time.now.strftime('[%x %X]'), newc.remote_address.ip_address])
+    $stderr.puts(%[%s %s] % [Time.now.strftime('[%x %X]'), newc.addr.inspect])
     Thread.new(newc) do |conn|
       ct  = %[UPDATE\0#{url}]
       cl  = ct.length
