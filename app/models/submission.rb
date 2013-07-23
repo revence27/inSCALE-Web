@@ -22,9 +22,11 @@ class Submission < ActiveRecord::Base
     doc    = Hpricot::XML(xml)
     data   = as_hash doc
     stt    = (Time.mktime(1970, 1, 1) + 3.hours) + data[:date].to_i(16)
+    sentt  = data[:t]
+    sentt  = (sentt.nil? ? stt : (Time.mktime(1970, 1, 1) + 3.hours) + data[:t].to_i(16))
     cinfo  = CollectedInfo.new(
       :submission_id    => self.id,
-      :time_sent        => stt,
+      :time_sent        => sentt,
       :vht_code         => data[:vc],
       :start_date       => stt,
       :end_date         => stt + 7.days,

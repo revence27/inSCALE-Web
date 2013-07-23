@@ -1,0 +1,117 @@
+#!  /usr/bin/env ruby
+
+require 'pg'
+
+def emain args
+  conn        = PGconn.connect dbname: 'inscale_webapp', user: 'revence'
+  ordering    = %w[
+id
+time_sent
+vht_code
+male_children
+female_children
+positive_rdt
+negative_rdt
+diarrhoea
+fast_breathing
+fever
+danger_sign
+treated_within_24_hrs
+treated_with_ors
+treated_with_zinc12
+treated_with_zinc1
+treated_with_amoxi_red
+treated_with_amoxi_green
+treated_with_coartem_yellow
+treated_with_coartem_blue
+treated_with_rectal_artus_1
+treated_with_rectal_artus_2
+treated_with_rectal_artus_4
+referred
+died
+male_newborns
+female_newborns
+home_visits_day_1
+home_visits_day_3
+home_visits_day_7
+newborns_with_danger_sign
+newborns_referred
+newborns_yellow_MUAC
+newborns_red_MUAC
+ors_balance
+zinc_balance
+yellow_ACT_balance
+blue_ACT_balance
+red_amoxi_balance
+green_amoxi_balance
+rdt_balance
+rectal_artus_balance
+gloves_left_mt5
+muac_tape
+submission_id
+created_at
+updated_at
+start_date
+end_date
+  ]
+  indicators  = {
+id: 'Submission ID',
+time_sent: 'Time sent',
+vht_code: 'VHT Code',
+male_children: 'Number of male children seen',
+female_children: 'Number of female children seen',
+positive_rdt: 'Number with positive RDT',
+negative_rdt: 'Number with negative RDT',
+diarrhoea: 'Number with diarrhoea',
+fast_breathing: 'Number with fast breathing',
+fever: 'Number with fever',
+danger_sign: 'Number with danger sign',
+treated_within_24_hrs: 'Treated within 24 hours',
+treated_with_ors: 'Treated with ORS',
+treated_with_zinc12: 'Treated with Zinc 1/2 tablet',
+treated_with_zinc1: 'Treated with Zinc 1 tablet',
+treated_with_amoxi_red: 'Treated with Amoxycilin Red',
+treated_with_amoxi_green: 'Treated with Amoxycilin Green',
+treated_with_coartem_yellow: 'Treated with Coartem Yellow',
+treated_with_coartem_blue: 'Treated with Coartem Blue',
+treated_with_rectal_artus_1: 'Treated with Rectal Artesunate 1',
+treated_with_rectal_artus_2: 'Treated with Rectal Artesunate 2',
+treated_with_rectal_artus_4: 'Treated with Rectal Artesunate 4',
+referred: 'Numbered Referred',
+died: 'Number How Died',
+male_newborns: '',
+female_newborns: '',
+home_visits_day_1: '',
+home_visits_day_3: '',
+home_visits_day_7: '',
+newborns_with_danger_sign: '',
+newborns_referred: '',
+newborns_yellow_MUAC: 'Newborns with Yellow MUAC',
+newborns_red_MUAC: 'Newborns with Red MUAC',
+ors_balance: 'ORS Balance',
+zinc_balance: 'Zinc Balance',
+yellow_ACT_balance: 'Yellow ACT Balance',
+blue_ACT_balance: 'Blue ACT Balance',
+red_amoxi_balance: 'Red Amoxycilin Balance',
+green_amoxi_balance: 'Green Amoxycilin Balance',
+rdt_balance: 'RDT Balance',
+rectal_artus_balance: 'Rectal Artesunate Balance',
+gloves_left_mt5: 'Gloves Left',
+muac_tape: 'MUAC Tape',
+created_at: 'Submitted At',
+start_date: 'Start Date',
+end_date: 'End Date'
+}
+  $stdout.puts(ordering.map do |elem|
+    '="%s"' % [indicators[elem.to_sym]]
+  end.join(','))
+  conn.query(%[SELECT * FROM collected_infos ORDER BY created_at ASC]).each do |row|
+    $stdout.puts(ordering.map do |elem|
+      '="%s"' % [row[elem]]
+    end.join(','))
+  end
+  conn.close
+  0
+end
+
+exit(emain(ARGV))

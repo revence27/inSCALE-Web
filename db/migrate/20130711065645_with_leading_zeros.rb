@@ -3,7 +3,7 @@ class WithLeadingZeros < ActiveRecord::Migration
     SystemUser.all.each do |su|
       if su.code.length < 4 then
         su.code = %[0000#{su.code}][-4, 4]
-        su.save
+        su.save rescue nil
       end
     end
   end

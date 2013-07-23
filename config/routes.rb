@@ -33,6 +33,7 @@ Contentment::Application.routes.draw do
     match 'system_health',                              :to => 'contentment#system_health',                                         :as => 'system_health'
     match 'search',                                     :to => 'contentment#search',                                                :as => 'search'
     # match 'locations',                                  :to => 'contentment#locations',                                             :as => 'locations'
+    match 'system_health',                              :to => 'contentment#system_health',                                         :as => 'system_health'
 
     match 'download_feedbacks',                         :to => 'contentment#download_feedbacks',                                    :as => 'download_feedbacks',              :via => :post
     match 'ranged_excel',                               :to => 'statistics#ranged_csv',                                             :as => 'ranged_csv',                      :via => :post
