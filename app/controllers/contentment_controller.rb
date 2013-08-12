@@ -581,8 +581,9 @@ class ContentmentController < ApplicationController
   end
 
   def users_update
-    @user = SystemUser.find_by_id(request[:id])
-    @sups = Supervisor.order('name ASC')
+    @user   = SystemUser.find_by_id(request[:id])
+    @sups   = Supervisor.order('name ASC')
+    @dists  = District.order('name ASC')
   end
 
   def users_change
@@ -592,6 +593,7 @@ class ContentmentController < ApplicationController
     @user.code          = request[:code]
     @user.sort_code     = (request[:code].to_i || 0)
     @user.supervisor_id = request[:supervisor]
+    @user.district_id   = request[:district]
     @user.save
     redirect_to(users_update_path(@user))
   end
@@ -729,8 +731,19 @@ class ContentmentController < ApplicationController
 
   def locations
     @dists  = District.order('name ASC')
-    @pars   = Parish.order('name ASC')
-    @vills  = Village.order('name ASC')
+    # @pars   = Parish.order('name ASC')
+    # @vills  = Village.order('name ASC')
+  end
+
+  def district
+    @dist = District.find_by_id(request[:id])
+  end
+
+  def update_bio_pass
+    dist  = District.find_by_id(request[:dist])
+    dist.password = request[:password]
+    dist.save
+    redirect_to request.referer
   end
 
   def mails

@@ -21,6 +21,12 @@
     %legend Code
     %input{:type => :text, :name => :code, :value => @user.code, :size => 55}/
   %fieldset
+    %legend District
+    %select{:name => :district}
+      - @dists.each do |dist|
+        %option{:value => dist.id}
+          = dist.name
+  %fieldset
     %legend Supervisor
     %select{:name => :supervisor}
       - @sups.each do |sup|

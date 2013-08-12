@@ -1,0 +1,23 @@
+%h4
+  = @dist.name
+  District
+
+%h5 Bio-Statistician Password
+= form_tag update_bio_pass_path, method: 'POST' do
+  = hidden_field_tag :dist, @dist.id
+  = text_field_tag :password, @dist.password
+  %br/
+  = submit_tag 'Change Password'
+
+%hr/
+
+%h4
+  VHTs in
+  = @dist.name
+
+%ol
+  - @dist.system_users.order('name ASC').each do |vht|
+    %li
+      = link_to vht.name, users_path(vht.id)
+      = surround '(', ')' do
+        = vht.number

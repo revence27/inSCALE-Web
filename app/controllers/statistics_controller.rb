@@ -1,6 +1,12 @@
 class StatisticsController < ApplicationController
+  before_filter :load_local_vhts
+
+  def load_local_vhts
+    @local_vhts = SystemUser.where('district_id = ?', session[:dist]).map {|x| x.code}
+  end
+
   def index
-    @subs = CollectedInfo.order('created_at DESC').paginate(:page => request[:page])
+    @subs = CollectedInfo.where('vht_code IN (?)', @local_vhts).order('created_at DESC').paginate(:page => request[:page])
   end
 
   def adorn_and_render_csv_response tmp = Time.now, unt = Time.now
@@ -10,7 +16,7 @@ class StatisticsController < ApplicationController
   end
 
   def csv
-    @subs = CollectedInfo.order('created_at DESC')
+    @subs = CollectedInfo.where('vht_code IN (?)', @local_vhts).order('created_at DESC')
     adorn_and_render_csv_response
   end
 

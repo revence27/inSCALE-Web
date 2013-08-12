@@ -1,4 +1,17 @@
 #monthsdiv
+- if session[:dist] then
+  Submissions for
+  = District.find_by_id(session[:dist]).name
+  District
+- if session[:stat] or session[:dist] then
+  = form_tag ranged_csv_path, :method => :post do
+    %input{:class => 'dater', :type => 'text', :name => 'startat', :value => (Time.now - 1.month).strftime('01/%m/%Y')}/
+    to
+    %input{:class => 'dater', :type => 'text', :name => 'endat', :value => Time.now.strftime('01/%m/%Y')}/
+    %br/
+    %input{:type => 'text', :name => 'email', :placeholder => 'Recipient E-Mail Addresses', :size => 55}/
+    %br/
+    %input{:type => 'submit', :value => 'Fetch as Excel'}/
 .pdus
   %table{:class => 'largetable'}
     = ci_table_header

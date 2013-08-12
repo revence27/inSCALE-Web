@@ -1,21 +1,12 @@
 %table
   %thead
-    %th{:colspan => 3}
-%h4 Districts
-%ol
+    %th Districts
+    %th VHTs
+  %tbody
   - @dists.each do |dist|
-    %li
-      = dist.name
-
-%h4 Parishes
-%ol
-  - @pars.each do |dist|
-    %li
-      = dist.name
-
-%h4 Villages
-%ol
-  - @vills.each do |dist|
-    %li
-      = dist.name
-
+    - if dist.name.length > 1 then
+      %tr
+        %td
+          = link_to dist.name, district_path(dist.id)
+        %td
+          = dist.system_users.count rescue '0'

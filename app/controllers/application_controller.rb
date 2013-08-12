@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     @clients    = Client.all
     @publishers = Publisher.all
     @statmen    = BioStat.all
+    @dists      = District.order('name ASC')
     case request[:who]
     when 'root' then
       root  = RootAccount.order('updated_at DESC').first
@@ -34,15 +35,23 @@ class ApplicationController < ActionController::Base
       else
         flash[:error]  = 'Access Denied'
       end
+    when 'dist' then
+      dst = District.find_by_id request[:dist]
+      if dst.password == request[:password] then
+        session[:dist] = dst.id
+        return redirect_to(request[:from] || data_path)
+      else
+        flash[:error]  = 'Access Denied'
+      end
     when 'logout' then
-      session[:client] = session[:stat] = session[:root] = nil
+      session[:client] = session[:dist] = session[:stat] = session[:root] = nil
       flash[:message]  = 'Bye!'
       return redirect_to auth_path
     end
   end
 
   def ascertain_logged_in
-    unless session[:stat] or session[:root] or session[:client] then
+    unless session[:dist] or session[:stat] or session[:root] or session[:client] then
       redirect_to auth_path(:from => request.path)
     end
   end

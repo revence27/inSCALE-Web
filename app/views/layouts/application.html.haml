@@ -44,6 +44,8 @@
               %li
                 %a{:href => users_path} User Management
               %li
+                %a{:href => locations_path} Locations
+              %li
                 %a{:href => search_path} User Search
               - if Publisher.count > 1 then
                 %li
@@ -56,19 +58,13 @@
                 %a{:href => periodic_path} Periodic Jobs
               %li
                 %a{:href => system_health_path} System Health
-            - if session[:stat] then
+            - if session[:stat] or session[:dist] then
               %li
                 %a{:href => csv_path, :id => 'exceldownload'} Download as Excel
-            - if session[:client] or session[:root] or session[:stat] then
+            - if session[:client] or session[:root] or session[:stat] or session[:dist] then
               %li
                 %a{:href => auth_path(:who => :logout)} Log out
           %hr/
-          - if session[:stat] then
-            = form_tag ranged_csv_path, :method => :post do
-              %input{:class => 'dater', :type => 'text', :name => 'startat', :value => (Time.now - 1.month).strftime('01/%m/%Y')}/
-              to
-              %input{:class => 'dater', :type => 'text', :name => 'endat', :value => Time.now.strftime('01/%m/%Y')}/
-              %input{:type => 'submit', :value => 'Download as Excel'}/
         = yield
       #footer{:class => 'span-24'}
         &copy; 2011, 

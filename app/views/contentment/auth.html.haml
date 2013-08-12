@@ -44,3 +44,21 @@
       %br/
       = password_field_tag :password
     = submit_tag 'Enter'
+
+%hr/
+
+= form_tag auth_path(:who => :dist) do
+  .jarring District Bio-Statisticians
+  = field_set_tag do
+    Select your name:
+    %br/
+    %select{:name => 'dist'}
+      - @dists.each do |dist|
+        %option{:value => dist.id}
+          = dist.name
+          Bio-Statistician
+  = field_set_tag do
+    Password:
+    %br/
+    = password_field_tag :password
+  = submit_tag 'Enter'

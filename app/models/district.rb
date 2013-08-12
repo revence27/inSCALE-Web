@@ -1,3 +1,3 @@
 class District < ActiveRecord::Base
-  has_many :system_user
+  has_many :system_users
 end
