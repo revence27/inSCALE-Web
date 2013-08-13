@@ -742,6 +742,7 @@ class ContentmentController < ApplicationController
   def update_bio_pass
     dist  = District.find_by_id(request[:dist])
     dist.password = request[:password]
+    dist.email    = request[:email]
     dist.save
     redirect_to request.referer
   end

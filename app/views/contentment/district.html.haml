@@ -2,12 +2,19 @@
   = @dist.name
   District
 
-%h5 Bio-Statistician Password
+%h5 Bio-Statistician Details
 = form_tag update_bio_pass_path, method: 'POST' do
   = hidden_field_tag :dist, @dist.id
-  = text_field_tag :password, @dist.password
-  %br/
-  = submit_tag 'Change Password'
+  %fieldset
+    E-Mail Address:
+    %br/
+    = text_field_tag :email, @dist.email
+  %fieldset
+    Password:
+    %br/
+    = text_field_tag :password, @dist.password
+  %fieldset
+    = submit_tag 'Change Details'
 
 %hr/
 

@@ -57,7 +57,7 @@ module CollectedInfoHelperHelper
 
   def ci_table_row sub, sbm
     sdr = sbm.system_user
-    sup = sdr.supervisor.parish
+    sup = sdr.parish.name
     capture_haml do
       haml_tag(:tr, {:class => (sub.died.zero? ? '' : 'skel ')}) do
         # haml_tag :td, sub.time_sent

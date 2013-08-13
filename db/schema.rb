@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812133213) do
+ActiveRecord::Schema.define(:version => 20130813124859) do
 
   create_table "admin_addresses", :force => true do |t|
     t.text     "address"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130812133213) do
     t.float "xpos"
     t.float "ypos"
     t.text  "password", :default => "6defaultpass1", :null => false
+    t.text  "email"
   end
 
   create_table "feedbacks", :force => true do |t|

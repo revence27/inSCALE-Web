@@ -42,3 +42,5 @@ end
 gem 'haml'
 gem 'will_paginate'
 gem 'hpricot'
+gem 'prawn'
+gem 'whenever', :require => false
