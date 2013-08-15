@@ -13,9 +13,11 @@ class StatisticsController < ApplicationController
     naming  = [tmp.strftime('%d-%B'), unt.strftime('%d-%B-%Y')]
     if request[:email] and request[:email].length > 2 then
       addrs = request[:email].split(',')
-      ans = SubmissionsReport.file_dispatch(naming.join(' to ') + (session[:dist] ? " (#{District.find_by_id(session[:dist]).name} District)" : ''), addrs, @subs)
-      ans.attachments[naming.join('-') + '.csv'] = ERB.new(File.read('app/views/statistics/csv.csv.erb')).result(binding)
-      ans.deliver
+      Thread.new do
+        ans = SubmissionsReport.file_dispatch(naming.join(' to ') + (session[:dist] ? " (#{District.find_by_id(session[:dist]).name} District)" : ''), addrs, @subs)
+        ans.attachments[naming.join('-') + '.csv'] = ERB.new(File.read('app/views/statistics/csv.csv.erb')).result(binding)
+        ans.deliver
+      end
       redirect_to request.referer
     else
       response.headers['Content-Type'] = %[text/csv; encoding=UTF-8]
