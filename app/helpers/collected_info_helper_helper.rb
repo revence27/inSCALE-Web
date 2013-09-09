@@ -64,7 +64,7 @@ module CollectedInfoHelperHelper
         haml_tag(:td, @client ? link_to(sub.created_at.to_s, users_path(:userid => sdr.id, :submission => sbm.id)) : sub.created_at)
         haml_tag :td, sdr.number
         haml_tag :td, sdr.name
-        haml_tag :td, (sup ? sup.name : '')
+        haml_tag :td, "#{(sup.name rescue sup)}"
         haml_tag :td, sub.vht_code
         haml_tag :td, sub.start_date
         haml_tag :td, sub.end_date
