@@ -1,6 +1,8 @@
 - if @user then
   .jarring
     = link_to @user.name, users_update_path(@user)
+    %sup
+      = @user.code
   .subtitle
     = @user.number
     %br/

@@ -26,6 +26,10 @@ class SystemUser < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "#{self.name} [#{self.code}]"
+  end
+
   def self.monthly_motivation
     mon = Time.now.month
     msg = MotivationalMessage.where(:month => mon).first
