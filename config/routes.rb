@@ -26,6 +26,7 @@ Contentment::Application.routes.draw do
     match 'responses',                                  :to => 'contentment#vht_responses',                                         :as => 'responses'
     match 'response/:id',                               :to => 'contentment#vht_response_change',                                   :as => 'response_change'
     match 'motivators',                                 :to => 'contentment#vht_motivators',                                        :as => 'motivators'
+    match 'activity',                                   :to => 'contentment#activity',                                              :as => 'activity'
     match 'motivator/:id',                              :to => 'contentment#vht_motivator_change',                                  :as => 'motivator_change'
     match 'users_update/:id',                           :to => 'contentment#users_update',                                          :as => 'users_update'
     match 'sups_update/:id',                            :to => 'contentment#sups_update',                                           :as => 'sups_update'

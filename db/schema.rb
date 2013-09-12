@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813124859) do
+ActiveRecord::Schema.define(:version => 20130912102025) do
 
   create_table "admin_addresses", :force => true do |t|
     t.text     "address"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20130813124859) do
     t.text  "name"
     t.float "xpos"
     t.float "ypos"
-    t.text  "password", :default => "6defaultpass1", :null => false
+    t.text  "password", :default => "1defaultpass8", :null => false
     t.text  "email"
   end
 
@@ -232,8 +232,9 @@ ActiveRecord::Schema.define(:version => 20130813124859) do
     t.integer  "parish_id"
     t.integer  "village_id"
     t.integer  "district_id"
-    t.integer  "sort_code",     :default => 0, :null => false
+    t.integer  "sort_code",         :default => 0,                     :null => false
     t.text     "latest_client"
+    t.datetime "last_contribution", :default => '2012-09-12 09:34:30'
   end
 
   create_table "user_tags", :force => true do |t|

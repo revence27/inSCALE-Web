@@ -29,6 +29,11 @@ class ContentmentController < ApplicationController
     @client = Client.find_by_id(session[:client]) if session[:client]
   end
 
+  def activity
+    @users  = SystemUser.where('last_contribution IS NOT NULL').order('last_contribution DESC').paginate(:page => request[:page])
+    @lost   = SystemUser.where('last_contribution IS NULL').order('sort_code ASC').paginate(:page => request[:spage])
+  end
+
   def index
     @pubs = Publisher.order('name ASC')
   end

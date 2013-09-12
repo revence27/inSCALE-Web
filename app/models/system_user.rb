@@ -26,6 +26,10 @@ class SystemUser < ActiveRecord::Base
     end
   end
 
+  def goodly_html
+    %[<sup class="quicksup">#{self.code}</sup><a href="/system/users/#{self.id}">#{self.name}</a><sub class="quicksub">#{self.number.to_s[3 .. -1].to_s}</sub>]
+  end
+
   def to_s
     "#{self.name} [#{self.code}]"
   end

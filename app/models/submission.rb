@@ -68,6 +68,12 @@ class Submission < ActiveRecord::Base
       :rdt_balance          =>  data[:rdtbal].to_i,
       :gloves_left_mt5      =>  data[:glvbal] == 'MT5'
     )
+    su  = SystemUser.find_by_code(data[:vc])
+    su.last_contribution = Time.now
+    UserTag.where('name = ? AND system_user_id = ?', ['dormant', su.id]).each do |ut|
+      ut.delete
+    end
+    su.save
     cinfo.save
     block.call(cinfo) if block
   end
