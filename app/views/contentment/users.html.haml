@@ -67,8 +67,8 @@
   .pdus
     - @subs.each do |sub|
       .pdu{:class => 'respond'}
-        .message
-          = sub.pdu
+        - # .message
+        - #   = sub.pdu
         - cinf    = sub.collected_info
         %table{:class => 'largetable'}
           = ci_table_header
