@@ -1,4 +1,4 @@
 class Parish < ActiveRecord::Base
-  has_many :system_user
-  has_many :supervisor
+  has_many :system_users
+  has_many :supervisors
 end

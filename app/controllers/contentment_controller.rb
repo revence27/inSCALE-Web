@@ -32,6 +32,12 @@ class ContentmentController < ApplicationController
   def activity
     @users  = SystemUser.where('last_contribution IS NOT NULL').order('last_contribution DESC').paginate(:page => request[:page])
     @lost   = SystemUser.where('last_contribution IS NULL').order('sort_code ASC').paginate(:page => request[:spage])
+    @orph   = UserTag.where(name: 'orphaned').map do |ut|
+      ut.system_user
+    end
+    @reps   = UserTag.where(name: 'repeated-code').map do |ut|
+      ut.system_user
+    end
   end
 
   def index
@@ -721,7 +727,12 @@ class ContentmentController < ApplicationController
 
   def delete_supervisor
     usr = Supervisor.find_by_id request[:id]
-    usr.destroy
+    usr.dormant = true
+    # usr.destroy
+    usr.save
+    usr.system_users.each do |sysu|
+      UserTag.uniquely! sysu, 'orphaned'
+    end
     redirect_to users_path
   end
 

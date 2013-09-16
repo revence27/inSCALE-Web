@@ -4,6 +4,7 @@ class SystemUser < ActiveRecord::Base
   belongs_to  :client
   belongs_to  :supervisor
   belongs_to  :parish
+  belongs_to  :sub_county
   belongs_to  :district
   belongs_to  :village
 
@@ -24,6 +25,10 @@ class SystemUser < ActiveRecord::Base
     SystemUser.all.each do |su|
       su.deliver("Hello, %s.\nThe work you do is very helpful. Please remember to submit your report for this week." % [su.name])
     end
+  end
+
+  def descriptive_html
+    %[<sup class="quicksup">#{self.village.name}</sup><a href="/system/users/#{self.id}">#{self.name}</a><sub class="quicksub">under <a href="/supervisor/#{self.supervisor.id}">#{self.supervisor.name}</a></sub>]
   end
 
   def goodly_html

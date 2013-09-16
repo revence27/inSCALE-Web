@@ -25,6 +25,7 @@
 %ol
   - @dist.system_users.order('name ASC').each do |vht|
     %li
-      = link_to vht.name, users_path(vht.id)
+      - # != link_to vht.goodly_html, users_path(vht.id)
+      != vht.goodly_html
       = surround '(', ')' do
         = vht.number
