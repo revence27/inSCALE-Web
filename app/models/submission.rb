@@ -70,7 +70,7 @@ class Submission < ActiveRecord::Base
     )
     su  = SystemUser.find_by_code(data[:vc])
     su.last_contribution = Time.now
-    UserTag.where('name = ? AND system_user_id = ?', ['dormant', su.id]).each do |ut|
+    UserTag.where(['name = ? AND system_user_id = ?', 'dormant', su.id]).each do |ut|
       ut.delete
     end
     su.save
