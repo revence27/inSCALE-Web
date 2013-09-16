@@ -522,7 +522,7 @@ class ContentmentController < ApplicationController
       end
       request[:recip] = '?,' + request[:recip]
     end
-    if request[:recip] =~ /\?/ then
+    if request[:recip] == 'supervisor' || request[:recip] =~ /\?/ then
       Supervisor.all.each do |su|
         dest << su.number
       end
