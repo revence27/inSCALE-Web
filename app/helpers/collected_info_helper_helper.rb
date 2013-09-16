@@ -66,7 +66,7 @@ module CollectedInfoHelperHelper
         haml_tag(:td, @client ? link_to(sub.created_at.to_s, users_path(:userid => sdr.id, :submission => sbm.id)) : sub.created_at)
         haml_tag :td, sdr.number
         haml_tag :td, sdr.name
-        haml_tag :td, sdr.district.name
+        haml_tag :td, "#{sdr.district.name rescue 'Unknown district'}"
         haml_tag :td, "#{(sdr.sub_county.name rescue 'Unknown sub-county')}"
         haml_tag :td, "#{(sup.name rescue sup)}"
         haml_tag :td, sub.vht_code
