@@ -14,7 +14,7 @@ class MissedCode < ActiveRecord::Base
 
   def uid
     hsh     = self.as_hash
-    hsh[:t] || (@guid ||= hsh.keys.sort.inject('') {|p, n| p + "[#{n}:#{hsh[n]}]"})
+    (@guid ||= hsh.keys.sort.inject('') {|p, n| p + "[#{n}:#{hsh[n]}]"})
   end
 
   def save *args
