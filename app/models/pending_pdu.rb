@@ -50,7 +50,7 @@ class PendingPdu < ActiveRecord::Base
             got << sha
             mc.lazarus_come_forth! do |ci|
               nic = nic + 1.0
-              $stderr.write((("\r\r%d:%d %3d%%/%d%%" % [nic.to_i, cpt.to_i, (cpt + dec) * 100.0, (nic / dec) * 100.0]) + " (#{se.tentative_code}): #{sha} #{mc.uid} ...")[0, 75])
+              $stderr.write((("\r\r%d:%d %3d%%/%d%%" % [nic.to_i, cpt.to_i, (cpt / dec) * 100.0, (nic / dec) * 100.0]) + ": #{sha} #{mc.uid} ...")[0, 75])
               $stderr.flush
             end
           end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916051336) do
+ActiveRecord::Schema.define(:version => 20130917073213) do
 
   create_table "admin_addresses", :force => true do |t|
     t.text     "address"
@@ -170,6 +170,15 @@ ActiveRecord::Schema.define(:version => 20130916051336) do
     t.float "ypos"
   end
 
+  create_table "pending_pdus", :force => true do |t|
+    t.text     "payload"
+    t.text     "probable_code"
+    t.text     "pdu_uid",         :null => false
+    t.text     "submission_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "periodic_tasks", :force => true do |t|
     t.text     "task_name"
     t.text     "identity"
@@ -190,6 +199,14 @@ ActiveRecord::Schema.define(:version => 20130916051336) do
   create_table "root_accounts", :force => true do |t|
     t.text     "sha1_pass"
     t.text     "sha1_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_counties", :force => true do |t|
+    t.text     "name"
+    t.integer  "xpos"
+    t.integer  "ypos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -219,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20130916051336) do
     t.datetime "updated_at"
     t.integer  "location_id"
     t.integer  "parish_id"
+    t.boolean  "dormant",     :default => false, :null => false
   end
 
   create_table "system_users", :force => true do |t|
@@ -235,6 +253,7 @@ ActiveRecord::Schema.define(:version => 20130916051336) do
     t.integer  "sort_code",         :default => 0,                     :null => false
     t.text     "latest_client"
     t.datetime "last_contribution", :default => '2012-09-12 11:07:53'
+    t.integer  "sub_county_id"
   end
 
   create_table "user_tags", :force => true do |t|
