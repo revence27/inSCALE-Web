@@ -41,9 +41,9 @@
       %dt
         = link_to se.message, se.url
       %dd
-        %pre #{se.pdu}
+        - # %pre #{se.pdu}
         - # %pre #{se.backtrace}
-        - # %textarea #{se.pdu}
+        %textarea #{se.pdu}
   = will_paginate @suberr, :param_name => :subm
 %div{:class => 'span-10 last'}
   .jarring Pending Submissions
