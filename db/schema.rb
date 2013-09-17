@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916065025) do
+ActiveRecord::Schema.define(:version => 20130917060239) do
 
   create_table "admin_addresses", :force => true do |t|
     t.text     "address"
@@ -168,6 +168,15 @@ ActiveRecord::Schema.define(:version => 20130916065025) do
     t.text  "name"
     t.float "xpos"
     t.float "ypos"
+  end
+
+  create_table "pending_pdus", :force => true do |t|
+    t.text     "payload"
+    t.text     "probable_code"
+    t.text     "pdu_uid",         :null => false
+    t.text     "submission_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "periodic_tasks", :force => true do |t|

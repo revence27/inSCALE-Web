@@ -11,16 +11,9 @@ class Submission < ActiveRecord::Base
   #   SystemUser.find_by_code((CollectedInfo.find_by_submission_id(self.id).vht_code).gsub(/^0*/, ''))
   # end
 
-  def as_hash doc
-    (doc / 'v').inject({}) do |p, n|
-      p[n['t'].to_sym]  = n.inner_html
-      p
-    end
-  end
-
   def manage_with_xml! xml, &block
     doc    = Hpricot::XML(xml)
-    data   = as_hash doc
+    data   = MissedCode.as_hash doc
     stt    = (Time.mktime(1970, 1, 1) + 3.hours) + data[:date].to_i(16)
     sentt  = data[:t]
     sentt  = (sentt.nil? ? stt : (Time.mktime(1970, 1, 1) + 3.hours) + data[:t].to_i(16))
