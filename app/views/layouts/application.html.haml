@@ -67,6 +67,12 @@
               %li
                 %a{:href => auth_path(:who => :logout)} Log out
           %hr/
+        - if flash[:message] then
+          .message
+            = flash[:message]
+        - if flash[:error] then
+          .error
+            = flash[:error]
         = yield
       #footer{:class => 'span-24'}
         &copy; 2011, 

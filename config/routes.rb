@@ -62,6 +62,8 @@ Contentment::Application.routes.draw do
     match 'create_task',                                :to => 'contentment#create_task',                                           :as => 'create_task',                     :via => :post
     match 'new_bug_report',                             :to => 'contentment#new_bug_report',                                        :as => 'new_bug_report',                  :via => :post
     match 'update_bio_pass',                            :to => 'contentment#update_bio_pass',                                       :as => 'update_bio_pass',                 :via => :post
+    match 'pending',                                    :to => 'contentment#retry_pending',                                         :as => 'pending',                         :via => :post
+    match 'correct',                                    :to => 'contentment#correct_pending',                                       :as => 'correct',                         :via => :post
   end
 
   scope '/data' do

@@ -1,4 +1,3 @@
-require 'hpricot'
 require 'net/http'
 require 'open-uri'
 require 'thread'
@@ -17,8 +16,10 @@ class ContentmentController < ApplicationController
 
   def system_health
     @reports  = BugReport.order('created_at DESC').paginate(:page => params[:page])
-    @missed   = MissedCode.order('created_at DESC').paginate(:page => params[:code])
+    # @missed   = MissedCode.order('created_at DESC').paginate(:page => params[:code])
+    @missed   = PendingPdu.where('probable_code NOT IN (SELECT code FROM system_users)').order('probable_code ASC').paginate(:page => params[:code])
     @suberr   = SubmissionError.order('created_at DESC').paginate(:page => params[:subm])
+    @pends    = PendingPdu.where(['probable_code IN (SELECT code FROM system_users)']).order('created_at DESC').paginate(:page => params[:pend])
   end
 
   def sms_gateway_is_broken str
@@ -44,12 +45,59 @@ class ContentmentController < ApplicationController
     @pubs = Publisher.order('name ASC')
   end
 
+  def correct_pending
+    if SystemUser.find_by_code(request[:correct]).nil? then
+      flash[:error] = "Unknown VHT code '#{request[:correct]}'"
+      return redirect_to(request.referer)
+    else
+      pend                = PendingPdu.find_by_id(request[:item])
+      PendingPdu.where(probable_code: pend.probable_code).each do |nxt|
+        nxt.probable_code  = request[:correct]
+        nxt.save
+      end
+    end
+    redirect_to(request.referer)
+  end
+
+  def retry_pending
+    if request[:item] =~ /\d/ then
+      soul = PendingPdu.find_by_id(request[:item])
+      if request[:justified] != 'By Grace' then
+        soul.delete
+      else
+        elect = soul
+        PendingPdu.where(['pdu_uid = ? AND id != ?', elect.pdu_uid, elect.id]).each do |reprobate|
+          reprobate.delete
+        end
+        elect.with_a_shout!
+        # 1 Thessalonians 4:16
+      end
+    else
+      PendingPdu.select('pdu_uid').each do |pp|
+        wheat = PendingPdu.where(pdu_uid: pp.pdu_uid).first
+        them  = PendingPdu.where(['pdu_uid = ? AND id != ?', pp.pdu_uid, wheat.id])
+        them.each do |tare|
+          tare.delete
+        end
+        wheat.with_a_shout!
+      end
+    end
+    redirect_to request.referer
+  end
+
   def inbound
     begin
       request[:data] = request[:message]
       return self.record
     rescue Exception => e
-      ans = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
+      ans   = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
+      doc   = Hpricot::XML(request[:message].gsub(/^vht\s+/, ''))
+      data  = MissedCode.as_hash doc
+      mc    = MissedCode.new(pdu: request[:message], tentative_code: data[:vc], url: request.url)
+      uid   = (Digest::SHA1.new << mc.uid).to_s
+      if PendingPdu.where(pdu_uid: uid).count < 1 then
+        PendingPdu.create(payload: request[:data], probable_code: data[:vc], pdu_uid: uid, submission_path: request.url)
+      end
       raise e
       return render(:status => 500, :text => e.message)
     end
@@ -112,7 +160,11 @@ class ContentmentController < ApplicationController
     data  = roll_into_hash doc
     usr = SystemUser.where('code = ?', [data[:vc]]).first
     unless usr then
-      MissedCode.create :pdu => request[:data], :tentative_code => data[:vc], :url => request.url
+      mc  = MissedCode.create :pdu => request[:data], :tentative_code => data[:vc], :url => request.url
+      uid = (Digest::SHA1.new << mc.uid).to_s
+      if PendingPdu.where(pdu_uid: uid).count < 1 then
+        PendingPdu.create(payload: request[:data], probable_code: data[:vc], pdu_uid: uid, submission_path: request.url)
+      end
       return render(:status => 404, :text => %[This VHT code (#{data[:vc]}) is unknown.])
     end
     sub = Submission.new :pdu => request[:data],
@@ -167,6 +219,8 @@ class ContentmentController < ApplicationController
       return render(:status => 200, :text => gosp)
     rescue Exception => e
       ans = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
+      # TODO: Need to expand the below to accurately catch PDUs from here?
+      # PendingPdu.create(payload: request[:data], probable_code: data[:vc], pdu_uid: (Digest::SHA1.new << mc.uid).to_s, submission_path: request.url)
       raise e
       return render(:status => 500, :text => e.message)
     end

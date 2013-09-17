@@ -1,4 +1,15 @@
 class PendingPdu < ActiveRecord::Base
+  def self.with_a_shout!
+    self.all.each do |pp|
+      pp.with_a_shout!
+    end
+  end
+
+  def with_a_shout! &block
+    mc  = MissedCode.new(pdu: self.payload, url: self.submission_path, tentative_code: self.probable_code)
+    mc.lazarus_come_forth!(&block)
+  end
+
   def self.from_missed_codes!
     dem = MissedCode.all
     dec = dem.count.to_f
@@ -17,7 +28,7 @@ class PendingPdu < ActiveRecord::Base
           $stderr.flush
         end
       end
-      mc.delete
+      mc.delete if got.member? sha
     end
   end
 
@@ -28,7 +39,7 @@ class PendingPdu < ActiveRecord::Base
     nic = 0.0
     got = Set.new
     SubmissionError.all.each do |se|
-      if se.pdu then
+      if se.pdu =~ /^vht\s+/ then
         mc  = MissedCode.new(pdu: se.pdu, url: se.url, tentative_code: '0000')
         sha = (Digest::SHA1.new << mc.uid).to_s
         cpt = cpt + 1.0
@@ -41,7 +52,7 @@ class PendingPdu < ActiveRecord::Base
             $stderr.flush
           end
         end
-        se.delete
+        se.delete if got.member? sha
       end
     end
   end
