@@ -40,7 +40,7 @@ class PendingPdu < ActiveRecord::Base
     nic = 0.0
     got = Set.new
     SubmissionError.find_in_batches(batch_size: 100) do |batch|
-      batch.all.each do |se|
+      batch.each do |se|
         if se.pdu =~ /^vht\s+/ then
           mc  = MissedCode.new(pdu: se.pdu, url: se.url, tentative_code: '0000')
           sha = (Digest::SHA1.new << mc.uid).to_s
