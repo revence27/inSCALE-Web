@@ -8,9 +8,9 @@ development:
   # database: db/development.sqlite3
   adapter: postgresql
   # database: contentmentdev
-  database: inscaledb
+  database: inscaledb2
   # username: revence
-  username: inscale
+  username: inscale2
   pool: 5
   timeout: 5000
 
