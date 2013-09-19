@@ -2,12 +2,14 @@
 %html
   %head
     %title
-      = @sub
+      = @batch.heading
   %body
     %h1
-      inSCALE File Dispatch
+      inSCALE Data Report
     %h2
+      = @batch.heading
+    %h3
       = @sub
-    = @subs.count
+    = @batch.csv_batch_rows.count
     submissions attached.
 

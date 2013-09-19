@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917073213) do
+ActiveRecord::Schema.define(:version => 20130919104208) do
 
   create_table "admin_addresses", :force => true do |t|
     t.text     "address"
@@ -114,6 +114,21 @@ ActiveRecord::Schema.define(:version => 20130917073213) do
     t.datetime "updated_at"
     t.datetime "start_date"
     t.datetime "end_date"
+  end
+
+  create_table "csv_batch_rows", :force => true do |t|
+    t.text     "row"
+    t.integer  "csv_batch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "csv_batches", :force => true do |t|
+    t.text     "heading"
+    t.text     "filename"
+    t.text     "first_row"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "districts", :force => true do |t|

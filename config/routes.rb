@@ -36,6 +36,7 @@ Contentment::Application.routes.draw do
     match 'locations',                                  :to => 'contentment#locations',                                             :as => 'locations'
     match 'district/:id',                               :to => 'contentment#district',                                              :as => 'district'
     match 'system_health',                              :to => 'contentment#system_health',                                         :as => 'system_health'
+    match 'csv_continuation',                           :to => 'statistics#csv_continuation',                                       :as => 'csv_continuation'
 
     match 'download_feedbacks',                         :to => 'contentment#download_feedbacks',                                    :as => 'download_feedbacks',              :via => :post
     match 'ranged_excel',                               :to => 'statistics#ranged_csv',                                             :as => 'ranged_csv',                      :via => :post
