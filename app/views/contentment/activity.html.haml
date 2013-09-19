@@ -59,27 +59,28 @@
 
 .sysusers{:class => 'span-24'}
   - @reps.each do |user|
-    .sysuser{:class => 'span-24 respond'}
-      .name{:class => 'span-8'}
-        != user.descriptive_html rescue '<i>Deleted</i>'
-        - # = link_to user.name, users_path(:userid => user.id)
-        - #%sup
-        - #  = user.code
-      .number{:class => 'span-8'}
-        - if user.code then
-          = user.code
-          = surround '(', ')' do
+    - unless  user.nil? then
+      .sysuser{:class => 'span-24 respond'}
+        .name{:class => 'span-8'}
+          != user.descriptive_html
+          - # = link_to user.name, users_path(:userid => user.id)
+          - #%sup
+          - #  = user.code
+        .number{:class => 'span-8'}
+          - if user.code then
+            = user.code
+            = surround '(', ')' do
+              = link_to user.number, messaging_path(:dest => user.number)
+          - else
             = link_to user.number, messaging_path(:dest => user.number)
-        - else
-          = link_to user.number, messaging_path(:dest => user.number)
-      .metadata{:class => 'span-8 last'}
-        - first = true
-        - user.user_tags.each do |tag|
-          - unless first then
-            &bull;
-          = link_to tag.name, tag_path(:name => tag.name)
-          - first = false
-        = button_to %[Delete #{user.name}], delete_user_path(user), {:confirm => %[#{user.name} will be deleted forever. Are you sure?]}
+        .metadata{:class => 'span-8 last'}
+          - first = true
+          - user.user_tags.each do |tag|
+            - unless first then
+              &bull;
+            = link_to tag.name, tag_path(:name => tag.name)
+            - first = false
+          = button_to %[Delete #{user.name}], delete_user_path(user), {:confirm => %[#{user.name} will be deleted forever. Are you sure?]}
 
 %hr/
 
