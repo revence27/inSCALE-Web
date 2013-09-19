@@ -61,7 +61,7 @@
   - @reps.each do |user|
     .sysuser{:class => 'span-24 respond'}
       .name{:class => 'span-8'}
-        != user.descriptive_html
+        != user.descriptive_html rescue '<i>Deleted</i>'
         - # = link_to user.name, users_path(:userid => user.id)
         - #%sup
         - #  = user.code
