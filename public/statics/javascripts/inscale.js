@@ -75,7 +75,7 @@ drawMonthCreeper = function() {
 };
 
 markSkeletons = function() {
-  var canv, chart, chosen, it, pie, sk, skel, tds, _i, _len, _ref, _results;
+  var chosen, it, sk, skel, tds, _i, _len, _ref, _results;
   _ref = $('.skel');
   _results = [];
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -84,15 +84,7 @@ markSkeletons = function() {
     tds = $('td', sk);
     it = $(tds[2]);
     chosen = ['&#9925;', '&#9785;', '&#9733;'][Math.floor(Math.random() * 3)];
-    it.append($('<br /><span class="tabalert">☠</span> <span class="tabalert">&#128137;</span> <span class="tabalert">' + chosen + '</span>'));
-    pie = google.visualization.arrayToDataTable([['Baby Gender', 'Number'], ['Male', parseInt($(tds[7]).text())], ['Female', parseInt($(tds[8]).text())]]);
-    canv = $('<div></div>');
-    $(tds[2]).append(canv);
-    chart = new google.visualization.PieChart(canv.get(0));
-    _results.push(chart.draw(pie, {
-      title: 'Genders',
-      colors: COLOUR_LIST
-    }));
+    _results.push(it.append($('<br /><span class="tabalert">☠</span><!-- <span class="tabalert">&#128137;</span> <span class="tabalert">' + chosen + '</span> -->')));
   }
   return _results;
 };

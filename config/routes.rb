@@ -65,6 +65,7 @@ Contentment::Application.routes.draw do
     match 'update_bio_pass',                            :to => 'contentment#update_bio_pass',                                       :as => 'update_bio_pass',                 :via => :post
     match 'pending',                                    :to => 'contentment#retry_pending',                                         :as => 'pending',                         :via => :post
     match 'correct',                                    :to => 'contentment#correct_pending',                                       :as => 'correct',                         :via => :post
+    match 'delete_batch',                               :to => 'contentment#delete_batch',                                          :as => 'delete_batch',                    :via => :post
   end
 
   scope '/data' do

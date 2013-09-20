@@ -61,7 +61,9 @@ module CollectedInfoHelperHelper
     sdr = sbm.system_user
     sup = sdr.parish.name
     capture_haml do
-      haml_tag(:tr, {:class => (sub.died.zero? ? '' : 'skel ')}) do
+      haml_tag(:tr, {:class => [
+        sub.died.zero? ? '' : 'skel'
+      ].join(' ')}) do
         # haml_tag :td, sub.time_sent
         haml_tag(:td, @client ? link_to(sub.created_at.to_s, users_path(:userid => sdr.id, :submission => sbm.id)) : sub.created_at)
         haml_tag :td, sdr.number

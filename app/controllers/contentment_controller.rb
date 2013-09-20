@@ -48,7 +48,7 @@ class ContentmentController < ApplicationController
   def correct_pending
     if SystemUser.find_by_code(request[:correct]).nil? then
       flash[:error] = "Unknown VHT code '#{request[:correct]}'"
-      return redirect_to(request.referer)
+      return redirect_to(request.referer) # sic.
     else
       pend                = PendingPdu.find_by_id(request[:item])
       PendingPdu.where(probable_code: pend.probable_code).each do |nxt|
@@ -56,7 +56,7 @@ class ContentmentController < ApplicationController
         nxt.save
       end
     end
-    redirect_to(request.referer)
+    redirect_to(request.referer)  # sic.
   end
 
   def retry_pending
@@ -82,7 +82,7 @@ class ContentmentController < ApplicationController
         wheat.with_a_shout!
       end
     end
-    redirect_to request.referer
+    redirect_to request.referer # sic.
   end
 
   def inbound
@@ -748,7 +748,7 @@ class ContentmentController < ApplicationController
       sup = Supervisor.create :name => request[:name],
                             :number => request[:number]
       sup.save
-      redirect_to request.referer
+      redirect_to request.referer # sic.
     else
       usr = SystemUser.create :name => request[:name],
                             :number => request[:number],
@@ -814,13 +814,25 @@ class ContentmentController < ApplicationController
     dist.password = request[:password]
     dist.email    = request[:email]
     dist.save
-    redirect_to request.referer
+    redirect_to request.referer # sic.
   end
 
   def mails
     # @biostat  = AdminAddress.biostat
     # @admins   = AdminAddress.admins
-    @admins = AdminAddress.all
+    @admins   = AdminAddress.order('address ASC')
+  end
+
+  def delete_batch
+    begin
+      b = CsvBatch.find_by_id(request[:who])
+      CsvBatchRow.where(csv_batch_id: b.id).each do |csv|
+        csv.delete
+      end
+      b.delete
+    rescue
+    end
+    redirect_to request.referer # sic.
   end
 
   def add_mail
@@ -850,6 +862,8 @@ class ContentmentController < ApplicationController
         flash[:error] = 'Passwords do not match.'
       end
       redirect_to admins_path
+    else
+      @batches  = CsvBatch.order('created_at ASC').paginate(page: request[:page])
     end
   end
 

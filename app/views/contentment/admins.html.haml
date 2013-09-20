@@ -24,3 +24,23 @@
     .subtitle
       Leave this field empty if you do <em>not</em> want to change the bio-statistician’s password.
   = submit_tag 'Change Password'
+
+.h4 Data Batches
+= will_paginate @batches
+.batches{:class => 'span-20'}
+- @batches.each do |batch|
+  .batch{:class => 'span-10'}
+    = link_to batch.heading, batch.url
+    %br/
+    %small
+      = batch.created_at
+  .batch{:class => 'span-10 last'}
+    %small
+      = batch.filename
+      = surround '(', ')' do
+        = batch.csv_batch_rows.count
+        rows
+    %br/
+    = form_tag delete_batch_path, {method:'POST', style: 'display: inline'} do
+      %input{type: 'hidden', value: batch.id, name: 'who'}/
+      %input{type: 'submit', value: 'Delete'}/
