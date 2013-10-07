@@ -1,5 +1,5 @@
 %h4
-  = surround '', "% active (#{@weekact}:#{@weekina})" do
+  = surround '', "% active in the last week (#{@weekact} out of #{@weekina})" do
     = ((@weekact.to_f / (@weekact + @weekina).to_f) * 100.0).round(2)
 
 %h6 Ordered from Most-Recently-Active
