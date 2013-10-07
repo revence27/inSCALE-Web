@@ -31,9 +31,11 @@ class ContentmentController < ApplicationController
   end
 
   def activity
-    @users  = SystemUser.where('last_contribution IS NOT NULL').order('last_contribution DESC').paginate(:page => request[:page])
-    @lost   = SystemUser.where('last_contribution IS NULL').order('sort_code ASC').paginate(:page => request[:spage])
-    @orph   = UserTag.where(name: 'orphaned').map do |ut|
+    @weekact  = SystemUser.where("last_contribution >= (NOW() - ('1 WEEK' :: INTERVAL))").count
+    @weekina  = SystemUser.where("last_contribution < (NOW() - ('1 WEEK' :: INTERVAL))").count
+    @users    = SystemUser.where('last_contribution IS NOT NULL').order('last_contribution DESC').paginate(:page => request[:page])
+    @lost     = SystemUser.where('last_contribution IS NULL').order('sort_code ASC').paginate(:page => request[:spage])
+    @orph     = UserTag.where(name: 'orphaned').map do |ut|
       ut.system_user
     end
     @reps   = UserTag.where(name: 'repeated-code').map do |ut|
