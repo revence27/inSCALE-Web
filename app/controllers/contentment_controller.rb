@@ -90,14 +90,13 @@ class ContentmentController < ApplicationController
   def inbound
     request[:data] = request[:message]
     begin
-      begin
-        unless request.host =~ /inscale\.ug$/ then
-          dest  = URI.parse('http://inscale.ug/inbound')
-          return Net::HTTP.post_form(dest, {message: request[:data], original: request.uri})
-        end
-      rescue Exception => e
+      unless request.host =~ /inscale\.ug$/ then
+        dest  = URI.parse('http://inscale.ug/inbound')
+        resp  = Net::HTTP.post_form(dest, {message: request[:data], original: request.url})
+        return render(:status => resp.code, :text => resp.body.to_s)
+      else
+        return self.record
       end
-      return self.record
     rescue Exception => e
       ans   = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
       doc   = Hpricot::XML(request[:message].gsub(/^vht\s+/, ''))
