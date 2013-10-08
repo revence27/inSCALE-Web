@@ -88,8 +88,15 @@ class ContentmentController < ApplicationController
   end
 
   def inbound
+    request[:data] = request[:message]
     begin
-      request[:data] = request[:message]
+      begin
+        unless request.host =~ /inscale\.ug$/ then
+          dest  = URI.parse('http://inscale.ug/inbound')
+          return Net::HTTP.post_form(dest, {message: request[:data], original: request.uri})
+        end
+      rescue Exception => e
+      end
       return self.record
     rescue Exception => e
       ans   = SubmissionError.create(:url => request.url, :pdu => request[:data], :message => e.message, :backtrace => ([e.inspect] + e.backtrace).join("\n"))
@@ -100,7 +107,6 @@ class ContentmentController < ApplicationController
       if PendingPdu.where(pdu_uid: uid).count < 1 then
         PendingPdu.create(payload: request[:data], probable_code: data[:vc], pdu_uid: uid, submission_path: request.url)
       end
-      raise e
       return render(:status => 500, :text => e.message)
     end
   end
