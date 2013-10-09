@@ -516,50 +516,40 @@ class ContentmentController < ApplicationController
     clt = Client.find_by_code request[:code]
     return render(:text => 'OK') if clt.binaries.empty?
     bin = Binary.where(:client_id => clt.id).order('created_at DESC').first
-    if bin.jar_sha1 == request[:version] then
+    group   = Application.where(:client_id => clt.id)
+    apps    = group.order('created_at ASC')
+    latest  = group.order('updated_at DESC').first.updated_at
+    publat  = Publisher.order('updated_at DESC').first.updated_at
+    return render :text => 'OK' if apps.empty?
+    newid   = ([latest, publat].max - VERSION_START_TIME).to_i
+    if newid.to_s == request[:status] then
       if request[:vht] then
         sysu = SystemUser.find_by_code(request[:vht])
-        if sysu then
-          sysu.latest_client = request[:version]
-          sysu.save
-          UserTag.create(:name => 'client-updated', :system_user_id => sysu.id) unless UserTag.where(:system_user_id => sysu.id, :name => 'client-updated').first
-        end
+        UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu and not UserTag.where(:system_user_id => sysu.id, :name => 'questionnaire-updated').first
       end
-      group   = Application.where(:client_id => clt.id)
-      apps    = group.order('created_at ASC')
-      latest  = group.order('updated_at DESC').first.updated_at
-      publat  = Publisher.order('updated_at DESC').first.updated_at
-      return render :text => 'OK' if apps.empty?
-      newid   = ([latest, publat].max - VERSION_START_TIME).to_i
-      if newid.to_s == request[:status] then
+      if bin.jar_sha1 != request[:version] then
+        render :text => %[<upgrade href="] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false) + %[" />]
+      else
         if request[:vht] then
           sysu = SystemUser.find_by_code(request[:vht])
-          UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu and not UserTag.where(:system_user_id => sysu.id, :name => 'questionnaire-updated').first
+          if sysu then
+            sysu.latest_client = request[:version]
+            sysu.save
+            UserTag.create(:name => 'client-updated', :system_user_id => sysu.id) unless UserTag.where(:system_user_id => sysu.id, :name => 'client-updated').first
+          end
         end
         render :text => 'OK'
-      else
-        pubs  = Publisher.where(['id IN (?)', Set.new(apps.map {|a| a.publisher_id})])
-        sorter = pubs.inject([{}, 0]) do |p, n|
-          p[0][n.id] = p.last
-          [p.first, p.last + 1]
-        end.first
-        publist = pubs.map {|pub| %[\x00#{pub.address}\x00#{pub.name}]}
-        applist = apps.map do |app|
-          # [
-          #   sorter[app.publisher_id],
-          #   app.name,
-          #   app.description,
-          #   app.code
-          # ].join("\x03")
-          # %[<app id="#{app.name}">#{app.code}</app>]
-          app.code
-        end.join('')
-        # ans = %[PROVIDERS\x00#{newid}#{publist}\x01#{applist}]
-        ans = %[<update v="#{newid}">#{applist}</update>]
-        render :text => ans
       end
     else
-      render :text => %[<upgrade href="] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false) + %[" />]
+      pubs  = Publisher.where(['id IN (?)', Set.new(apps.map {|a| a.publisher_id})])
+      sorter = pubs.inject([{}, 0]) do |p, n|
+        p[0][n.id] = p.last
+        [p.first, p.last + 1]
+      end.first
+      publist = pubs.map {|pub| %[\x00#{pub.address}\x00#{pub.name}]}
+      applist = apps.map {|app| app.code }.join('')
+      ans = %[<update v="#{newid}">#{applist}</update>]
+      render :text => ans
     end
   end
 
