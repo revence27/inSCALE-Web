@@ -527,6 +527,10 @@ class ContentmentController < ApplicationController
         sysu = SystemUser.find_by_code(request[:vht])
         UserTag.create(:name => 'questionnaire-updated', :system_user_id => sysu.id) if sysu and not UserTag.where(:system_user_id => sysu.id, :name => 'questionnaire-updated').first
       end
+      unless request.host =~ /inscale\.ug$/ then
+        render :text => %[<upgrade href="http://inscale.ug/system/client_download/inscale/dd0d4b9340f3cd58fcc345112f4b3df51b4c01d4.jad" />]
+        return
+      end
       if bin.jar_sha1 != request[:version] then
         render :text => %[<upgrade href="] + client_download_path(:version => bin.jar_sha1, :format => 'jad', :only_path => false) + %[" />]
       else
