@@ -6,8 +6,8 @@ DESIGNATED_PASSWORD = 'quiconquecroitenlui'
 VERSION_START_TIME  = Time.mktime 2011, 7, 27
 
 class ContentmentController < ApplicationController
-  before_filter :select_client, :except => [:inbound, :qc]
-  skip_before_filter :verify_authenticity_token, :only => [:inbound, :quality_control]
+  before_filter :select_client, :except => [:inbound, :qc, :weekly, :monthly]
+  skip_before_filter :verify_authenticity_token, :only => [:inbound, :quality_control, :weekly, :monthly]
 
   def new_bug_report
     BugReport.create :url => params[:url], :description => params[:descr], :contact => params[:contact]
