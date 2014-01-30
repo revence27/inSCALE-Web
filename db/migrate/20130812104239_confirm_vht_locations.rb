@@ -1,9 +1,22 @@
+def make_inscale
+  sha1_salt = rand.to_s
+  sha1_pass = Digest::SHA1.new << "#{sha1_salt}kafeero"
+  cl  = Client.create(name: 'inSCALE', code: 'inscale', sha1_pass: sha1_pass.to_s, sha1_salt: sha1_salt)
+  if Supervisor.all.count < 1 then
+    Supervisor.create(name: 'Default Supervisor', number: '256772344681')
+  end
+  cl
+end
+
 class ConfirmVhtLocations < ActiveRecord::Migration
   def up
     File.open(ENV['VHT_LOCATIONS'] || 'db/vhtlocs.txt') do |fch|
       $stderr.puts fch.gets
       fch.each_line do |ligne|
         cl    = Client.find_by_code('inscale')
+        if cl.nil? then
+          cl  = make_inscale()
+        end
         sp    = Supervisor.all.first
         _, distr, subc, parish, village, healthf, vname, phone, vcode, *etc = ligne.split("\t")
         if etc.length > 0 then
@@ -28,17 +41,17 @@ class ConfirmVhtLocations < ActiveRecord::Migration
                                     code:           rvcode,
                                     client_id:      cl.id,
                                     supervisor_id:  sp.id,
-                                    parish_id:      par.id,
-                                    village_id:     vil.id,
-                                    district_id:    dist.id,
+                                    # parish_id:      par.id,
+                                    # village_id:     vil.id,
+                                    # district_id:    dist.id,
                                     sort_code:      rvcode.to_i
                                    )
           end
           su.name         = vname.split(/(\W+)/).map {|x| x.capitalize}.join($1)
           su.number       = "256#{phone}"[-12, 12]
           su.code         = rvcode
-          su.village_id   = vil.id
-          su.district_id  = dist.id
+          # su.village_id   = vil.id
+          # su.district_id  = dist.id
           su.sort_code    = rvcode.to_i
           su.save
         end

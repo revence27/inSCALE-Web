@@ -1,5 +1,6 @@
 class AscertainLocationsAgain < ActiveRecord::Migration
   def up
+    return
     Supervisor.where(parish_id: nil).each do |sup|
       par           = Parish.create(name: "Parish of St. #{sup.name}")
       sup.parish_id = par.id

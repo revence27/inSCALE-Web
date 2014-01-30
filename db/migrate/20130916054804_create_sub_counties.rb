@@ -41,20 +41,20 @@ class CreateSubCounties < ActiveRecord::Migration
                                     code:           rvcode,
                                     client_id:      cl.id,
                                     supervisor_id:  sp.id,
-                                    parish_id:      par.id,
-                                    village_id:     vil.id,
-                                    district_id:    dist.id,
-                                    sub_county_id:  suby.id,
+                                    # parish_id:      par.id,
+                                    # village_id:     vil.id,
+                                    # district_id:    dist.id,
+                                    # sub_county_id:  suby.id,
                                     sort_code:      rvcode.to_i
                                    )
           end
           su.name           = vname.split(/(\W+)/).map {|x| x.capitalize}.join($1)
           su.number         = "256#{phone}"[-12, 12]
           su.code           = rvcode
-          su.village_id     = vil.id
-          su.parish_id      = par.id
-          su.sub_county_id  = suby.id
-          su.district_id    = dist.id
+          # su.village_id     = vil.id
+          # su.parish_id      = par.id
+          # su.sub_county_id  = suby.id
+          # su.district_id    = dist.id
           su.sort_code      = rvcode.to_i
           su.save
 
