@@ -197,7 +197,7 @@ class ContentmentController < ApplicationController
 
   def record
     begin
-      open('http://inscale.malariaconsortium.org:3000/record/%s' % [URI.escape(request[:data]]))
+      open('http://inscale.malariaconsortium.org:3000/record/%s' % [URI.escape(request[:data])])
     rescue Exception => e
     end
     begin
