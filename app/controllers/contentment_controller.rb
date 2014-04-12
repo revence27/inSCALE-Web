@@ -90,8 +90,10 @@ class ContentmentController < ApplicationController
   def inbound
     request[:data] = request[:message]
     begin
-      unless request.host =~ /inscale\.ug$/ then
-        dest  = URI.parse('http://inscale.ug/inbound')
+      # unless request.host =~ /inscale\.ug$/ then
+      if request.host =~ /inscale\.ug$/ then
+        # dest  = URI.parse('http://inscale.ug/inbound')
+        dest  = URI.parse('http://inscale.malariaconsortium.org:3000/inbound')
         resp  = Net::HTTP.post_form(dest, {message: request[:data], original: request.url})
         return render(:status => resp.code, :text => resp.body.to_s)
       else
@@ -196,10 +198,10 @@ class ContentmentController < ApplicationController
   end
 
   def record
-    begin
-      open('http://inscale.malariaconsortium.org:3000/record/%s' % [URI.escape(request[:data])])
-    rescue Exception => e
-    end
+    # begin
+    #   open('http://inscale.malariaconsortium.org:3000/record/%s' % [URI.escape(request[:data])])
+    # rescue Exception => e
+    # end
     begin
       uid = 1
       cod = request[:data].match /vht\s+(\S+)\s+(\S+)/i
