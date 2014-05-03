@@ -91,7 +91,8 @@ class ContentmentController < ApplicationController
     request[:data] = request[:message]
     begin
       # unless request.host =~ /inscale\.ug$/ then
-      if request.host =~ /inscale\.ug$/ then
+      # if request.host =~ /inscale\.ug$/ then
+      if false then
         # dest  = URI.parse('http://inscale.ug/inbound')
         dest  = URI.parse('http://inscale.malariaconsortium.org:3000/inbound')
         resp  = Net::HTTP.post_form(dest, {message: request[:data], original: request.url})
